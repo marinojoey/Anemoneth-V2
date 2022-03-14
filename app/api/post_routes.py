@@ -2,11 +2,11 @@ from flask import Blueprint, jsonify, redirect, session, request
 from flask_login import current_user, login_required
 from app.models import User, Post, db
 from sqlalchemy.orm import joinedload, selectinload
-from app.forms.posting_form import PostingForm
+from app.forms.post_form import PostForm
 from datetime import datetime
 
 
-posting_routes = Blueprint('posts', __name__)
+post_routes = Blueprint('posts', __name__)
 
 
 def validation_errors_to_error_messages(validation_errors):
@@ -21,7 +21,7 @@ def validation_errors_to_error_messages(validation_errors):
 
 
 @post_routes.route('/all')
-@login_required
+# @login_required
 def getAllPosts():
     """
     Route that returns all posts
@@ -29,31 +29,30 @@ def getAllPosts():
     res = {}
     posts = Post.query.all()
 
+
     for post in posts:
         # user = User.query.get(post.user_id)
         res[post.id] = post.to_dict()
+
+    # print('-----------inside /all route...', res)
 
     return res
 
 
 @post_routes.route('/<int:postId>')
-@login_required
+# @login_required
 def getPost(postId):
     """
     Route that returns single post
     """
     post = Post.query.get(postId)
-
-    user = User.query.get(post.user_id)
-    username = user.username
-
     res = post.to_dict()
 
     return res
 
 
 @post_routes.route('/user/<username>/posts')
-@login_required
+# @login_required
 def getUserPosts(username):
     """
     Route that returns a user's post
@@ -63,11 +62,7 @@ def getUserPosts(username):
     user = User.query.filter(User.username == username).first_or_404()
     userId = user.id
 
-    print('++++++backend routes', user, userId)
-
     posts = Post.query.filter(userId == Post.user_id).all()
-
-    print('========backend routes', posts)
 
     for post in posts:
         res[post.id] = post.to_dict()
@@ -75,9 +70,9 @@ def getUserPosts(username):
     return res
 
 
-@post_routes.route('/create', methods=["POST"])
-@login_required
-def createPost():
+@post_routes.route('/user/<int:userId>/create', methods=["POST"])
+# @login_required
+def createPost(userId):
     """
     Route that allows user to create a post
     """
@@ -86,15 +81,10 @@ def createPost():
 
     if form.validate_on_submit():
         newPost = Post(
-            user_id = current_user.id,
-            # user_id = userId,
-            address = form.data['address'],
-            city = form.data['city'],
-            state = form.data['state'],
-            zipcode = form.data['zipcode'],
+            # user_id = current_user.id,
+            user_id = userId,
             title = form.data['title'],
             caption = form.data['caption'],
-            icon = form.data['icon'],
             created_at = datetime.now()
         )
 
@@ -105,7 +95,7 @@ def createPost():
 
 
 @post_routes.route('/<int:postId>', methods=["PUT"])
-@login_required
+# @login_required
 def editPost(postId):
     """
     Route that allows a user to edit a post
@@ -115,13 +105,8 @@ def editPost(postId):
 
     if form.validate_on_submit():
         post = Post.query.get(postId)
-        post.address = form.data['address']
-        post.city = form.data['city']
-        post.state = form.data['state']
-        post.zipcode = form.data['zipcode']
         post.title = form.data['title']
         post.caption = form.data['caption']
-        post.icon = form.data['icon']
         post.updated_at = datetime.now()
 
         db.session.commit()
@@ -131,8 +116,8 @@ def editPost(postId):
 
 
 @post_routes.route('/<int:postId>', methods=["DELETE"])
-@login_required
-def deletePosting(postId):
+# @login_required
+def deletePost(postId):
     """
     Route that allows a user to delete a post
     """

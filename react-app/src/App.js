@@ -11,6 +11,8 @@ import { authenticate } from './store/session';
 import LoginForm from './components/Auth/LoginForm';
 import SignUpForm from './components/Auth/SignUpForm';
 import ProtectedRoute from './components/Auth/ProtectedRoute';
+// import AllPosts from './components/Posts/AllPosts';
+
 import Homepage from './components/Homepage/Homepage';
 import Login from './components/Login/Login'
 import Navbar from './components/Navbar/Navbar';
@@ -40,6 +42,7 @@ function App() {
   if (!loaded) {
     return null;
   }
+  
   if(!user) {
     return (
         <BrowserRouter>

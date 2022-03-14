@@ -2,6 +2,8 @@ import React, { useState, useRef } from 'react'
 import './homepage.css';
 import { Web3Storage } from 'web3.storage/dist/bundle.esm.min.js'
 
+import AllPosts from '../Posts/AllPosts';
+
 
 function Homepage( { isUser, connected, addr1, addrblnc } ) {
 
@@ -38,15 +40,16 @@ async function retrieveFiles(cid) {
 
 
   return (
-      <div className='root'>
-        <h1>HOMEPAGE</h1>
-        <label htmlFor='str' className='strlbl'></label>
-        <input type="text" className='str' placeholder='web3.storage'></input>
-        <button className='stringbtn' onClick={ storeFiles }>Post</button>
-        <br/>
-        <input type="text" className='cid' placeholder='Content Identifier'></input>
-        <button className='retrieve' onClick={ () => retrieveFiles(document.querySelector('.cid').value) }>Retrieve</button>
-      </div>
+    <div className='root'>
+      <h1>HOMEPAGE</h1>
+      <label htmlFor='str' className='strlbl'></label>
+      <input type="text" className='str' placeholder='web3.storage'></input>
+      <button className='stringbtn' onClick={ storeFiles }>Post</button>
+      <br/>
+      <input type="text" className='cid' placeholder='Content Identifier'></input>
+      <button className='retrieve' onClick={ () => retrieveFiles(document.querySelector('.cid').value) }>Retrieve</button>
+      <AllPosts />
+    </div>
   )
 }
 
