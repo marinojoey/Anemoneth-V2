@@ -12,10 +12,10 @@ function Login({ setUser, setConn, setAddr1, setblnc, setclwnblnc, setDispAddr, 
     let signer;
     let addr;
 
-
-    useEffect(() => {
-        connectWalletHandler();
-    }, [])
+    // Connects wallet onload
+    // useEffect(() => {
+    //     connectWalletHandler();
+    // }, [])
 
     async function connectWalletHandler() {
         if (ethereum) {

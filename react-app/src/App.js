@@ -1,6 +1,6 @@
 import React, { useState, useEffect, createContext } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { authenticate } from './store/session';
 
 import LoginForm from './components/Auth/LoginForm';
@@ -24,6 +24,8 @@ function App() {
   const [dispAddr, setDispAddr] = useState("")
   const [clwnblnc, setclwnblnc] = useState(0)
   const [username, setUsername] = useState("")
+
+  const user = useSelector(state => state.session.user);
 
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
@@ -59,7 +61,7 @@ function App() {
         <ProtectedRoute path='/' exact={true} >
           <h1>My Home Page</h1>
           {/* <HomeOrLogin /> */}
-          { (isUser) ?
+          { ( user && isUser) ?
             <Homepage isUser={isUser} connected={connected} addr1={addr1} /> :
             <Login setUser={setUser} setConn={setConn} setAddr1={setAddr1} setclwnblnc={setclwnblnc} setDispAddr={setDispAddr} setUsername={setUsername} addr1={addr1} connected={connected} />
           }
