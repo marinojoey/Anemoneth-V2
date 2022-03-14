@@ -41,14 +41,14 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
-      <Navbar clwnblnc={clwnblnc} dispAddr={dispAddr} username={username} connected={connected} />
+      {/* <NavBar /> */}
+      {/* <Navbar clwnblnc={clwnblnc} dispAddr={dispAddr} username={username} connected={connected} /> */}
       <Switch>
-        <Route path='/login' exact={true}>
-          <LoginForm />
-        </Route>
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
+        </Route>
+        <Route path='/login' exact={true}>
+          <LoginForm />
         </Route>
         {/* <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
@@ -57,12 +57,7 @@ function App() {
           <User />
         </ProtectedRoute> */}
         <ProtectedRoute path='/' exact={true} >
-          <h1>My Home Page</h1>
-          {/* <HomeOrLogin /> */}
-          { (isUser) ?
-            <Homepage isUser={isUser} connected={connected} addr1={addr1} /> :
-            <Login setUser={setUser} setConn={setConn} setAddr1={setAddr1} setclwnblnc={setclwnblnc} setDispAddr={setDispAddr} setUsername={setUsername} addr1={addr1} connected={connected} />
-          }
+            <Homepage isUser={isUser} connected={connected} addr1={addr1} />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
