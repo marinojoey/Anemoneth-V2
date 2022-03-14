@@ -14,6 +14,8 @@ const AllPosts = () => {
        await dispatch(getAllPosts());
     }, [dispatch])
 
+    console.log('--------', allPosts)
+
     const allPostsArr = Object.values(allPosts);
     const allPostsArrReverse = allPostsArr.reverse();
 

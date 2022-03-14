@@ -19,6 +19,11 @@
     --ethorange: rgb(253, 169, 137);
 }
 
+.root {
+    background-color: none;
+    height: 100vh;
+}
+
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen','Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;

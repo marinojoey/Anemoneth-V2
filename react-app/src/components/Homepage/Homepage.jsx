@@ -48,7 +48,7 @@ async function retrieveFiles(cid) {
       <br/>
       <input type="text" className='cid' placeholder='Content Identifier'></input>
       <button className='retrieve' onClick={ () => retrieveFiles(document.querySelector('.cid').value) }>Retrieve</button>
-      {/* <AllPosts /> */}
+      <AllPosts />
     </div>
   )
 }
