@@ -5,7 +5,7 @@ import { authenticate } from './store/session';
 
 import LoginForm from './components/Auth/LoginForm';
 import SignUpForm from './components/Auth/SignUpForm';
-import NavBar from './components/NavBar';
+import NavBar2 from './components/Navbar2/Navbar2';
 import ProtectedRoute from './components/Auth/ProtectedRoute';
 // import UsersList from './components/UsersList';
 // import User from './components/User';
@@ -41,8 +41,8 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
       <Navbar clwnblnc={clwnblnc} dispAddr={dispAddr} username={username} connected={connected} />
+      <NavBar2 />
       <Switch>
         <Route path='/login' exact={true}>
           <LoginForm />
