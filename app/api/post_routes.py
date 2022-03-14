@@ -117,7 +117,7 @@ def editPost(postId):
 
 @post_routes.route('/<int:postId>', methods=["DELETE"])
 # @login_required
-def deletePosting(postId):
+def deletePost(postId):
     """
     Route that allows a user to delete a post
     """
