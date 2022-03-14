@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import "./Login.css";
 import { ethers } from "ethers";
 import contractCall from "../ContractCall/ContractCall";
@@ -12,14 +12,21 @@ function Login({ setUser, setConn, setAddr1, setblnc, setclwnblnc, setDispAddr, 
     let signer;
     let addr;
 
-    // Connects wallet onload
-    // useEffect(() => {
-    //     connectWalletHandler();
-    // }, [])
+    useEffect(() => {
+        connectMetaMask();
+    }, [])
 
-    async function connectWalletHandler() {
+    async function connectMetaMask() {
         if (ethereum) {
             ethereum.request({method: 'eth_requestAccounts'})
+        }
+        else {
+            alert("Please install MetaMask to connect your wallet and try again");
+        }
+    }
+    async function connectWalletHandler() {
+        if (ethereum) {
+            // ethereum.request({method: 'eth_requestAccounts'})
             provider = new ethers.providers.Web3Provider(ethereum);
             signer = await provider.getSigner();
             addr = await signer.getAddress();
@@ -66,8 +73,7 @@ function Login({ setUser, setConn, setAddr1, setblnc, setclwnblnc, setDispAddr, 
                         <h4>Connect with friends and the decentralised world around you on Anemoneth</h4>
                     </div>
                     <div className='loginPieces'>
-                        <div>We are attempting to connect to your metamask account.</div>
-                        <div>Please make sure you have metamask installed</div>
+                        <button id="connectWallet" className="loginButtons" onClick={connectWalletHandler}>Connect Wallet</button>
                     </div>
                 </div>
             </div>

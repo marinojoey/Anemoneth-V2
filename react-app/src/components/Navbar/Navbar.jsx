@@ -1,5 +1,7 @@
 import './navbar.css'
 import React from 'react'
+import LogoutButton from '../Auth/LogoutButton'
+import { NavLink } from 'react-router-dom';
 
 
 function Navbar( { clwnblnc, dispAddr, username, connected } ) {
@@ -9,9 +11,12 @@ function Navbar( { clwnblnc, dispAddr, username, connected } ) {
         <div className='wrapper'>
             <div className="left">
                 <img src="assets/logo.png" alt="logo" className='logo'></img>
+
             </div>
             <div className='center'>
-                Anemoneth
+                <NavLink to='/' exact={true} activeClassName='active'>
+                    Ane... (Home)
+                </NavLink>
             </div>
             <div className="right">
                 <div className='addrEl'>
@@ -23,6 +28,7 @@ function Navbar( { clwnblnc, dispAddr, username, connected } ) {
                 <div className='regEl'>
                     Registered: {username}
                 </div>
+                <LogoutButton />
             </div>
         </div>
     </div>
