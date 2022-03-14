@@ -12,8 +12,8 @@
 }
 
 .wrapper {
-    height: 40px;
-    padding: 10px 2%;
+    height: 60px;
+    padding: 0px 2%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -26,7 +26,15 @@
 
 .center {
     font-size: 3vw;
-
+}
+.title {
+    color: var(--ethpeach);
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.title:hover {
+    transform: scale(1.3);
 }
 
 .right {
@@ -36,6 +44,9 @@
     flex-direction: column;
     justify-content: space-between;
     margin: 0;
+}
+.logoutBtn {
+    border: none;
 }
 
 .addrEl {
