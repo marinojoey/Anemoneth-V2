@@ -91,6 +91,7 @@ export const getAllUserPosts = (username) => async dispatch => {
 };
 
 export const addPost = ({ user_id, title, caption }) => async dispatch => {
+    console.log('----inside store')
     const response = await fetch(`/api/posts/create`, {
         method: 'POST',
         headers: {

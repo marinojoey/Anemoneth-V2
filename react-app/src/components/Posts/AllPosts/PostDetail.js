@@ -32,7 +32,7 @@ const PostDetail = ({ post }) => {
         return newDate;
     }
 
-    console.log('tiiiiiiime', dateFormatted(post.created_at))
+    // console.log('tiiiiiiime', dateFormatted(post.created_at))
 
     return (
         <div className='post-detail-container'>

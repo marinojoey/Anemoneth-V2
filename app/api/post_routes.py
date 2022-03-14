@@ -70,9 +70,9 @@ def getUserPosts(username):
     return res
 
 
-@post_routes.route('/user/<int:userId>/create', methods=["POST"])
+@post_routes.route('/create', methods=["POST"])
 # @login_required
-def createPost(userId):
+def createPost():
     """
     Route that allows user to create a post
     """
@@ -81,8 +81,8 @@ def createPost(userId):
 
     if form.validate_on_submit():
         newPost = Post(
-            # user_id = current_user.id,
-            user_id = userId,
+            user_id = current_user.id,
+            # user_id = userId, (for testing with postman)
             title = form.data['title'],
             caption = form.data['caption'],
             created_at = datetime.now()
