@@ -1,3 +1,8 @@
+// import UsersList from './components/UsersList';
+// import User from './components/User';
+// import HomeOrLogin from './components/HomeOrLogin/HomeOrLogin';
+// import NavBar2 from './components/Navbar2/Navbar2';
+
 import React, { useState, useEffect, createContext } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -5,17 +10,13 @@ import { authenticate } from './store/session';
 
 import LoginForm from './components/Auth/LoginForm';
 import SignUpForm from './components/Auth/SignUpForm';
-import NavBar2 from './components/Navbar2/Navbar2';
 import ProtectedRoute from './components/Auth/ProtectedRoute';
 // import AllPosts from './components/Posts/AllPosts';
-// import UsersList from './components/UsersList';
-// import User from './components/User';
-// import HomeOrLogin from './components/HomeOrLogin/HomeOrLogin';
 
 import Homepage from './components/Homepage/Homepage';
 import Login from './components/Login/Login'
 import Navbar from './components/Navbar/Navbar';
-
+import Web2Login from './components/Web2Login/Web2Login';
 export const AuthContext = createContext();
 
 function App() {
@@ -41,38 +42,44 @@ function App() {
   if (!loaded) {
     return null;
   }
-
-  return (
-    <BrowserRouter>
-      <Navbar clwnblnc={clwnblnc} dispAddr={dispAddr} username={username} connected={connected} />
-      <NavBar2 />
-      <Switch>
-        <Route path='/login' exact={true}>
-          <LoginForm />
-        </Route>
-        <Route path='/sign-up' exact={true}>
-          <SignUpForm />
-        </Route>
-        {/* <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
-        </ProtectedRoute> */}
-        {/* <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
-        </ProtectedRoute> */}
-        <ProtectedRoute path='/' exact={true} >
-          <h1>My Home Page</h1>
-          {/* <HomeOrLogin /> */}
-          { ( user && isUser) ?
-            <Homepage isUser={isUser} connected={connected} addr1={addr1} /> :
-            <Login setUser={setUser} setConn={setConn} setAddr1={setAddr1} setclwnblnc={setclwnblnc} setDispAddr={setDispAddr} setUsername={setUsername} addr1={addr1} connected={connected} />
-          }
-        </ProtectedRoute>
-        {/* <ProtectedRoute path='/' exact={true} >
-          <AllPosts />
-        </ProtectedRoute> */}
-      </Switch>
-    </BrowserRouter>
-  );
+  
+  if(!user) {
+    return (
+        <BrowserRouter>
+          <Navbar clwnblnc={clwnblnc} dispAddr={dispAddr} username={username} connected={connected} />
+          <Web2Login />
+          <Switch>
+            <Route path='/login' exact={true}>
+              <LoginForm />
+            </Route>
+            <Route path='/sign-up' exact={true}>
+              <SignUpForm />
+            </Route>
+          </Switch>
+        </BrowserRouter>
+      );
+  }
+  else if (user) {
+    return (
+      <BrowserRouter>
+        <Navbar clwnblnc={clwnblnc} dispAddr={dispAddr} username={username} connected={connected} />
+        <Switch>
+          <Route path='/login' exact={true}>
+            <LoginForm />
+          </Route>
+          <Route path='/sign-up' exact={true}>
+            <SignUpForm />
+          </Route>
+          <ProtectedRoute path='/' exact={true} >
+            { (isUser) ?
+              <Homepage isUser={isUser} connected={connected} addr1={addr1} /> :
+              <Login setUser={setUser} setConn={setConn} setAddr1={setAddr1} setclwnblnc={setclwnblnc} setDispAddr={setDispAddr} setUsername={setUsername} addr1={addr1} connected={connected} />
+            }
+          </ProtectedRoute>
+        </Switch>
+      </BrowserRouter>
+    );
+  }
 }
 
 export default App;
