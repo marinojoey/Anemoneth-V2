@@ -21,7 +21,7 @@ def validation_errors_to_error_messages(validation_errors):
 
 
 @post_routes.route('/all')
-@login_required
+# @login_required
 def getAllPosts():
     """
     Route that returns all posts
@@ -29,33 +29,30 @@ def getAllPosts():
     res = {}
     posts = Post.query.all()
 
-    print('-----------inside /all route...', posts)
 
     for post in posts:
         # user = User.query.get(post.user_id)
         res[post.id] = post.to_dict()
 
+    # print('-----------inside /all route...', res)
+
     return res
 
 
 @post_routes.route('/<int:postId>')
-@login_required
+# @login_required
 def getPost(postId):
     """
     Route that returns single post
     """
     post = Post.query.get(postId)
-
-    # user = User.query.get(post.user_id)
-    # username = user.username
-
     res = post.to_dict()
 
     return res
 
 
 @post_routes.route('/user/<username>/posts')
-@login_required
+# @login_required
 def getUserPosts(username):
     """
     Route that returns a user's post
@@ -65,11 +62,7 @@ def getUserPosts(username):
     user = User.query.filter(User.username == username).first_or_404()
     userId = user.id
 
-    # print('++++++backend routes', user, userId)
-
     posts = Post.query.filter(userId == Post.user_id).all()
-
-    # print('========backend routes', posts)
 
     for post in posts:
         res[post.id] = post.to_dict()
@@ -77,9 +70,9 @@ def getUserPosts(username):
     return res
 
 
-@post_routes.route('/<int:userId>/create', methods=["POST"])
-@login_required
-def createPost():
+@post_routes.route('/user/<int:userId>/create', methods=["POST"])
+# @login_required
+def createPost(userId):
     """
     Route that allows user to create a post
     """
@@ -102,7 +95,7 @@ def createPost():
 
 
 @post_routes.route('/<int:postId>', methods=["PUT"])
-@login_required
+# @login_required
 def editPost(postId):
     """
     Route that allows a user to edit a post
@@ -123,7 +116,7 @@ def editPost(postId):
 
 
 @post_routes.route('/<int:postId>', methods=["DELETE"])
-@login_required
+# @login_required
 def deletePosting(postId):
     """
     Route that allows a user to delete a post
