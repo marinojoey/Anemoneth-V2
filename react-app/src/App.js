@@ -7,6 +7,7 @@ import LoginForm from './components/Auth/LoginForm';
 import SignUpForm from './components/Auth/SignUpForm';
 import NavBar2 from './components/Navbar2/Navbar2';
 import ProtectedRoute from './components/Auth/ProtectedRoute';
+// import AllPosts from './components/Posts/AllPosts';
 // import UsersList from './components/UsersList';
 // import User from './components/User';
 // import HomeOrLogin from './components/HomeOrLogin/HomeOrLogin';
@@ -66,6 +67,9 @@ function App() {
             <Login setUser={setUser} setConn={setConn} setAddr1={setAddr1} setclwnblnc={setclwnblnc} setDispAddr={setDispAddr} setUsername={setUsername} addr1={addr1} connected={connected} />
           }
         </ProtectedRoute>
+        {/* <ProtectedRoute path='/' exact={true} >
+          <AllPosts />
+        </ProtectedRoute> */}
       </Switch>
     </BrowserRouter>
   );
