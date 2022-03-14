@@ -12,6 +12,7 @@
     --ethpurple: rgb(203, 175, 250);
     --ethblack: rgb(34,34,34);
     --ethgray: rgb(51, 51, 51);
+    --ethlightgray: rgb(77, 77, 77);
 
     /* ETH GRADIENT (backgrounds) */
     --ethmagenta: rgb(128, 69, 115);
@@ -20,6 +21,7 @@
 }
 
 .root {
+    margin: 0 20px;
     background-color: none;
     height: 100vh;
 }

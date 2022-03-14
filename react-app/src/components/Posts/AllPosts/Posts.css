@@ -4,7 +4,7 @@
 }
 
 .post-detail-container {
-    margin: 10px;
+    margin: 10px 0;
     padding: 10px;
     border: 1px solid var(--ethblue);
     border-radius: 5px;
