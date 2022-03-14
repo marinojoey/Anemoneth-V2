@@ -1,8 +1,3 @@
-// import UsersList from './components/UsersList';
-// import User from './components/User';
-// import HomeOrLogin from './components/HomeOrLogin/HomeOrLogin';
-// import NavBar2 from './components/Navbar2/Navbar2';
-
 import React, { useState, useEffect, createContext } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
