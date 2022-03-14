@@ -1,6 +1,6 @@
 import './navbar.css'
 import React from 'react'
-import LogoutButton from '../Auth/LogoutButton'
+import LogoutButton from '../Auth/LogoutButton/LogoutButton'
 import { NavLink } from 'react-router-dom';
 
 
@@ -14,8 +14,8 @@ function Navbar( { clwnblnc, dispAddr, username, connected } ) {
 
             </div>
             <div className='center'>
-                <NavLink to='/' exact={true} activeClassName='active'>
-                    Ane... (Home)
+                <NavLink to='/' exact={true} activeClassName='active' className="title">
+                    Anemoneth
                 </NavLink>
             </div>
             <div className="right">
@@ -28,7 +28,7 @@ function Navbar( { clwnblnc, dispAddr, username, connected } ) {
                 <div className='regEl'>
                     Registered: {username}
                 </div>
-                <LogoutButton />
+                <LogoutButton className="logoutBtn" ></LogoutButton>
             </div>
         </div>
     </div>

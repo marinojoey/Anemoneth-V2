@@ -1,20 +1,15 @@
-// import UsersList from './components/UsersList';
-// import User from './components/User';
-// import HomeOrLogin from './components/HomeOrLogin/HomeOrLogin';
-// import NavBar2 from './components/Navbar2/Navbar2';
-
 import React, { useState, useEffect, createContext } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { authenticate } from './store/session';
 
-import LoginForm from './components/Auth/LoginForm';
-import SignUpForm from './components/Auth/SignUpForm';
+import LoginForm from './components/Auth/LoginForm/LoginForm';
+import SignUpForm from './components/Auth/SignUpForm/SignUpForm';
 import ProtectedRoute from './components/Auth/ProtectedRoute';
 // import AllPosts from './components/Posts/AllPosts';
 
 import Homepage from './components/Homepage/Homepage';
-import Login from './components/Login/Login'
+import Login from './components/Web3Login/Web3'
 import Navbar from './components/Navbar/Navbar';
 import Web2Login from './components/Web2Login/Web2Login';
 export const AuthContext = createContext();
@@ -46,7 +41,7 @@ function App() {
   if(!user) {
     return (
         <BrowserRouter>
-          <Navbar clwnblnc={clwnblnc} dispAddr={dispAddr} username={username} connected={connected} />
+          <Navbar />
           <Web2Login />
           <Switch>
             <Route path='/login' exact={true}>
