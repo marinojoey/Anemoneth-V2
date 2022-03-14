@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 // import { useNavigate } from "react-router-dom";
-import "./Login.css";
+import "./web3Login.css";
 import { ethers } from "ethers";
 import contractCall from "../ContractCall/ContractCall";
 const { ethereum } = window;
