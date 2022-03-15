@@ -13,7 +13,7 @@ def getUpvotes(postId):
     post = Post.query.get(postId)
 
     res = {}
-    for user in post.user_saved:
+    for user in post.user_upvotes:
         res[user.id] = user.to_dict()
 
     return res

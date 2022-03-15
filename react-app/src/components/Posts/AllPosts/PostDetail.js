@@ -22,7 +22,7 @@ const PostDetail = ({ post }) => {
 
     useEffect(async () => {
         await dispatch(getAllPosts());
-
+        // await dispatch(getPostUpvotes());
         const res_upvotes = await fetch(`/api/upvotes/post/${postId}`);
         const upvote = await res_upvotes.json();
 
@@ -40,14 +40,13 @@ const PostDetail = ({ post }) => {
     if (upvotes[user_id]) {
         upvoteCheck = <i id='upvote' className="fa-solid fa-arrow-up-long" style={{ "color": "#ff7433" }}></i>
     } else {
-        upvoteCheck = <i id='un-upvote' className="fa-solid fa-arrow-up-long" style={{ "color": "#f2e8e4" }} onClick={() => handleUpvote()}></i>
+        upvoteCheck = <i id='un-upvote' className="fa-solid fa-arrow-up-long" style={{ "color": "#b0b0b0" }} onClick={() => handleUpvote()}></i>
     }
 
     // const handleUnUpvote = async () => {
     //     await dispatch(removeUpvote(username, postId));
     //     setUpvoteUpdate(true);
     // };
-
 
 
 
@@ -80,6 +79,7 @@ const PostDetail = ({ post }) => {
         <div className='post-detail-container'>
             {/* <NavLink to={`/posts/${post.id}`} className='post-navlink-container'>
             </NavLink> */}
+            {upvoteCheck}
             <div id='post-username'>
                 Posted by u/{post.username} on {dateFormatted(post.created_at)}
             </div>
