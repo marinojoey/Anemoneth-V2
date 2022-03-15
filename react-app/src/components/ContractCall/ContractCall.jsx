@@ -1,6 +1,6 @@
 import { ethers } from 'ethers';
 import anemonethJSON from "../../utils/anemoneth.json"
-const anemonethProxyAddress = "0x70649c7b44ab1177EF8c058379ba975d78735378";
+const anemonethProxyAddress = "0x5ceeB384B6224874938c4280A9E545c61BC06984";
 const { ethereum } = window;
 let provider;
 let signer;

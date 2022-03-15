@@ -20,7 +20,6 @@ function App() {
   const [addr1, setAddr1] = useState(0);
   const [dispAddr, setDispAddr] = useState("")
   const [clwnblnc, setclwnblnc] = useState(0)
-  const [username, setUsername] = useState("")
 
   const user = useSelector(state => state.session.user);
 
@@ -57,7 +56,7 @@ function App() {
   else if (user) {
     return (
       <BrowserRouter>
-        <Navbar clwnblnc={clwnblnc} dispAddr={dispAddr} username={username} connected={connected} />
+        <Navbar clwnblnc={clwnblnc} dispAddr={dispAddr} connected={connected} />
         <Switch>
           <Route path='/login' exact={true}>
             <LoginForm />
@@ -67,8 +66,8 @@ function App() {
           </Route>
           <ProtectedRoute path='/' exact={true} >
             { (isUser) ?
-              <Homepage isUser={isUser} connected={connected} addr1={addr1} /> :
-              <Web3Login setUser={setUser} setConn={setConn} setAddr1={setAddr1} setclwnblnc={setclwnblnc} setDispAddr={setDispAddr} setUsername={setUsername} addr1={addr1} connected={connected} />
+              <Homepage connected={connected} addr1={addr1} setUser={setUser} setConn={setConn} setAddr1={setAddr1} setclwnblnc={setclwnblnc} setDispAddr={setDispAddr} clwnblnc={clwnblnc} /> :
+              <Web3Login setUser={setUser} setConn={setConn} setAddr1={setAddr1} setclwnblnc={setclwnblnc} setDispAddr={setDispAddr} addr1={addr1} connected={connected} />
             }
           </ProtectedRoute>
         </Switch>
