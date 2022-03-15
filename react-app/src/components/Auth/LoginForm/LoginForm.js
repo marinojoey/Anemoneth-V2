@@ -12,7 +12,6 @@ const LoginForm = () => {
 
   const user = useSelector(state => state.session.user);
   const hi = useSelector(state => state);
-  console.log('STAAAAAAAATE', hi)
 
   const onLogin = async (e) => {
     e.preventDefault();
@@ -35,14 +34,14 @@ const LoginForm = () => {
   }
 
   return (
-    <form onSubmit={onLogin} className="loginwrapper" >
+    <form onSubmit={onLogin}className="loginwrapper" >
       <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
       </div>
       <div className='usernamewrapper'>
-        <label htmlFor='username'>Username: </label>
+        <label htmlFor='username'>Username</label>
         <input
           name='username'
           type='text'
@@ -52,7 +51,7 @@ const LoginForm = () => {
         />
       </div>
       <div className='passwordwrapper'>
-        <label htmlFor='password'>Password: </label>
+        <label htmlFor='password'>Password</label>
         <input
           name='password'
           type='password'

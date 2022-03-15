@@ -12,7 +12,7 @@ function Navbar( { clwnblnc, dispAddr, username } ) {
             <div className="left">
                 <img src="assets/logo.png" alt="logo" className='logo'></img>
                 <NavLink to='/' exact={true} activeClassName='active' className="title">
-                    <ico className='title'>Anemoneth<n></n></ico>
+                    <div className='title'>Anemoneth</div>
                 </NavLink>
             </div>
             <div className="right">

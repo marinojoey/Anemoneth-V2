@@ -13,9 +13,17 @@ import Homepage from './components/Homepage/Homepage';
 import Web3Login from './components/Web3Login/Web3Login'
 import Navbar from './components/Navbar/Navbar';
 import Web2Login from './components/Web2Login/Web2Login';
+import { ethers } from "ethers";
+import contractCall from './components/ContractCall/ContractCall';;
+const { ethereum } = window;
 export const AuthContext = createContext();
 
 function App() {
+  let displayAddr;
+  let provider;
+  let signer;
+  let addr;
+
   const [isUser, setUser] = useState(false);
   const [connected, setConn] = useState(false);
   const [addr1, setAddr1] = useState(0);
@@ -34,11 +42,50 @@ function App() {
     })();
   }, [dispatch]);
 
+
+  useEffect(() => {
+    connectWalletHandler();
+    if(connected) {
+      contractCallHandler();
+    }
+  }, )
+
+  async function connectWalletHandler() {
+    if (ethereum) {
+        await ethereum.request({method: 'eth_requestAccounts'})
+        provider = new ethers.providers.Web3Provider(ethereum);
+        signer = await provider.getSigner();
+        addr = await signer.getAddress();
+        makeDispAddr(addr);
+        setAddr1(addr);
+        setConn(true);
+    }
+    else {
+        alert("Please install MetaMask to connect your wallet and try again");
+    }
+  }
+  function makeDispAddr(numAddr) {
+    const strAddr = numAddr.toString();
+    const first = strAddr.slice(0,4);
+    const last = strAddr.slice(-4);
+    displayAddr = `${first}...${last}`;
+    setDispAddr(displayAddr);
+  }
+
+  async function contractCallHandler() {
+    let contractInstance = await contractCall();
+    if (await contractInstance.isRegistered(addr1)) {
+      setUser(true)
+      let balanceOf = parseInt(await contractInstance.balanceOf(addr1), 16);
+      setclwnblnc(balanceOf);
+    } else console.log("Please register")
+  }
+
   if (!loaded) {
     return null;
   }
   
-  if(!user) {
+  if( (!user && !isUser) || !user || !isUser ) {
     return (
         <div className='app'>
           <BrowserRouter>
@@ -56,7 +103,7 @@ function App() {
                 <Web2Login />
               </div>
               <div className='web3wrapper'>
-                <Web3Login isUser={isUser} setConn={setConn} setAddr1={setAddr1} setclwnblnc={setclwnblnc} setDispAddr={setDispAddr} addr1={addr1} connected={connected} />
+                <Web3Login setUser={setUser} isUser={isUser} setConn={setConn} setAddr1={setAddr1} setclwnblnc={setclwnblnc} setDispAddr={setDispAddr} addr1={addr1} connected={connected} />
               </div>
             </div>
           </BrowserRouter>

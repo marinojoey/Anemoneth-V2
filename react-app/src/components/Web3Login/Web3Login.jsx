@@ -6,45 +6,35 @@ import contractCall from "../ContractCall/ContractCall";
 const { ethereum } = window;
 
 function Web3Login({ setUser, setConn, setAddr1, setblnc, setclwnblnc, setDispAddr, connected, addr1 }) {
-    let displayAddr;
-    let provider;
-    let signer;
-    let addr;
 
-    useEffect(() => {
-        connectWalletHandler();
-    }, [])
-
-    // async function connectMetaMask() {
+    // let displayAddr;
+    // let provider;
+    // let signer;
+    // let addr;
+    // useEffect(() => {
+    //     connectWalletHandler();
+    // }, [])
+    // async function connectWalletHandler() {
     //     if (ethereum) {
-    //         ethereum.request({method: 'eth_requestAccounts'})
+    //         await ethereum.request({method: 'eth_requestAccounts'})
+    //         provider = new ethers.providers.Web3Provider(ethereum);
+    //         signer = await provider.getSigner();
+    //         addr = await signer.getAddress();
+    //         makeDispAddr(addr);
+    //         setAddr1(addr);
+    //         setConn(true);
     //     }
     //     else {
     //         alert("Please install MetaMask to connect your wallet and try again");
     //     }
     // }
-    async function connectWalletHandler() {
-        if (ethereum) {
-            await ethereum.request({method: 'eth_requestAccounts'})
-            provider = new ethers.providers.Web3Provider(ethereum);
-            signer = await provider.getSigner();
-            addr = await signer.getAddress();
-            makeDispAddr(addr);
-            setAddr1(addr);
-            setConn(true);
-        }
-        else {
-            alert("Please install MetaMask to connect your wallet and try again");
-        }
-    }
-
-    function makeDispAddr(numAddr) {
-        const strAddr = numAddr.toString();
-        const first = strAddr.slice(0,4);
-        const last = strAddr.slice(-4);
-        displayAddr = `${first}...${last}`;
-        setDispAddr(displayAddr);
-    }
+    // function makeDispAddr(numAddr) {
+    //     const strAddr = numAddr.toString();
+    //     const first = strAddr.slice(0,4);
+    //     const last = strAddr.slice(-4);
+    //     displayAddr = `${first}...${last}`;
+    //     setDispAddr(displayAddr);
+    // }
 
     async function contractCallHandler() {
         let contractInstance = await contractCall();
