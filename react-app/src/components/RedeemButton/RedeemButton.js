@@ -1,15 +1,26 @@
 import React from 'react'
 import contractCall from '../ContractCall/ContractCall'
 import { ethers } from "ethers";
-import './redeemButtons.css'
+import './redeemButton.css'
 const { ethereum } = window;
 
 
-function RedeemButton() {
-  return (
-    <div>
+function RedeemButton({ setUser, setConn, setAddr1, setblnc, setclwnblnc, setDispAddr, setUsername, connected, addr1, clwnblnc }) {
 
-    </div>
+    async function redeem() {
+        if(ethereum) {
+            let contractInstance = await contractCall();
+            await contractInstance.redeem(addr1);
+        } else if (!ethereum) {
+            console.log("not connected")
+        }
+    }
+
+
+  return (
+    <>
+        <div id="redeemCLWN" onClick={redeem}>Redeem</div>
+    </>
   )
 }
 

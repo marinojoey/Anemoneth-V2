@@ -1,0 +1,12 @@
+#redeemCLWN {
+    margin: 10px 0;
+    padding: 5px;
+    width: fit-content;
+    font-size: 13px;
+    font-weight: 600;
+    color: white;
+    background-color: var(--ethblue);
+    border: 1px solid var(--ethblue);
+    border-radius: 10px;
+    cursor: pointer;
+}

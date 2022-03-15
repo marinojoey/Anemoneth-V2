@@ -5,8 +5,10 @@ import { Web3Storage } from 'web3.storage/dist/bundle.esm.min.js'
 import AllPosts from '../Posts/AllPosts';
 import CreatePostModal from '../Posts/CreatePostModal';
 
+import RedeemButton from '../RedeemButton/RedeemButton';
 
-function Homepage( { isUser, connected, addr1, addrblnc } ) {
+
+function Homepage( { setUser, setConn, setAddr1, setblnc, setclwnblnc, setDispAddr, connected, addr1 } ) {
 
   let status;
   (() => {
@@ -52,6 +54,7 @@ async function retrieveFiles(cid) {
         <button className='retrieve' onClick={ () => retrieveFiles(document.querySelector('.cid').value) }>Retrieve</button>
       </div>
       <CreatePostModal />
+      <RedeemButton connected={connected} addr1={addr1} setUser={setUser} setConn={setConn} setAddr1={setAddr1} setclwnblnc={setclwnblnc} setDispAddr={setDispAddr} />
       <AllPosts />
     </div>
   )

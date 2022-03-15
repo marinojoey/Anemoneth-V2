@@ -5,9 +5,8 @@ import { ethers } from "ethers";
 import contractCall from "../ContractCall/ContractCall";
 const { ethereum } = window;
 
-function Web3Login({ setUser, setConn, setAddr1, setblnc, setclwnblnc, setDispAddr, setUsername, connected, addr1 }) {
+function Web3Login({ setUser, setConn, setAddr1, setblnc, setclwnblnc, setDispAddr, connected, addr1 }) {
     let displayAddr;
-    let username;
     let provider;
     let signer;
     let addr;
@@ -53,15 +52,12 @@ function Web3Login({ setUser, setConn, setAddr1, setblnc, setclwnblnc, setDispAd
             setUser(true)
             let balanceOf = parseInt(await contractInstance.balanceOf(addr1), 16);
             setclwnblnc(balanceOf);
-            username = await contractInstance.getUserName(addr1)
-            setUsername(username);
         } else console.log("Please register")
     }
 
     async function registerCall() {
         let contractInstance = await contractCall();
-        const username = document.querySelector('.usrnm').value;
-        await contractInstance.register(username, { value: 1000000000, gasLimit: 25000000 });
+        await contractInstance.register({ value: 1000000000, gasLimit: 25000000 });
     }
 
     if(!connected) {
@@ -97,12 +93,7 @@ function Web3Login({ setUser, setConn, setAddr1, setblnc, setclwnblnc, setDispAd
                         <br></br>
                         <div>It will cost 1 Gwei (+ gas) and you will recieve 1 CLWN in return.</div>
                         <br></br>
-                        <div className='usrnmwrapper'>
-                            <label htmlFor='usrnm' className='usrnmlbl'> Username: </label>
-                            <input type="text" className='usrnm' placeholder='Satoshi?'></input>
-                            {/* <br></br><br></br> */}
-                            <button id="regbtn" className='loginButtons' onClick={registerCall} >Register</button>
-                        </div>
+                        <button id="regbtn" className='loginButtons' onClick={registerCall} >Register</button>
                     </div>
                 </div>
             </div>
