@@ -30,5 +30,6 @@ class User(db.Model, UserMixin):
         return {
             'id': self.id,
             'username': self.username,
-            'address': self.address
+            'address': self.address,
+            'upvote_posts': [post.to_dict() for post in self.upvote_posts]
         }

@@ -94,35 +94,35 @@ def createPost():
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
-@post_routes.route('/<int:postId>', methods=["PUT"])
-# @login_required
-def editPost(postId):
-    """
-    Route that allows a user to edit a post
-    """
-    form = PostForm()
-    form['csrf_token'].data = request.cookies['csrf_token']
+# @post_routes.route('/<int:postId>', methods=["PUT"])
+# # @login_required
+# def editPost(postId):
+#     """
+#     Route that allows a user to edit a post
+#     """
+#     form = PostForm()
+#     form['csrf_token'].data = request.cookies['csrf_token']
 
-    if form.validate_on_submit():
-        post = Post.query.get(postId)
-        post.title = form.data['title']
-        post.caption = form.data['caption']
-        post.updated_at = datetime.now()
+#     if form.validate_on_submit():
+#         post = Post.query.get(postId)
+#         post.title = form.data['title']
+#         post.caption = form.data['caption']
+#         post.updated_at = datetime.now()
 
-        db.session.commit()
-        return post.to_dict()
-    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+#         db.session.commit()
+#         return post.to_dict()
+#     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
 
-@post_routes.route('/<int:postId>', methods=["DELETE"])
-# @login_required
-def deletePost(postId):
-    """
-    Route that allows a user to delete a post
-    """
-    post = Post.query.get(postId)
-    data = post.to_dict()
-    db.session.delete(post)
-    db.session.commit()
-    return data
+# @post_routes.route('/<int:postId>', methods=["DELETE"])
+# # @login_required
+# def deletePost(postId):
+#     """
+#     Route that allows a user to delete a post
+#     """
+#     post = Post.query.get(postId)
+#     data = post.to_dict()
+#     db.session.delete(post)
+#     db.session.commit()
+#     return data
