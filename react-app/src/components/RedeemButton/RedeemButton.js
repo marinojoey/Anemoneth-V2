@@ -8,9 +8,9 @@ const { ethereum } = window;
 function RedeemButton() {
   return (
     <div>
-        
+
     </div>
   )
 }
 
-export default RedeemButton
+export default RedeemButton;
