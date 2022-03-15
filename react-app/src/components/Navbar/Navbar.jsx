@@ -1,34 +1,32 @@
-import './navbar.css'
+import './navbar.scss'
 import React from 'react'
 import LogoutButton from '../Auth/LogoutButton/LogoutButton'
 import { NavLink } from 'react-router-dom';
 
 
-function Navbar( { clwnblnc, dispAddr, username, connected } ) {
+function Navbar( { clwnblnc, dispAddr, username } ) {
 
   return (
     <div className='navbar ' id="navbar">
         <div className='wrapper'>
             <div className="left">
                 <img src="assets/logo.png" alt="logo" className='logo'></img>
-
-            </div>
-            <div className='center'>
                 <NavLink to='/' exact={true} activeClassName='active' className="title">
-                    Anemoneth
+                    <div className='title'>Anemoneth</div>
                 </NavLink>
             </div>
             <div className="right">
-                <div className='addrEl'>
-                    Address: {dispAddr}
+                <div className='infoWrapper'>
+                    <div className='addrEl'>
+                        Address: {dispAddr}
+                    </div>
+                    <div className='fishEl'>
+                        FISH: {clwnblnc}
+                    </div>
                 </div>
-                <div className='clwnEl'>
-                    CLWN balance: {clwnblnc}
+                <div className='logOutWrapper'>
+                    <LogoutButton className="logoutBtn" ></LogoutButton>
                 </div>
-                <div className='regEl'>
-                    Registered: {username}
-                </div>
-                <LogoutButton className="logoutBtn" ></LogoutButton>
             </div>
         </div>
     </div>

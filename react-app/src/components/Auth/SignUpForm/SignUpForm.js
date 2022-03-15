@@ -1,3 +1,4 @@
+import './signUpForm.scss'
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
@@ -49,14 +50,14 @@ const SignUpForm = () => {
   }
 
   return (
-    <form onSubmit={onSignUp}>
+    <form onSubmit={onSignUp} className="signupwrapper">
       <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
       </div>
-      <div>
-        <label>Username</label>
+      <div className='subusernamewrapper'>
+        <label>Username:  </label>
         <input
           type='text'
           name='username'
@@ -64,8 +65,8 @@ const SignUpForm = () => {
           value={username}
         ></input>
       </div>
-      <div>
-        <label>Address</label>
+      <div className='subemailwrapper'>
+        <label>Email Address:  </label>
         <input
           type='text'
           name='email'
@@ -73,8 +74,8 @@ const SignUpForm = () => {
           value={address}
         ></input>
       </div>
-      <div>
-        <label>Password</label>
+      <div className='subpasswordwrapper'>
+        <label>Password:  </label>
         <input
           type='password'
           name='password'
@@ -82,8 +83,8 @@ const SignUpForm = () => {
           value={password}
         ></input>
       </div>
-      <div>
-        <label>Confirm Password</label>
+      <div className='subconfirmpasswordwrapper'>
+        <label>Confirm Password:  </label>
         <input
           type='password'
           name='repeat_password'
@@ -92,7 +93,7 @@ const SignUpForm = () => {
           required={true}
         ></input>
       </div>
-      <button type='submit'>Sign Up</button>
+      <button type='submit' className='signupbutton'>Sign Up</button>
     </form>
   );
 };

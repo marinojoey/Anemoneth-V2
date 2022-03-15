@@ -1,0 +1,39 @@
+/* @import "../../global.scss"; */
+
+.web3login {
+    display: flex;
+    width: 100%;
+    height: 70%;
+    align-items: center;
+    justify-content: center;
+    
+
+    .loginPiecesContainer {
+        height: 30%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .loginPieces {
+            display: flex;
+            flex-direction: column;
+            width: 30%;
+            height: 100%;
+            align-items: center;
+
+            .loginButtons {
+                width: 90%;
+                background-color: var(--ethpurple);
+                border: none;
+                cursor: pointer;
+                border-radius: 10px;
+            }
+
+            #regbtn {
+                width: 30%;
+                margin-left: 3px;
+            }
+        }
+    }
+}

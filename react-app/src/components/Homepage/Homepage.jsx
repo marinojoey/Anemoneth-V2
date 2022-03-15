@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import './homepage.css';
 import { Web3Storage } from 'web3.storage/dist/bundle.esm.min.js'
 
@@ -6,16 +6,24 @@ import AllPosts from '../Posts/AllPosts';
 import CreatePostModal from '../Posts/CreatePostModal';
 
 import RedeemButton from '../RedeemButton/RedeemButton';
+import contractCall from '../ContractCall/ContractCall';
 
 
 function Homepage( { setUser, setConn, setAddr1, setblnc, setclwnblnc, setDispAddr, connected, addr1 } ) {
 
-  let status;
-  (() => {
-      if (connected) {
-      status = "connected"
-    } else status = "not connected"
-  })();
+  async function contractCallHandler() {
+    let contractInstance = await contractCall();
+    if (await contractInstance.isRegistered(addr1)) {
+        setUser(true)
+        let balanceOf = parseInt(await contractInstance.balanceOf(addr1), 16);
+        setclwnblnc(balanceOf);
+    } else console.log("Please register")
+  }
+
+  useEffect(() => {
+    contractCallHandler();
+    console.log("isUSer")
+  }, [])
 
 let web3s = new Web3Storage({
   token: process.env.REACT_APP_WEB3STORAGE_TOKEN
