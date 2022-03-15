@@ -1,0 +1,75 @@
+/* ************* Create post button (index.js) ************* */
+#create-post {
+    margin: 10px 0;
+    padding: 5px;
+    width: fit-content;
+    font-size: 13px;
+    font-weight: 600;
+    color: white;
+    background-color: var(--ethblue);
+    border: 1px solid var(--ethblue);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* ************* Create post modal container ************* */
+.post-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    background-color: var(--ethblack);
+    border: 1px solid var(--ethlightgray);
+    border-radius: 9px;
+}
+
+/* ************* Create post modal content ************* */
+#create-header {
+    padding: 0 0 10px;
+    font-size: 15px;
+    color: white;
+}
+
+.post-inputs {
+    position: relative;
+}
+
+.post-inputs input, .post-inputs textarea {
+    width: 100%;
+    margin: 5px 0;
+    /* margin-right: 12px; */
+    padding: 5px;
+    color: white;
+    background-color: var(--ethblack);
+    border: 1px solid var(--ethlightgray);
+    border-radius: 3px;
+    resize: vertical;
+}
+
+#title-input {
+    /* z-index: 2; */
+    position: absolute;
+    top: 12px;
+    right: -5px;
+    font-size: 10px;
+    font-weight: 700;
+    /* color: var(--ethlightgray); */
+}
+
+#post-submit {
+    padding: 5px;
+    font-size: 14px;
+    color: white;
+    background-color: var(--ethblue);
+    border: 1px solid var(--ethblue);
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#post-submit:disabled {
+    color: rgb(104, 104, 104);
+    background-color: var(--ethlightgray);
+    border: 1px solid var(--ethlightgray);
+    cursor: auto;
+}
