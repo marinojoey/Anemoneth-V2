@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import { addPost } from "../../../store/posts";
 import './CreatePost.css';
 
+// We can easily incorporate IPFS posting in this
 
 const CreatePosting = ({ setShowModal }) => {
     const [title, setTitle] = useState('');

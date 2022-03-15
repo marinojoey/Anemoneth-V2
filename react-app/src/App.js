@@ -9,7 +9,7 @@ import ProtectedRoute from './components/Auth/ProtectedRoute';
 // import AllPosts from './components/Posts/AllPosts';
 
 import Homepage from './components/Homepage/Homepage';
-import Login from './components/Web3Login/Web3'
+import Web3Login from './components/Web3Login/Web3Login'
 import Navbar from './components/Navbar/Navbar';
 import Web2Login from './components/Web2Login/Web2Login';
 export const AuthContext = createContext();
@@ -68,7 +68,7 @@ function App() {
           <ProtectedRoute path='/' exact={true} >
             { (isUser) ?
               <Homepage isUser={isUser} connected={connected} addr1={addr1} /> :
-              <Login setUser={setUser} setConn={setConn} setAddr1={setAddr1} setclwnblnc={setclwnblnc} setDispAddr={setDispAddr} setUsername={setUsername} addr1={addr1} connected={connected} />
+              <Web3Login setUser={setUser} setConn={setConn} setAddr1={setAddr1} setclwnblnc={setclwnblnc} setDispAddr={setDispAddr} setUsername={setUsername} addr1={addr1} connected={connected} />
             }
           </ProtectedRoute>
         </Switch>

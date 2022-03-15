@@ -5,7 +5,7 @@ import { ethers } from "ethers";
 import contractCall from "../ContractCall/ContractCall";
 const { ethereum } = window;
 
-function Login({ setUser, setConn, setAddr1, setblnc, setclwnblnc, setDispAddr, setUsername, connected, addr1 }) {
+function Web3Login({ setUser, setConn, setAddr1, setblnc, setclwnblnc, setDispAddr, setUsername, connected, addr1 }) {
     let displayAddr;
     let username;
     let provider;
@@ -110,4 +110,4 @@ function Login({ setUser, setConn, setAddr1, setblnc, setclwnblnc, setDispAddr, 
     }
 };
 
-export default Login;
+export default Web3Login;
