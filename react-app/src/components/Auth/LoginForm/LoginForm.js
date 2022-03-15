@@ -1,3 +1,4 @@
+import './loginForm.scss'
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
@@ -34,14 +35,14 @@ const LoginForm = () => {
   }
 
   return (
-    <form onSubmit={onLogin}>
+    <form onSubmit={onLogin} className="loginwrapper" >
       <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
       </div>
-      <div>
-        <label htmlFor='username'>Username</label>
+      <div className='usernamewrapper'>
+        <label htmlFor='username'>Username: </label>
         <input
           name='username'
           type='text'
@@ -50,8 +51,8 @@ const LoginForm = () => {
           onChange={updateUsername}
         />
       </div>
-      <div>
-        <label htmlFor='password'>Password</label>
+      <div className='passwordwrapper'>
+        <label htmlFor='password'>Password: </label>
         <input
           name='password'
           type='password'
@@ -59,8 +60,8 @@ const LoginForm = () => {
           value={password}
           onChange={updatePassword}
         />
-        <button type='submit'>Login</button>
       </div>
+      <button type='submit' className='web2btn'>Login</button>
     </form>
   );
 };

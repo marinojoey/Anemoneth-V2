@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 // import { useNavigate } from "react-router-dom";
-import "./web3Login.css";
+import "./web3Login.scss";
 import { ethers } from "ethers";
 import contractCall from "../ContractCall/ContractCall";
 const { ethereum } = window;
@@ -12,20 +12,20 @@ function Web3Login({ setUser, setConn, setAddr1, setblnc, setclwnblnc, setDispAd
     let addr;
 
     useEffect(() => {
-        connectMetaMask();
+        connectWalletHandler();
     }, [])
 
-    async function connectMetaMask() {
-        if (ethereum) {
-            ethereum.request({method: 'eth_requestAccounts'})
-        }
-        else {
-            alert("Please install MetaMask to connect your wallet and try again");
-        }
-    }
+    // async function connectMetaMask() {
+    //     if (ethereum) {
+    //         ethereum.request({method: 'eth_requestAccounts'})
+    //     }
+    //     else {
+    //         alert("Please install MetaMask to connect your wallet and try again");
+    //     }
+    // }
     async function connectWalletHandler() {
         if (ethereum) {
-            // ethereum.request({method: 'eth_requestAccounts'})
+            await ethereum.request({method: 'eth_requestAccounts'})
             provider = new ethers.providers.Web3Provider(ethereum);
             signer = await provider.getSigner();
             addr = await signer.getAddress();
@@ -62,8 +62,8 @@ function Web3Login({ setUser, setConn, setAddr1, setblnc, setclwnblnc, setDispAd
 
     if(!connected) {
         return (
-            <div className='loginpage'>
-                <div className='loginPiecesContainer'>
+            <div className='web3login'>
+                {/* <div className='loginPiecesContainer'>
                     <div id="title" className='loginPieces'>
                         <h1>Anemoneth</h1>
                         <h4>Connect with friends and the decentralised world around you on Anemoneth</h4>
@@ -71,18 +71,14 @@ function Web3Login({ setUser, setConn, setAddr1, setblnc, setclwnblnc, setDispAd
                     <div className='loginPieces'>
                         <button id="connectWallet" className="loginButtons" onClick={connectWalletHandler}>Connect Wallet</button>
                     </div>
-                </div>
+                </div> */}
             </div>
         );
     }
     else if (connected) {
         return (
-            <div className='loginpage'>
+            <div className='web3login'>
                 <div className='loginPiecesContainer'>
-                    <div id="title" className='loginPieces'>
-                        <h1>Anemoneth</h1>
-                        <h4>Connect with friends and the decentralised world around you on Anemoneth</h4>
-                    </div>
                     <div className='loginPieces'>
                         <div>Already registered?</div>
                         <br></br>

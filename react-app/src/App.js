@@ -1,3 +1,4 @@
+import './app.scss'
 import React, { useState, useEffect, createContext } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -39,23 +40,33 @@ function App() {
   
   if(!user) {
     return (
-        <BrowserRouter>
-          <Navbar />
-          <Web2Login />
-          <Switch>
-            <Route path='/login' exact={true}>
-              <LoginForm />
-            </Route>
-            <Route path='/sign-up' exact={true}>
-              <SignUpForm />
-            </Route>
-          </Switch>
-        </BrowserRouter>
+        <div className='app'>
+          <BrowserRouter>
+            <Navbar />
+            <div className='loginComboBox'>
+              <div className='web2wrapper'>
+                <Switch>
+                  <Route path='/login' exact={true}>
+                    <LoginForm />
+                  </Route>
+                  <Route path='/sign-up' exact={true}>
+                    <SignUpForm />
+                  </Route>
+                </Switch>
+                <Web2Login />
+              </div>
+              <div className='web3wrapper'>
+                <Web3Login isUser={isUser} setConn={setConn} setAddr1={setAddr1} setclwnblnc={setclwnblnc} setDispAddr={setDispAddr} addr1={addr1} connected={connected} />
+              </div>
+            </div>
+          </BrowserRouter>
+        </div>
       );
   }
-  else if (user) {
+  else if (user && isUser) {
     return (
-      <BrowserRouter>
+      <div className='app'>
+        <BrowserRouter>
         <Navbar clwnblnc={clwnblnc} dispAddr={dispAddr} connected={connected} />
         <Switch>
           <Route path='/login' exact={true}>
@@ -65,13 +76,11 @@ function App() {
             <SignUpForm />
           </Route>
           <ProtectedRoute path='/' exact={true} >
-            { (isUser) ?
-              <Homepage connected={connected} addr1={addr1} setUser={setUser} setConn={setConn} setAddr1={setAddr1} setclwnblnc={setclwnblnc} setDispAddr={setDispAddr} clwnblnc={clwnblnc} /> :
-              <Web3Login setUser={setUser} setConn={setConn} setAddr1={setAddr1} setclwnblnc={setclwnblnc} setDispAddr={setDispAddr} addr1={addr1} connected={connected} />
-            }
+              <Homepage connected={connected} addr1={addr1} setUser={setUser} setConn={setConn} setAddr1={setAddr1} setclwnblnc={setclwnblnc} setDispAddr={setDispAddr} clwnblnc={clwnblnc} isUser={isUser} /> 
           </ProtectedRoute>
         </Switch>
       </BrowserRouter>
+      </div>
     );
   }
 }

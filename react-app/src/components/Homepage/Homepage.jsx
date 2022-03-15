@@ -10,12 +10,7 @@ import RedeemButton from '../RedeemButton/RedeemButton';
 
 function Homepage( { setUser, setConn, setAddr1, setblnc, setclwnblnc, setDispAddr, connected, addr1 } ) {
 
-  let status;
-  (() => {
-      if (connected) {
-      status = "connected"
-    } else status = "not connected"
-  })();
+
 
 let web3s = new Web3Storage({
   token: process.env.REACT_APP_WEB3STORAGE_TOKEN
