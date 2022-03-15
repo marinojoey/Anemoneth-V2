@@ -1,0 +1,78 @@
+/* @import "../../global.scss"; */
+
+.navbar {
+    height: 60px;
+    width: 100%;
+    background-color: var(--ethblack);
+    color: var(--ethpeach);
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    transition: all 1s ease;
+
+    .wrapper {
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .left {
+            display: flex;
+            align-items: center;
+            width: 50%;
+            margin-left: 2%;
+            font-size: 1.8vw;
+
+            .logo {
+                width: 50px;
+                padding-right: 3%;
+            }
+
+            .title {
+                width: 50%;
+                color: var(--ethpeach);
+                text-decoration: none;
+                text-transform: uppercase;
+                cursor: pointer;
+            }
+            .title:hover {
+                transform: scale(1);
+            }
+        }
+
+        .right {
+            display: flex;
+            font-size: 1.1vw;
+            height: 100%;
+            margin: 1%;
+
+            .infoWrapper {
+                display: flex;
+                justify-content: space-evenly;
+                flex-direction: column;
+                margin-right: 1rem;
+
+                .addrEl {
+
+                }
+                
+                .fishEl {
+                
+                }
+            }
+            
+            .logOutWrapper {
+                display: flex;
+                align-items: center;
+                height: 100%;
+
+                .logoutBtn {
+                    border: none;
+                    height: 70%;
+                    border-radius: 50%;
+                }
+            
+            }
+        }
+    }
+}
