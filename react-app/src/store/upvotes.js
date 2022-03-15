@@ -76,12 +76,12 @@ export const upvotePost = (username, postId) => async (dispatch) => {
     }
 };
 
-// export const removeUpvote = (username, post_id) => async (dispatch) => {
+// export const removeUpvote = (username, postId) => async (dispatch) => {
 //     if (post_id) {
-//         const response = await fetch(`/api/upvotes/post/${post_id}/user/${username}`, {
+//         const response = await fetch(`/api/upvotes/post/${postId}/user/${username}`, {
 //             method: "DELETE",
 //             headers: { "Content-Type": "application/json" },
-//             body: JSON.stringify({ username, post_id }),
+//             body: JSON.stringify({ username, postId }),
 //         });
 
 //         if (response.ok) {

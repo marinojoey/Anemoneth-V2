@@ -1,14 +1,56 @@
-import React from "react";
-// import { useSelector } from 'react-redux';
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from 'react-redux';
 import { NavLink, useParams } from "react-router-dom";
+import { getAllPosts } from "../../../store/posts";
+import { getPostUpvotes, upvotePost } from '../../../store/upvotes';
 import './Posts.css';
 
 
 const PostDetail = ({ post }) => {
-    // const current_user = useSelector(state => state.session.user);
-    // const user_id = current_user.id;
+    const [upvotes, setUpvotes] = useState([]);
+    const [upvoteUpdate, setUpvoteUpdate] = useState(false);
+    const dispatch = useDispatch();
+
+    const postId = post.id;
+
+    const current_user = useSelector(state => state.session.user);
+    const user_id = current_user.id;
+    const username = current_user.username;
 
     // const username = useParams();
+
+
+    useEffect(async () => {
+        await dispatch(getAllPosts());
+
+        const res_upvotes = await fetch(`/api/upvotes/post/${postId}`);
+        const upvote = await res_upvotes.json();
+
+        setUpvotes(upvote);
+        setUpvoteUpdate(false);
+    }, [dispatch, upvoteUpdate])
+
+
+    const handleUpvote = async () => {
+        await dispatch(upvotePost(username, postId));
+        setUpvoteUpdate(true);
+    };
+
+    let upvoteCheck;
+    if (upvotes[user_id]) {
+        upvoteCheck = <i id='upvote' className="fa-solid fa-arrow-up-long" style={{ "color": "#ff7433" }}></i>
+    } else {
+        upvoteCheck = <i id='un-upvote' className="fa-solid fa-arrow-up-long" style={{ "color": "#f2e8e4" }} onClick={() => handleUpvote()}></i>
+    }
+
+    // const handleUnUpvote = async () => {
+    //     await dispatch(removeUpvote(username, postId));
+    //     setUpvoteUpdate(true);
+    // };
+
+
+
+
 
     // Need to make a check, created_at VS updated_at
         // Posted by u/demo 12 hours ago
