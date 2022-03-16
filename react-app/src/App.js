@@ -27,14 +27,14 @@ function App() {
 
   const user = useSelector(state => state.session.user);
 
-  const [connected,        setConn] = useState(false);
-  const [addr1,           setAddr1] = useState(0);
-  const [dispAddr,     setDispAddr] = useState("")
-  const [isUser,           setUser] = useState(false);
-  const [clwnblnc,     setclwnblnc] = useState(0)
-  const [menuOpen,     setMenuOpen] = useState(false)
-  const [redeemable, setRedeemable] = useState(0)
-  const [loaded,         setLoaded] = useState(false);
+  const [    dispAddr, setDispAddr] = useState("");
+  const [    menuOpen, setMenuOpen] = useState(false);
+  const [       connected, setConn] = useState(false);
+  const [        loaded, setLoaded] = useState(false);
+  const [          isUser, setUser] = useState(false);
+  const [          addr1, setAddr1] = useState(0);
+  const [    clwnblnc, setclwnblnc] = useState(0);
+  const [redeemable, setRedeemable] = useState(0);
   const dispatch = useDispatch();
 
   useEffect(() => {
