@@ -1,15 +1,50 @@
-/* ************* Create post button (index.js) ************* */
-#create-post {
-    margin: 10px 0;
-    padding: 5px;
-    width: fit-content;
-    font-size: 13px;
-    font-weight: 600;
-    color: white;
-    background-color: var(--ethblue);
-    border: 1px solid var(--ethblue);
-    border-radius: 10px;
-    cursor: pointer;
+
+.createPostModalWrapper{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+        /* ************* Create post button (index.js) ************* */
+    #create-post {
+        margin: 10px 0;
+        padding: 5px;
+        width: fit-content;
+        font-size: 13px;
+        font-weight: 600;
+        color: white;
+        background-color: var(--ethblue);
+        border: 1px solid var(--ethblue);
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    /* ************* IPFS retrieval container ************* */
+
+    .ipfs-retrieve{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        width: 60%;
+        
+        .cidinput{
+            height: 30px;
+            width: 60%;
+            border: none;
+            border-radius: 30px;
+        }
+        .retrieveBtn{
+            margin: 10px 0;
+            padding: 5px;
+            width: fit-content;
+            font-size: 13px;
+            font-weight: 600;
+            color: white;
+            background-color: var(--ethblue);
+            border: 1px solid var(--ethblue);
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    }
 }
 
 /* ************* Create post modal container ************* */

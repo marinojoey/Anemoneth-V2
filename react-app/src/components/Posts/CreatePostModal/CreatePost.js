@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from "react-router-dom";
 import { addPost } from "../../../store/posts";
 import { Web3Storage } from "web3.storage/dist/bundle.esm.min";
-import './CreatePost.css';
+import './CreatePost.scss';
 
 // We can easily incorporate IPFS posting in this
 
