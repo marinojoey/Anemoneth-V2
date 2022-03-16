@@ -14,20 +14,22 @@ import Web3Login from './components/Web3Login/Web3Login'
 import Navbar from './components/Navbar/Navbar';
 import Web2Login from './components/Web2Login/Web2Login';
 import { ethers } from "ethers";
-import contractCall from './components/ContractCall/ContractCall';;
-const { ethereum } = window;
+import contractCall from './components/ContractCall/ContractCall';
+// import ConnectWallet from './components/ConnectWallet/ConnectWallet';
 export const AuthContext = createContext();
+const { ethereum } = window;
+
 
 function App() {
+  
   let displayAddr;
   let provider;
   let signer;
   let addr;
-
-  const [isUser, setUser] = useState(false);
   const [connected, setConn] = useState(false);
   const [addr1, setAddr1] = useState(0);
   const [dispAddr, setDispAddr] = useState("")
+  const [isUser, setUser] = useState(false);
   const [clwnblnc, setclwnblnc] = useState(0)
 
   const user = useSelector(state => state.session.user);
@@ -46,7 +48,7 @@ function App() {
   useEffect(() => {
     connectWalletHandler();
     if(connected) {
-      contractCallHandler();
+      contractCallHandler()
     }
   }, )
 
@@ -71,7 +73,6 @@ function App() {
     displayAddr = `${first}...${last}`;
     setDispAddr(displayAddr);
   }
-
   async function contractCallHandler() {
     let contractInstance = await contractCall();
     if (await contractInstance.isRegistered(addr1)) {
@@ -103,7 +104,7 @@ function App() {
                 <Web2Login />
               </div>
               <div className='web3wrapper'>
-                <Web3Login setUser={setUser} isUser={isUser} setConn={setConn} setAddr1={setAddr1} setclwnblnc={setclwnblnc} setDispAddr={setDispAddr} addr1={addr1} connected={connected} />
+                <Web3Login setUser={setUser} setclwnblnc={setclwnblnc}  addr1={addr1} connected={connected} />
               </div>
             </div>
           </BrowserRouter>
