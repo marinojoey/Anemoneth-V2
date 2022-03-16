@@ -65,11 +65,11 @@ const SignUpForm = () => {
           value={username}
         ></input>
       </div>
-      <div className='subemailwrapper'>
-        <label>Email Address:  </label>
+      <div className='subaddresswrapper'>
+        <label>Ethereum Address:  </label>
         <input
           type='text'
-          name='email'
+          name='address'
           onChange={updateAddress}
           value={address}
         ></input>

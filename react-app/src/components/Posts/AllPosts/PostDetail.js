@@ -18,6 +18,11 @@ const PostDetail = ({ post }) => {
 
     // const username = useParams();
 
+    // Getting wallet addresses associated to users that made posts
+    const statePosts = useSelector(state => state.posts);
+    console.log('++++++++++', statePosts)
+    console.log('----------', post)
+
 
     useEffect(() => {
         async function disp() {
@@ -25,7 +30,7 @@ const PostDetail = ({ post }) => {
             // await dispatch(getPostUpvotes());
             const res_upvotes = await fetch(`/api/upvotes/post/${postId}`);
             const upvote = await res_upvotes.json();
-    
+
             setUpvotes(upvote);
             setUpvoteUpdate(false);
         }
