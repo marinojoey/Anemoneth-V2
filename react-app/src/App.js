@@ -14,20 +14,22 @@ import Web3Login from './components/Web3Login/Web3Login'
 import Navbar from './components/Navbar/Navbar';
 import Web2Login from './components/Web2Login/Web2Login';
 import { ethers } from "ethers";
-import contractCall from './components/ContractCall/ContractCall';;
-const { ethereum } = window;
+import contractCall from './components/ContractCall/ContractCall';
+// import ConnectWallet from './components/ConnectWallet/ConnectWallet';
 export const AuthContext = createContext();
+const { ethereum } = window;
+
 
 function App() {
+  
   let displayAddr;
   let provider;
   let signer;
   let addr;
-
-  const [isUser, setUser] = useState(false);
   const [connected, setConn] = useState(false);
   const [addr1, setAddr1] = useState(0);
   const [dispAddr, setDispAddr] = useState("")
+  const [isUser, setUser] = useState(false);
   const [clwnblnc, setclwnblnc] = useState(0)
 
   const user = useSelector(state => state.session.user);
@@ -46,7 +48,7 @@ function App() {
   useEffect(() => {
     connectWalletHandler();
     if(connected) {
-      contractCallHandler();
+      contractCallHandler()
     }
   }, )
 
@@ -71,7 +73,6 @@ function App() {
     displayAddr = `${first}...${last}`;
     setDispAddr(displayAddr);
   }
-
   async function contractCallHandler() {
     let contractInstance = await contractCall();
     if (await contractInstance.isRegistered(addr1)) {
@@ -85,47 +86,114 @@ function App() {
     return null;
   }
   
-  if( (!user && !isUser) || !user || !isUser ) {
+  if( (!user && !connected && !isUser) ) {
     return (
         <div className='app'>
           <BrowserRouter>
             <Navbar />
             <div className='loginComboBox'>
               <div className='web2wrapper'>
-                <Switch>
-                  <Route path='/login' exact={true}>
-                    <LoginForm />
-                  </Route>
-                  <Route path='/sign-up' exact={true}>
-                    <SignUpForm />
-                  </Route>
-                </Switch>
-                <Web2Login />
+                <LoginForm />
+                <SignUpForm />
               </div>
               <div className='web3wrapper'>
-                <Web3Login setUser={setUser} isUser={isUser} setConn={setConn} setAddr1={setAddr1} setclwnblnc={setclwnblnc} setDispAddr={setDispAddr} addr1={addr1} connected={connected} />
+              <div className='successdiv'></div>
+                <div className='requestdiv'>Please connect to metamask</div>
               </div>
             </div>
           </BrowserRouter>
         </div>
       );
   }
-  else if (user && isUser) {
+  else if( (!user && connected && !isUser) ) {
+    return (
+        <div className='app'>
+          <BrowserRouter>
+            <Navbar />
+            <div className='loginComboBox'>
+              <div className='web2wrapper'>
+                <LoginForm />
+                <SignUpForm />
+              </div>
+              <div className='web3wrapper'>
+                <Web3Login setUser={setUser} setclwnblnc={setclwnblnc}  addr1={addr1} connected={connected} />
+              </div>
+            </div>
+          </BrowserRouter>
+        </div>
+      );
+  }
+  else if( (!user && connected && isUser) ) {
+    return (
+        <div className='app'>
+          <BrowserRouter>
+            <Navbar />
+            <div className='loginComboBox'>
+              <div className='web2wrapper'>
+                <LoginForm />
+                <SignUpForm />
+              </div>
+              <div className='web3wrapper'>
+                <div className='successdiv'>Wallet is connected and you're registered!</div>
+                <div className='requestdiv'>Please login to your left!</div>
+              </div>
+            </div>
+          </BrowserRouter>
+        </div>
+      );
+  }
+  else if( (user && !connected && !isUser) ) {
+    return (
+        <div className='app'>
+          <BrowserRouter>
+            <Navbar />
+            <div className='loginComboBox'>
+              <div className='web2wrapper'>
+                <div className='successdiv'>You are now logged in!</div>
+                <div className='requestdiv'>Please connect to metamask</div>
+              </div>
+              <div className='web3wrapper'>
+                <div className='requestdiv'>Please connect to metamask</div>
+              </div>
+            </div>
+          </BrowserRouter>
+        </div>
+      );
+  }
+  else if( (user && connected && !isUser) ) {
+    return (
+        <div className='app'>
+          <BrowserRouter>
+            <Navbar />
+            <div className='loginComboBox'>
+              <div className='web2wrapper'>
+                <div className='successdiv'>You are now logged in and connected to metamask!</div>
+                <div className='requestdiv'>Please register your account</div>
+              </div>
+              <div className='web3wrapper'>
+                <Web3Login setUser={setUser} setclwnblnc={setclwnblnc}  addr1={addr1} connected={connected} />
+              </div>
+            </div>
+          </BrowserRouter>
+        </div>
+      );
+  }
+  else if (user && connected && isUser) {
     return (
       <div className='app'>
         <BrowserRouter>
         <Navbar clwnblnc={clwnblnc} dispAddr={dispAddr} connected={connected} />
-        <Switch>
+        {/* <Switch>
           <Route path='/login' exact={true}>
             <LoginForm />
           </Route>
           <Route path='/sign-up' exact={true}>
             <SignUpForm />
-          </Route>
+          </Route> */}
           <ProtectedRoute path='/' exact={true} >
               <Homepage connected={connected} addr1={addr1} setUser={setUser} setConn={setConn} setAddr1={setAddr1} setclwnblnc={setclwnblnc} setDispAddr={setDispAddr} clwnblnc={clwnblnc} isUser={isUser} /> 
           </ProtectedRoute>
-        </Switch>
+        {/* </Switch> */}
       </BrowserRouter>
       </div>
     );

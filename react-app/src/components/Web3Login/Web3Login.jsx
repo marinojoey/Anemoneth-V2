@@ -5,7 +5,7 @@ import { ethers } from "ethers";
 import contractCall from "../ContractCall/ContractCall";
 const { ethereum } = window;
 
-function Web3Login({ setUser, setConn, setAddr1, setblnc, setclwnblnc, setDispAddr, connected, addr1 }) {
+function Web3Login({ setUser, setclwnblnc, addr1, connected }) {
 
     // let displayAddr;
     // let provider;
@@ -68,19 +68,14 @@ function Web3Login({ setUser, setConn, setAddr1, setblnc, setclwnblnc, setDispAd
     else if (connected) {
         return (
             <div className='web3login'>
-                <div className='loginPiecesContainer'>
-                    <div className='loginPieces'>
-                        <div>Already registered?</div>
-                        <br></br>
-                        <button id="calltbtn" className="loginButtons" onClick={contractCallHandler}>Enter the Anemone</button>
-                        <br></br>
-                        <br></br>
-                        <div>If not,</div>
-                        <br></br>
-                        <div>It will cost 1 Gwei (+ gas) and you will recieve 1 CLWN in return.</div>
-                        <br></br>
-                        <button id="regbtn" className='loginButtons' onClick={registerCall} >Register</button>
-                    </div>
+                <div className="alreadyregistered">
+                    <div id="regged" className="web3logindiv">Already registered?</div>
+                    <button className="loginButtons" onClick={contractCallHandler}>Enter the Anemone</button>
+                </div>
+                <div className="notregistered">
+                    <div className="web3logindiv">If not,</div>
+                    <button className='loginButtons' onClick={registerCall} >Register Here</button>
+                    <div id="details" className="web3logindiv">It will cost 1 Gwei (+ gas) and you will recieve 1 CLWN in return.</div>
                 </div>
             </div>
         );

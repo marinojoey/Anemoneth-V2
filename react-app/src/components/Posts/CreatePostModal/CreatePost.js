@@ -25,15 +25,15 @@ const CreatePosting = ({ setShowModal }) => {
         const data = await dispatch(addPost(info));
 
         if (data) {
-            const errors = {}
+            // const errors = {}
 
-            data.forEach(error => {
-                const errLabel = error.split(' : ')[0];
-                const errMessage = error.split(' : ')[1];
-                errors[errLabel] = errMessage;
-            });
+            // data.forEach(error => {
+            //     const errLabel = error.split(' : ')[0];
+            //     const errMessage = error.split(' : ')[1];
+            //     errors[errLabel] = errMessage;
+            // });
 
-            setErrors(errors);
+            // setErrors(errors);
             return;
         } else {
             setShowModal(false);
@@ -42,7 +42,7 @@ const CreatePosting = ({ setShowModal }) => {
     }
 
     let titleInput;
-    if (titleLength === 0 || titleLength > 50) {
+    if (titleLength < 3 || titleLength > 50) {
         titleInput = <div id='title-input' style={{color: 'red'}}>{titleLength} / 50</div>
     } else {
         titleInput = <div id='title-input' style={{color: 'var(--ethlightgray)'}}>{titleLength} / 50</div>
@@ -64,9 +64,9 @@ const CreatePosting = ({ setShowModal }) => {
                 {/* <div id='title-input'>{titleLength} / 50</div> */}
                 {titleInput}
                 </div>
-                <div className="errors">
+                {/* <div className="errors">
                     {errors.title ? `${errors.title}` : ''}
-                </div>
+                </div> */}
                 <div className='post-inputs'>
                     <textarea
                         name='caption'
@@ -78,9 +78,9 @@ const CreatePosting = ({ setShowModal }) => {
                         onChange={(e) => setCaption(e.target.value)}
                     />
                 </div>
-                <div className="errors">
+                {/* <div className="errors">
                     {errors.caption ? `${errors.caption}` : ''}
-                </div>
+                </div> */}
                 <button id='post-submit' type="submit" disabled={!titleLength || titleLength>50 || !caption.length}>Submit Post</button>
             </form>
         </div>
