@@ -1,8 +1,9 @@
 import './app.scss'
 import React, { useState, useEffect, createContext } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 import { authenticate } from './store/session';
+import { ethers } from "ethers";
 
 import contractCall from './components/ContractCall/ContractCall';
 import SignUpForm from './components/Auth/SignUpForm/SignUpForm';
@@ -12,7 +13,6 @@ import Web3Login from './components/Web3Login/Web3Login'
 import Homepage from './components/Homepage/Homepage';
 import Menu from './components/Navbar/Menu/Menu';
 import Navbar from './components/Navbar/Navbar';
-import { ethers } from "ethers";
 
 export const AuthContext = createContext();
 const { ethereum } = window;

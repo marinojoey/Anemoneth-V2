@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllPosts } from "../../../store/posts";
+import React, { useEffect } from "react";
 import PostDetail from "./PostDetail";
 import './Posts.scss';
 
@@ -10,8 +10,11 @@ const AllPosts = () => {
 
     const allPosts = useSelector(state => state.posts);
 
-    useEffect(async () => {
-       await dispatch(getAllPosts());
+    useEffect(() => {
+        async function disp() {
+            await dispatch(getAllPosts());
+        }
+       disp();
     }, [dispatch])
 
     // console.log('--------', allPosts)

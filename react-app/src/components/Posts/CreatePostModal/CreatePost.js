@@ -5,15 +5,12 @@ import { addPost } from "../../../store/posts";
 import { Web3Storage } from "web3.storage/dist/bundle.esm.min";
 import './CreatePost.scss';
 
-// We can easily incorporate IPFS posting in this
-
 const CreatePosting = ({ setShowModal }) => {
-    const [title, setTitle] = useState('');
-    const [caption, setCaption] = useState('');
+    const [            title, setTitle] = useState('');
+    const [        caption, setCaption] = useState('');
     const [titleLength, setTitleLength] = useState(0);
-    const [errors, setErrors] = useState({});
-    const dispatch = useDispatch();
     const history = useHistory();
+    const dispatch = useDispatch();
 
     const current_user = useSelector(state => state.session.user);
     const user_id = current_user.id;

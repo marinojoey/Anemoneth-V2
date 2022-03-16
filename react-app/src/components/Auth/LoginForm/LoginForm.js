@@ -1,17 +1,16 @@
-import './loginForm.scss'
-import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect } from 'react-router-dom';
 import { login } from '../../../store/session';
+import { Redirect } from 'react-router-dom';
+import React, { useState } from 'react';
+import './loginForm.scss'
 
 const LoginForm = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [errors, setErrors] = useState([]);
+  const [    errors, setErrors] = useState([]);
   const dispatch = useDispatch();
 
   const user = useSelector(state => state.session.user);
-  const hi = useSelector(state => state);
 
   const onLogin = async (e) => {
     e.preventDefault();

@@ -5,11 +5,11 @@ import { Redirect } from 'react-router-dom';
 import { signUp } from '../../../store/session';
 
 const SignUpForm = () => {
-  const [username, setUsername] = useState('');
-  const [address, setAddress] = useState('');
-  const [password, setPassword] = useState('');
+  const [            username, setUsername] = useState('');
+  const [              address, setAddress] = useState('');
+  const [            password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
-  const [errors, setErrors] = useState([]);
+  const [                errors, setErrors] = useState([]);
   const dispatch = useDispatch();
 
   const user = useSelector(state => state.session.user);
