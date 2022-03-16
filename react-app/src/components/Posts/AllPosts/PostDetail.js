@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { NavLink, useParams } from "react-router-dom";
 import { getAllPosts } from "../../../store/posts";
 import { getPostUpvotes, upvotePost } from '../../../store/upvotes';
-import './Posts.css';
+import './Posts.scss';
 
 
 const PostDetail = ({ post }) => {

@@ -69,6 +69,7 @@ function App() {
         alert("Please install MetaMask to connect your wallet and try again");
     }
   }
+
   function makeDispAddr(numAddr) {
     const strAddr = numAddr.toString();
     const first = strAddr.slice(0,4);
@@ -76,6 +77,7 @@ function App() {
     displayAddr = `${first}...${last}`;
     setDispAddr(displayAddr);
   }
+  
   async function contractCallHandler() {
     let contractInstance = await contractCall();
     if (await contractInstance.isRegistered(addr1)) {

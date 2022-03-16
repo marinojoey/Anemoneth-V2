@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllPosts } from "../../../store/posts";
 import PostDetail from "./PostDetail";
-import './Posts.css';
+import './Posts.scss';
 
 
 const AllPosts = () => {
@@ -21,9 +21,24 @@ const AllPosts = () => {
 
     return (
         <div className='all-posts-container'>
-            {allPostsArrReverse.map(post => (
-                <PostDetail post={post} key={post.id} />
-            ))}
+            <div className="web2posts">
+                {allPostsArrReverse.map(post => (
+                    <PostDetail post={post} key={post.id} />
+                ))}
+            </div>
+            <div className="web3posts">
+                <div className='post-container'>
+                    <div id='username'>
+                        Posted by u/Joey on Mar-17-2022
+                    </div>
+                    <div id='title'>
+                        Test-post
+                    </div>
+                    <div id='caption'>
+                        Test Caption
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
