@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
-import './homepage.css';
+import './homepage.scss';
 import { Web3Storage } from 'web3.storage/dist/bundle.esm.min.js'
 
 import AllPosts from '../Posts/AllPosts';
@@ -51,7 +51,7 @@ async function retrieveFiles(cid) {
 
 
   return (
-    <div className='root'>
+    <div className='homepageElwrapper'>
       <h1>HOMEPAGE</h1>
       <div>
         <label htmlFor='str' className='strlbl'></label>
@@ -62,7 +62,6 @@ async function retrieveFiles(cid) {
         <button className='retrieve' onClick={ () => retrieveFiles(document.querySelector('.cid').value) }>Retrieve</button>
       </div>
       <CreatePostModal />
-      <RedeemButton connected={connected} addr1={addr1} setUser={setUser} setConn={setConn} setAddr1={setAddr1} setclwnblnc={setclwnblnc} setDispAddr={setDispAddr} />
       <AllPosts />
     </div>
   )

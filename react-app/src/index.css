@@ -20,12 +20,12 @@
     --ethorange: rgb(253, 169, 137);
 }
 
-.root {
+/* .root {
     margin: 0 20px;
     background-color: none;
     height: 100%;
     overflow-x: hidden;
-}
+} */
 
 body {
     margin: 0;

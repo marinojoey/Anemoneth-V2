@@ -7,7 +7,7 @@
     color: var(--ethpeach);
     position: fixed;
     top: 0;
-    z-index: 1;
+    z-index: 3;
     transition: all 1s ease;
 
     .wrapper {
@@ -37,38 +37,83 @@
         }
 
         .right {
-            display: flex;
-            font-size: 1.1vw;
-            height: 100%;
-            margin: 1%;
 
-            .infoWrapper {
+            .hamburger{
                 display: flex;
-                justify-content: space-evenly;
+                padding-left: 2px;
+                padding-right: 5px;
+                width: 32px;
+                height: 25px;
+                background-color: var(--ethblack);
                 flex-direction: column;
-                margin-right: 1rem;
+                justify-content: space-between;
+                cursor: pointer;
 
-                .addrEl {
-
-                }
-                
-                .fishEl {
-                
+                span {
+                    width: 100%;
+                    height: 3px;
+                    background-color: var(--ethpeach);
+                    transform-origin: left;
+                    transition: all 1.2s ease;
                 }
             }
-            
-            .logOutWrapper {
-                display: flex;
-                align-items: center;
-                height: 100%;
+        }
+    }
+    &.active {
+        background-color: var(--ethgray);
+        // color: var(--ethpeach);
+        .right{
 
-                .logoutBtn {
-                    border: none;
-                    height: 70%;
-                    border-radius: 50%;
+            .hamburger {
+                background-color: var(--ethgray);
+    
+                span {
+                    &:first-child {
+                        background-color: var(--ethpeach);
+                        transform: rotate(45deg);
+                    }
+                    &:nth-child(2) {
+                        opacity: 0;
+                    }
+                    &:last-child {
+                        background-color: var(--ethpeach);
+                        transform: rotate(-45deg);
+                    }
                 }
-            
             }
         }
     }
 }
+
+// display: flex;
+// font-size: 1.1vw;
+// height: 100%;
+// margin: 1%;
+
+// .infoWrapper {
+//     display: flex;
+//     justify-content: space-evenly;
+//     flex-direction: column;
+//     margin-right: 1rem;
+
+//     .addrEl {
+
+//     }
+    
+//     .fishEl {
+    
+//     }
+// }
+
+// .logOutWrapper {
+//     display: flex;
+//     align-items: center;
+//     height: 100%;
+
+//     .logoutBtn {
+//         border: none;
+//         height: 70%;
+//         border-radius: 50%;
+//     }
+
+// }

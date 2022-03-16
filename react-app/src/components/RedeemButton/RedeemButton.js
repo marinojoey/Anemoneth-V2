@@ -5,7 +5,7 @@ import './redeemButton.css'
 const { ethereum } = window;
 
 
-function RedeemButton({ setUser, setConn, setAddr1, setblnc, setclwnblnc, setDispAddr, setUsername, connected, addr1, clwnblnc }) {
+function RedeemButton({ addr1 }) {
 
     async function redeem() {
         if(ethereum) {
