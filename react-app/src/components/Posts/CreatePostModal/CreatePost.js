@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from "react-router-dom";
 import { addPost } from "../../../store/posts";
+import { Web3Storage } from "web3.storage/dist/bundle.esm.min";
 import './CreatePost.css';
 
 // We can easily incorporate IPFS posting in this
@@ -48,6 +49,18 @@ const CreatePosting = ({ setShowModal }) => {
         titleInput = <div id='title-input' style={{color: 'var(--ethlightgray)'}}>{titleLength} / 50</div>
     }
 
+    let web3s = new Web3Storage({
+        token: process.env.REACT_APP_WEB3STORAGE_TOKEN
+    });
+
+    async function storeFiles() {
+        const obj = { title: title, caption: caption }
+        const blob = new Blob([JSON.stringify(obj)], {type: 'anemoneth/json'})
+        const file = new File([blob], 'whatisthis.json');
+        const cid = await web3s.put([file]);
+        console.log('stored files with cid:', cid)
+        return cid
+      }
 
     return (
         <div className='post-container'>
@@ -82,6 +95,7 @@ const CreatePosting = ({ setShowModal }) => {
                     {errors.caption ? `${errors.caption}` : ''}
                 </div> */}
                 <button id='post-submit' type="submit" disabled={!titleLength || titleLength>50 || !caption.length}>Submit Post</button>
+                <button id='post-submit' type="submit" onClick={ storeFiles } disabled={!titleLength || titleLength>50 || !caption.length}>Submit Post to IPFS</button>
             </form>
         </div>
     )

@@ -200,7 +200,7 @@ function App() {
               <SignUpForm />
             </Route> */}
             <ProtectedRoute path='/' exact={true} >
-                <Homepage connected={connected} addr1={addr1} setUser={setUser} setConn={setConn} setAddr1={setAddr1} setclwnblnc={setclwnblnc} setDispAddr={setDispAddr} clwnblnc={clwnblnc} isUser={isUser} /> 
+                <Homepage connected={connected} addr1={addr1} setUser={setUser} setConn={setConn} setAddr1={setAddr1} setclwnblnc={setclwnblnc} setDispAddr={setDispAddr} setRedeemable={setRedeemable} clwnblnc={clwnblnc} isUser={isUser} /> 
             </ProtectedRoute>
           {/* </Switch> */}
         </div>
