@@ -1,5 +1,10 @@
 .logoutBtn {
-    border: none;
-    background-color: var(--ethpeach);
+    border: 2px;
+    border-color: var(--ethred);
+    color: var(--ethred);
+    background-color: var(--ethblack);
     border-radius: 20px;
+    font-size: 1.1vw;
+    font-weight: 550;
+    padding: 10px 15px;
 }

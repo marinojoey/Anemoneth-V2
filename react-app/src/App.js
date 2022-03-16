@@ -12,6 +12,7 @@ import ProtectedRoute from './components/Auth/ProtectedRoute';
 import Homepage from './components/Homepage/Homepage';
 import Web3Login from './components/Web3Login/Web3Login'
 import Navbar from './components/Navbar/Navbar';
+import Menu from './components/Navbar/Menu/Menu';
 import Web2Login from './components/Web2Login/Web2Login';
 import { ethers } from "ethers";
 import contractCall from './components/ContractCall/ContractCall';
@@ -31,6 +32,7 @@ function App() {
   const [dispAddr, setDispAddr] = useState("")
   const [isUser, setUser] = useState(false);
   const [clwnblnc, setclwnblnc] = useState(0)
+  const [menuOpen, setMenuOpen] = useState(false)
 
   const user = useSelector(state => state.session.user);
 
@@ -90,7 +92,7 @@ function App() {
     return (
         <div className='app'>
           <BrowserRouter>
-            <Navbar />
+            <Navbar isUser={isUser} user={user}/>
             <div className='loginComboBox'>
               <div className='web2wrapper'>
                 <LoginForm />
@@ -109,7 +111,7 @@ function App() {
     return (
         <div className='app'>
           <BrowserRouter>
-            <Navbar />
+            <Navbar isUser={isUser} user={user}/>
             <div className='loginComboBox'>
               <div className='web2wrapper'>
                 <LoginForm />
@@ -127,7 +129,7 @@ function App() {
     return (
         <div className='app'>
           <BrowserRouter>
-            <Navbar />
+            <Navbar isUser={isUser} user={user}/>
             <div className='loginComboBox'>
               <div className='web2wrapper'>
                 <LoginForm />
@@ -146,7 +148,7 @@ function App() {
     return (
         <div className='app'>
           <BrowserRouter>
-            <Navbar />
+            <Navbar isUser={isUser} user={user}/>
             <div className='loginComboBox'>
               <div className='web2wrapper'>
                 <div className='successdiv'>You are now logged in!</div>
@@ -164,7 +166,7 @@ function App() {
     return (
         <div className='app'>
           <BrowserRouter>
-            <Navbar />
+            <Navbar isUser={isUser} user={user}/>
             <div className='loginComboBox'>
               <div className='web2wrapper'>
                 <div className='successdiv'>You are now logged in and connected to metamask!</div>
@@ -182,18 +184,21 @@ function App() {
     return (
       <div className='app'>
         <BrowserRouter>
-        <Navbar clwnblnc={clwnblnc} dispAddr={dispAddr} connected={connected} />
-        {/* <Switch>
-          <Route path='/login' exact={true}>
-            <LoginForm />
-          </Route>
-          <Route path='/sign-up' exact={true}>
-            <SignUpForm />
-          </Route> */}
-          <ProtectedRoute path='/' exact={true} >
-              <Homepage connected={connected} addr1={addr1} setUser={setUser} setConn={setConn} setAddr1={setAddr1} setclwnblnc={setclwnblnc} setDispAddr={setDispAddr} clwnblnc={clwnblnc} isUser={isUser} /> 
-          </ProtectedRoute>
-        {/* </Switch> */}
+        <Navbar isUser={isUser} user={user} menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
+        <Menu clwnblnc={clwnblnc} dispAddr={dispAddr} addr1={addr1} menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
+        <div className='homepagewrapper'>
+          {/* <Switch>
+            <Route path='/login' exact={true}>
+              <LoginForm />
+            </Route>
+            <Route path='/sign-up' exact={true}>
+              <SignUpForm />
+            </Route> */}
+            <ProtectedRoute path='/' exact={true} >
+                <Homepage connected={connected} addr1={addr1} setUser={setUser} setConn={setConn} setAddr1={setAddr1} setclwnblnc={setclwnblnc} setDispAddr={setDispAddr} clwnblnc={clwnblnc} isUser={isUser} /> 
+            </ProtectedRoute>
+          {/* </Switch> */}
+        </div>
       </BrowserRouter>
       </div>
     );
