@@ -1,7 +1,7 @@
-import React from 'react'
 import contractCall from '../ContractCall/ContractCall'
-import { ethers } from "ethers";
 import './ConRedeemBtn.css'
+import React from 'react'
+
 const { ethereum } = window;
 
 
@@ -15,13 +15,7 @@ function ConRedeemBtn({ addr1 }) {
             console.log("not connected")
         }
     }
-
-
-  return (
-    <>
-        <div id="redeemCLWN" onClick={redeem}>Redeem</div>
-    </>
-  )
+    return  <div id="redeemCLWN" onClick={redeem}>Redeem</div>
 }
 
 export default ConRedeemBtn;

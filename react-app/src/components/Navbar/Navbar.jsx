@@ -1,6 +1,5 @@
 import './navbar.scss'
 import React from 'react'
-import LogoutButton from '../Auth/LogoutButton/LogoutButton'
 import { NavLink } from 'react-router-dom';
 
 
@@ -47,18 +46,3 @@ function Navbar( { isUser, user, menuOpen, setMenuOpen } ) {
 }
 
 export default Navbar
-
-
-
-
-{/* <div className='infoWrapper'>
-<div className='addrEl'>
-    Address: {dispAddr}
-</div>
-<div className='fishEl'>
-    FISH: {clwnblnc}
-</div>
-</div>
-<div className='logOutWrapper'>
-<LogoutButton className="logoutBtn" ></LogoutButton>
-</div> */}

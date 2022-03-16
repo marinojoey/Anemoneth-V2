@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
-import { NavLink, useParams } from "react-router-dom";
 import { getAllPosts } from "../../../store/posts";
-import { getPostUpvotes, upvotePost } from '../../../store/upvotes';
+import { upvotePost } from '../../../store/upvotes';
 import './Posts.scss';
 
 
@@ -20,15 +19,18 @@ const PostDetail = ({ post }) => {
     // const username = useParams();
 
 
-    useEffect(async () => {
-        await dispatch(getAllPosts());
-        // await dispatch(getPostUpvotes());
-        const res_upvotes = await fetch(`/api/upvotes/post/${postId}`);
-        const upvote = await res_upvotes.json();
-
-        setUpvotes(upvote);
-        setUpvoteUpdate(false);
-    }, [dispatch, upvoteUpdate])
+    useEffect(() => {
+        async function disp() {
+            await dispatch(getAllPosts());
+            // await dispatch(getPostUpvotes());
+            const res_upvotes = await fetch(`/api/upvotes/post/${postId}`);
+            const upvote = await res_upvotes.json();
+    
+            setUpvotes(upvote);
+            setUpvoteUpdate(false);
+        }
+        disp();
+    }, [dispatch, upvoteUpdate, postId])
 
 
     const handleUpvote = async () => {
@@ -47,23 +49,16 @@ const PostDetail = ({ post }) => {
     //     await dispatch(removeUpvote(username, postId));
     //     setUpvoteUpdate(true);
     // };
-
-
-
-
     // Need to make a check, created_at VS updated_at
         // Posted by u/demo 12 hours ago
         // * Edited by u/demo 12 hours ago
-
     // const getToday = () => {
     //     const today = new Date();
-
     //     const yyyy = today.getFullYear();
     //     const mm = (today.getMonth() + 1).toString().padStart(2, "0");
     //     const dd = (today.getDate()).toString().padStart(2, "0");
     //     const hh = (today.getHours()).toString().padStart(2, "0");
     //     const min = (today.getMinutes()).toString().padStart(2, "0");
-
     //     return yyyy + "-" + mm + "-" + dd + ' ' + hh + ':' + min;
     // };
 

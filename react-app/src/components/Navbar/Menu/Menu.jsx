@@ -1,8 +1,8 @@
-import './menu.scss';
 import LogoutButton from '../../Auth/LogoutButton/LogoutButton';
 import ConRedeemBtn from '../../ConRedeemBtn/ConRedeemBtn';
-
 import React from 'react'
+import './menu.scss';
+
 
 function Menu({ redeemable, menuOpen, clwnblnc, dispAddr, addr1, setMenuOpen }) {
   return (
@@ -29,86 +29,3 @@ function Menu({ redeemable, menuOpen, clwnblnc, dispAddr, addr1, setMenuOpen }) 
 }
 
 export default Menu
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{/* <div className='infoWrapper'>
-<div className='addrEl'>
-    Address: {dispAddr}
-</div>
-<div className='fishEl'>
-    FISH: {clwnblnc}
-</div>
-</div>
-<div className='logOutWrapper'>
-<LogoutButton className="logoutBtn" ></LogoutButton>
-</div> */}
