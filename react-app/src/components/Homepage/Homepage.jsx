@@ -8,7 +8,7 @@ import CreatePostModal from '../Posts/CreatePostModal';
 import contractCall from '../ContractCall/ContractCall';
 
 
-function Homepage( { setUser, setConn, setAddr1, setblnc, setclwnblnc, setDispAddr, connected, addr1 } ) {
+function Homepage( { setUser, setRedeemable, setclwnblnc, addr1 } ) {
 
   async function contractCallHandler() {
     let contractInstance = await contractCall();
@@ -16,12 +16,13 @@ function Homepage( { setUser, setConn, setAddr1, setblnc, setclwnblnc, setDispAd
         setUser(true)
         let balanceOf = parseInt(await contractInstance.balanceOf(addr1), 16);
         setclwnblnc(balanceOf);
+        let currRedeemable = parseInt(await contractInstance.getCurrRedeemable(addr1), 16)
+        setRedeemable(currRedeemable);
     } else console.log("Please register")
   }
 
   useEffect(() => {
     contractCallHandler();
-    console.log("isUSer")
   }, [])
 
 let web3s = new Web3Storage({
@@ -53,10 +54,10 @@ async function retrieveFiles(cid) {
     <div className='homepageElwrapper'>
       <h1>HOMEPAGE</h1>
       <div>
-        <label htmlFor='str' className='strlbl'></label>
+        {/* <label htmlFor='str' className='strlbl'></label>
         <input type="text" className='str' placeholder='web3.storage'></input>
         <button className='stringbtn' onClick={ storeFiles }>Post</button>
-        <br/>
+        <br/> */}
         <input type="text" className='cid' placeholder='Content Identifier'></input>
         <button className='retrieve' onClick={ () => retrieveFiles(document.querySelector('.cid').value) }>Retrieve</button>
       </div>
