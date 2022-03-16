@@ -1,11 +1,11 @@
 import React from 'react'
 import contractCall from '../ContractCall/ContractCall'
 import { ethers } from "ethers";
-import './redeemButton.css'
+import './ConRedeemBtn.css'
 const { ethereum } = window;
 
 
-function RedeemButton({ addr1 }) {
+function ConRedeemBtn({ addr1 }) {
 
     async function redeem() {
         if(ethereum) {
@@ -24,4 +24,4 @@ function RedeemButton({ addr1 }) {
   )
 }
 
-export default RedeemButton;
+export default ConRedeemBtn;

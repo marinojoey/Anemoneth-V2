@@ -1,10 +1,10 @@
 import './menu.scss';
 import LogoutButton from '../../Auth/LogoutButton/LogoutButton';
-import RedeemButton from '../../RedeemButton/RedeemButton';
+import ConRedeemBtn from '../../ConRedeemBtn/ConRedeemBtn';
 
 import React from 'react'
 
-function Menu({ menuOpen, clwnblnc, dispAddr, addr1, setMenuOpen }) {
+function Menu({ redeemable, menuOpen, clwnblnc, dispAddr, addr1, setMenuOpen }) {
   return (
     <div className={"menu " + (menuOpen && "active")} id="menu">
         <ul className={"list " + (menuOpen && "active")}>
@@ -15,10 +15,10 @@ function Menu({ menuOpen, clwnblnc, dispAddr, addr1, setMenuOpen }) {
                 <div className='fishEl'>FISH balance: {clwnblnc} </div>
             </li>
             <li>
-                <div className='fishEl'>FISH available: {clwnblnc} </div>
+                <div className='fishEl'>FISH redeemable: {redeemable} </div>
             </li>
             <li>
-                <RedeemButton addr1={addr1} />    
+                <ConRedeemBtn addr1={addr1} />    
             </li>
             <li onClick={()=>setMenuOpen(false)}>
                 <LogoutButton className="btn logoutBtn" ></LogoutButton>

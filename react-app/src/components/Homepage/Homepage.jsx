@@ -5,7 +5,6 @@ import { Web3Storage } from 'web3.storage/dist/bundle.esm.min.js'
 import AllPosts from '../Posts/AllPosts';
 import CreatePostModal from '../Posts/CreatePostModal';
 
-import RedeemButton from '../RedeemButton/RedeemButton';
 import contractCall from '../ContractCall/ContractCall';
 
 

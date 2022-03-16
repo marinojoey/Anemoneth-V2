@@ -33,6 +33,7 @@ function App() {
   const [isUser, setUser] = useState(false);
   const [clwnblnc, setclwnblnc] = useState(0)
   const [menuOpen, setMenuOpen] = useState(false)
+  const [redeemable, setRedeemable] = useState(0)
 
   const user = useSelector(state => state.session.user);
 
@@ -81,6 +82,9 @@ function App() {
       setUser(true)
       let balanceOf = parseInt(await contractInstance.balanceOf(addr1), 16);
       setclwnblnc(balanceOf);
+      let currRedeemable = parseInt(await contractInstance.getCurrRedeemable(addr1), 16)
+      setRedeemable(currRedeemable);
+
     } else console.log("Please register")
   }
 
@@ -155,6 +159,7 @@ function App() {
                 <div className='requestdiv'>Please connect to metamask</div>
               </div>
               <div className='web3wrapper'>
+                <div className='successdiv'>You're almost there!</div>
                 <div className='requestdiv'>Please connect to metamask</div>
               </div>
             </div>
@@ -185,7 +190,7 @@ function App() {
       <div className='app'>
         <BrowserRouter>
         <Navbar isUser={isUser} user={user} menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
-        <Menu clwnblnc={clwnblnc} dispAddr={dispAddr} addr1={addr1} menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
+        <Menu redeemable={redeemable} clwnblnc={clwnblnc} dispAddr={dispAddr} addr1={addr1} menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
         <div className='homepagewrapper'>
           {/* <Switch>
             <Route path='/login' exact={true}>
