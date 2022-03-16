@@ -183,17 +183,17 @@ function App() {
       <div className='app'>
         <BrowserRouter>
         <Navbar clwnblnc={clwnblnc} dispAddr={dispAddr} connected={connected} />
-        <Switch>
+        {/* <Switch>
           <Route path='/login' exact={true}>
             <LoginForm />
           </Route>
           <Route path='/sign-up' exact={true}>
             <SignUpForm />
-          </Route>
+          </Route> */}
           <ProtectedRoute path='/' exact={true} >
               <Homepage connected={connected} addr1={addr1} setUser={setUser} setConn={setConn} setAddr1={setAddr1} setclwnblnc={setclwnblnc} setDispAddr={setDispAddr} clwnblnc={clwnblnc} isUser={isUser} /> 
           </ProtectedRoute>
-        </Switch>
+        {/* </Switch> */}
       </BrowserRouter>
       </div>
     );
