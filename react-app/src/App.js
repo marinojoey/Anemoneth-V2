@@ -86,22 +86,34 @@ function App() {
     return null;
   }
   
-  if( (!user && !isUser) || !user || !isUser ) {
+  if( (!user && !connected && !isUser) ) {
     return (
         <div className='app'>
           <BrowserRouter>
             <Navbar />
             <div className='loginComboBox'>
               <div className='web2wrapper'>
-                <Switch>
-                  <Route path='/login' exact={true}>
-                    <LoginForm />
-                  </Route>
-                  <Route path='/sign-up' exact={true}>
-                    <SignUpForm />
-                  </Route>
-                </Switch>
-                <Web2Login />
+                <LoginForm />
+                <SignUpForm />
+              </div>
+              <div className='web3wrapper'>
+              <div className='successdiv'></div>
+                <div className='requestdiv'>Please connect to metamask</div>
+              </div>
+            </div>
+          </BrowserRouter>
+        </div>
+      );
+  }
+  else if( (!user && connected && !isUser) ) {
+    return (
+        <div className='app'>
+          <BrowserRouter>
+            <Navbar />
+            <div className='loginComboBox'>
+              <div className='web2wrapper'>
+                <LoginForm />
+                <SignUpForm />
               </div>
               <div className='web3wrapper'>
                 <Web3Login setUser={setUser} setclwnblnc={setclwnblnc}  addr1={addr1} connected={connected} />
@@ -111,7 +123,62 @@ function App() {
         </div>
       );
   }
-  else if (user && isUser) {
+  else if( (!user && connected && isUser) ) {
+    return (
+        <div className='app'>
+          <BrowserRouter>
+            <Navbar />
+            <div className='loginComboBox'>
+              <div className='web2wrapper'>
+                <LoginForm />
+                <SignUpForm />
+              </div>
+              <div className='web3wrapper'>
+                <div className='successdiv'>Wallet is connected and you're registered!</div>
+                <div className='requestdiv'>Please login to your left!</div>
+              </div>
+            </div>
+          </BrowserRouter>
+        </div>
+      );
+  }
+  else if( (user && !connected && !isUser) ) {
+    return (
+        <div className='app'>
+          <BrowserRouter>
+            <Navbar />
+            <div className='loginComboBox'>
+              <div className='web2wrapper'>
+                <div className='successdiv'>You are now logged in!</div>
+                <div className='requestdiv'>Please connect to metamask</div>
+              </div>
+              <div className='web3wrapper'>
+                <div className='requestdiv'>Please connect to metamask</div>
+              </div>
+            </div>
+          </BrowserRouter>
+        </div>
+      );
+  }
+  else if( (user && connected && !isUser) ) {
+    return (
+        <div className='app'>
+          <BrowserRouter>
+            <Navbar />
+            <div className='loginComboBox'>
+              <div className='web2wrapper'>
+                <div className='successdiv'>You are now logged in and connected to metamask!</div>
+                <div className='requestdiv'>Please register your account</div>
+              </div>
+              <div className='web3wrapper'>
+                <Web3Login setUser={setUser} setclwnblnc={setclwnblnc}  addr1={addr1} connected={connected} />
+              </div>
+            </div>
+          </BrowserRouter>
+        </div>
+      );
+  }
+  else if (user && connected && isUser) {
     return (
       <div className='app'>
         <BrowserRouter>
