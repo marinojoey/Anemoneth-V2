@@ -3,13 +3,13 @@ from app.models import db, User
 
 # Adds a demo user, you can add other users here if you want
 def seed_users():
-    demo = User(username='demo', address=123, password='password')
-    joey = User(username='joey', address=1234, password='password')
-    savanah = User(username='savanah', address=12345, password='password')
-    satoshi = User(username='satoshi', address=123456, password='password')
-    vitalik = User(username='vitalik', address=1234567, password='password')
-    gavin = User(username='gavin', address=12345678, password='password')
-    charles = User(username='charles', address=123456789, password='password')
+    demo = User(username='demo', address='0x1234567890123456789012345678901234567890', password='password')
+    joey = User(username='joey', address='0x2234567890123456789012345678901234567890', password='password')
+    savanah = User(username='savanah', address='0x3234567890123456789012345678901234567890', password='password')
+    satoshi = User(username='satoshi', address='0x4234567890123456789012345678901234567890', password='password')
+    vitalik = User(username='vitalik', address='0x5234567890123456789012345678901234567890', password='password')
+    gavin = User(username='gavin', address='0x6234567890123456789012345678901234567890', password='password')
+    charles = User(username='charles', address='0x7234567890123456789012345678901234567890', password='password')
 
     db.session.add(demo)
     db.session.add(joey)
