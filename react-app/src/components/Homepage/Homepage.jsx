@@ -26,7 +26,7 @@ function Homepage( { setUser, setRedeemable, setclwnblnc, addr1 } ) {
   return (
     <div className='homepageElwrapper'>
       <CreatePostModal />
-      <AllPosts />
+      <AllPosts addr1={addr1} />
     </div>
   )
 }

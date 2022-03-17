@@ -2,10 +2,13 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllPosts } from "../../../store/posts";
 import { upvotePost } from '../../../store/upvotes';
+import contractCall from "../../ContractCall/ContractCall";
+import { ethers } from "ethers";
 import './Posts.scss';
 
+const { ethereum } = window;
 
-const PostDetail = ({ post }) => {
+const PostDetail = ({ post, addr1 }) => {
     const [upvotes, setUpvotes] = useState([]);
     const [upvoteUpdate, setUpvoteUpdate] = useState(false);
     const dispatch = useDispatch();
@@ -19,10 +22,9 @@ const PostDetail = ({ post }) => {
     // const username = useParams();
 
     // Getting wallet addresses associated to users that made posts
-    const statePosts = useSelector(state => state.posts);
-    console.log('++++++++++', statePosts)
-    console.log('----------', post)
-
+    // const statePosts = useSelector(state => state.posts);
+    const postersAddress = post.address;
+    const usersAddress = addr1.addr1;
 
     useEffect(() => {
         async function disp() {
@@ -73,21 +75,49 @@ const PostDetail = ({ post }) => {
         return newDate;
     }
 
-    // console.log('tiiiiiiime', dateFormatted(post.created_at))
+    async function tipFish() {
+        let contractInstance = await contractCall();
+        if (await contractInstance.isRegistered(usersAddress)) {
+            await contractInstance.transfer(postersAddress, 1)
+            //Add UI feedback
+        }
+    }
+
+    async function tipEth() {
+        ethereum.request({ method: 'eth_requestAccounts'});
+        let _provider = new ethers.providers.Web3Provider(ethereum);
+        let _signer = _provider.getSigner();
+        let tx = {
+            to: postersAddress,
+            value: ethers.utils.parseEther(".0001")
+        }
+        await _signer.sendTransaction(tx)
+            .then((txObj) => {
+                console.log('txHash', txObj.hash)
+            })
+        console.log("passed");
+    }
 
     return (
         <div className='post-detail-container'>
-            {/* <NavLink to={`/posts/${post.id}`} className='post-navlink-container'>
-            </NavLink> */}
-            {upvoteCheck}
-            <div id='post-username'>
-                Posted by u/{post.username} on {dateFormatted(post.created_at)}
+            <div className="leftwrapper">
+                {/* <NavLink to={`/posts/${post.id}`} className='post-navlink-container'>
+                </NavLink> */}
+                {upvoteCheck}
+                <div id='post-username'>
+                    Posted by u/{post.username} on {dateFormatted(post.created_at)}
+                </div>
+                <div id='post-title'>
+                    {post.title}
+                </div>
+                <div id='post-caption'>
+                    {post.caption}
+                </div>
+                <div>{post.address}</div>
             </div>
-            <div id='post-title'>
-                {post.title}
-            </div>
-            <div id='post-caption'>
-                {post.caption}
+            <div className="rightwrapper">
+                <button className="tipbtn" onClick={tipFish}>Tip 1 FISH</button>
+                <button className="tipbtn" onClick={tipEth}>Tip ETH (1 GWEI)</button>
             </div>
         </div>
     )

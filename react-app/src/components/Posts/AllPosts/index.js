@@ -5,7 +5,7 @@ import PostDetail from "./PostDetail";
 import './Posts.scss';
 
 
-const AllPosts = () => {
+const AllPosts = ( addr1 ) => {
     const dispatch = useDispatch();
 
     const allPosts = useSelector(state => state.posts);
@@ -26,7 +26,7 @@ const AllPosts = () => {
         <div className='all-posts-container'>
             <div className="web2posts">
                 {allPostsArrReverse.map(post => (
-                    <PostDetail post={post} key={post.id} />
+                    <PostDetail addr1={addr1} post={post} key={post.id} />
                 ))}
             </div>
             <div className="web3posts">
