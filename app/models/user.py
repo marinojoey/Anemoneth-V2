@@ -9,7 +9,7 @@ class User(db.Model, UserMixin):
 
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(20), nullable=False, unique=True)
-    address = db.Column(db.Integer, nullable=False, unique=True)
+    address = db.Column(db.String(42), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
 
     posts = db.relationship('Post', back_populates='user', cascade="all, delete")
