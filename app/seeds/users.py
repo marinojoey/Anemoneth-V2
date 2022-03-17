@@ -3,13 +3,13 @@ from app.models import db, User
 
 # Adds a demo user, you can add other users here if you want
 def seed_users():
-    demo = User(username='demo', address='0x1234567890123456789012345678901234567890', password='password')
-    joey = User(username='joey', address='0x2234567890123456789012345678901234567890', password='password')
-    savanah = User(username='savanah', address='0x3234567890123456789012345678901234567890', password='password')
-    satoshi = User(username='satoshi', address='0x4234567890123456789012345678901234567890', password='password')
-    vitalik = User(username='vitalik', address='0x5234567890123456789012345678901234567890', password='password')
-    gavin = User(username='gavin', address='0x6234567890123456789012345678901234567890', password='password')
-    charles = User(username='charles', address='0x7234567890123456789012345678901234567890', password='password')
+    demo = User(username='demo', address='0x1111167890123456789012345678901234567890', password='password')
+    joey = User(username='joey', address='0x2222267890123456789012345678901234567890', password='password')
+    savanah = User(username='savanah', address='0x3333333890123456789012345678901234567890', password='password')
+    satoshi = User(username='satoshi', address='0x4444447890123456789012345678901234567890', password='password')
+    vitalik = User(username='vitalik', address='0x5555557890123456789012345678901234567890', password='password')
+    gavin = User(username='gavin', address='0x6666667890123456789012345678901234567890', password='password')
+    charles = User(username='charles', address='0x7777777890123456789012345678901234567890', password='password')
 
     db.session.add(demo)
     db.session.add(joey)

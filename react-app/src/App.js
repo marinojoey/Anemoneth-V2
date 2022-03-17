@@ -63,7 +63,6 @@ function App() {
         setConn(true);
     }
   }
-
   function makeDispAddr(numAddr) {
     const strAddr = numAddr.toString();
     const first = strAddr.slice(0,4);
@@ -91,11 +90,11 @@ function App() {
     return (
         <div className='app'>
           <BrowserRouter>
-            <Navbar isUser={isUser} user={user}/>
+            <Navbar isUser={isUser} connected={connected} />
             <div className='loginComboBox'>
               <div className='web2wrapper'>
                 <LoginForm />
-                <SignUpForm />
+                <SignUpForm addr1={addr1} connected={connected} />
               </div>
               <div className='web3wrapper'>
               <div className='successdiv'></div>
@@ -110,11 +109,11 @@ function App() {
     return (
         <div className='app'>
           <BrowserRouter>
-            <Navbar isUser={isUser} user={user}/>
+            <Navbar isUser={isUser} connected={connected} />
             <div className='loginComboBox'>
               <div className='web2wrapper'>
                 <LoginForm />
-                <SignUpForm />
+                <SignUpForm addr1={addr1} connected={connected} />
               </div>
               <div className='web3wrapper'>
                 <Web3Login setUser={setUser} setclwnblnc={setclwnblnc}  addr1={addr1} connected={connected} />
@@ -132,7 +131,7 @@ function App() {
             <div className='loginComboBox'>
               <div className='web2wrapper'>
                 <LoginForm />
-                <SignUpForm />
+                <SignUpForm addr1={addr1} connected={connected} />
               </div>
               <div className='web3wrapper'>
                 <div className='successdiv'>Wallet is connected and you're registered!</div>
@@ -167,6 +166,7 @@ function App() {
         <div className='app'>
           <BrowserRouter>
             <Navbar isUser={isUser} user={user}/>
+            {/* Test this ^^^^. I am not sure if the navbar props need to be passed if !isUSer */}
             <div className='loginComboBox'>
               <div className='web2wrapper'>
                 <div className='successdiv'>You are now logged in and connected to metamask!</div>

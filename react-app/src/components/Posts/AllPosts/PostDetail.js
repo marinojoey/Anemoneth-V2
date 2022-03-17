@@ -77,6 +77,8 @@ const PostDetail = ({ post, addr1 }) => {
 
     async function tipFish() {
         let contractInstance = await contractCall();
+        console.log("TIP FISH User's Address: ", usersAddress)
+        console.log("TIP FISH Poster's Address: ", postersAddress)
         if (await contractInstance.isRegistered(usersAddress)) {
             await contractInstance.transfer(postersAddress, 1)
             //Add UI feedback
@@ -85,6 +87,8 @@ const PostDetail = ({ post, addr1 }) => {
 
     async function tipEth() {
         ethereum.request({ method: 'eth_requestAccounts'});
+        console.log("TIP ETH User's Address: ", usersAddress)
+        console.log("TIP ETH Poster's Address: ", postersAddress)
         let _provider = new ethers.providers.Web3Provider(ethereum);
         let _signer = _provider.getSigner();
         let tx = {
