@@ -23,13 +23,16 @@ def getUpvotes(postId):
 # @login_required
 def getUserUpvotes(username):
     user = User.query.filter(User.username == username).first_or_404()
-    # userId = user.id
+    userId = user.id
 
-    res = {}
-    for post in user.upvote_posts:
-        res[post.id] = post.to_dict()
+    posts = Post.query.filter(userId == Post.user_id).all()
 
-    return res
+    count = 0
+    for post in posts:
+        upvotes = getUpvotes(post.id)
+        count += len(upvotes)
+
+    return str(count)
 
 
 @upvote_routes.route('/post/<int:postId>/user/<username>', methods=["POST"])

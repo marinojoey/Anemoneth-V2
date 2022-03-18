@@ -19,26 +19,27 @@ def seed_posts():
     user6 = User.query.get(6)
     user7 = User.query.get(7)
 
-    post7.user_upvotes.append(user1)
-    post7.user_upvotes.append(user2)
-    post7.user_upvotes.append(user3)
-    post7.user_upvotes.append(user4)
-    post7.user_upvotes.append(user5)
-    post7.user_upvotes.append(user6)
-    post7.user_upvotes.append(user7)
+    post1.user_upvotes.append(user1)
+    post1.user_upvotes.append(user2)
+    post1.user_upvotes.append(user3)
+    post1.user_upvotes.append(user4)
+    post1.user_upvotes.append(user5)
+    post1.user_upvotes.append(user6)
+    post1.user_upvotes.append(user7)
 
-    post6.user_upvotes.append(user1)
-    post6.user_upvotes.append(user2)
-    post6.user_upvotes.append(user3)
+    post2.user_upvotes.append(user1)
+    post2.user_upvotes.append(user2)
+    post2.user_upvotes.append(user3)
+
+    post3.user_upvotes.append(user1)
+    post3.user_upvotes.append(user2)
+    post3.user_upvotes.append(user3)
 
     post5.user_upvotes.append(user1)
     post5.user_upvotes.append(user2)
-    post5.user_upvotes.append(user3)
 
-    post4.user_upvotes.append(user2)
-    post4.user_upvotes.append(user3)
-
-    post3.user_upvotes.append(user1)
+    post6.user_upvotes.append(user1)
+    post7.user_upvotes.append(user1)
 
 
     db.session.add(post1)

@@ -47,6 +47,8 @@ export const getPostUpvotes = (postId) => async dispatch => {
 export const getUsersUpvotes = (username) => async dispatch => {
     const response = await fetch(`/api/upvotes/user/${username}`);
 
+    // console.log('---------------', response)
+
     if (response.ok) {
         const data = await response.json();
         if (data.errors) {

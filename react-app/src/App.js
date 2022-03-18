@@ -19,7 +19,7 @@ const { ethereum } = window;
 
 
 function App() {
-  
+
   let displayAddr;
   let provider;
   let signer;
@@ -70,7 +70,7 @@ function App() {
     displayAddr = `${first}...${last}`;
     setDispAddr(displayAddr);
   }
-  
+
   async function contractCallHandler() {
     let contractInstance = await contractCall();
     if (await contractInstance.isRegistered(addr1)) {
@@ -85,7 +85,7 @@ function App() {
   if (!loaded) {
     return null;
   }
-  
+
   if( (!user && !connected && !isUser) ) {
     return (
         <div className='app'>
@@ -188,7 +188,7 @@ function App() {
         <Menu redeemable={redeemable} clwnblnc={clwnblnc} dispAddr={dispAddr} addr1={addr1} menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
         <div className='homepagewrapper'>
             <ProtectedRoute path='/' exact={true} >
-                <Homepage addr1={addr1} setUser={setUser} setclwnblnc={setclwnblnc} setRedeemable={setRedeemable} /> 
+                <Homepage addr1={addr1} setUser={setUser} setclwnblnc={setclwnblnc} setRedeemable={setRedeemable} />
             </ProtectedRoute>
         </div>
       </BrowserRouter>
