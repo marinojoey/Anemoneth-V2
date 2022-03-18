@@ -107,17 +107,22 @@ const PostDetail = ({ post, addr1 }) => {
             <div className="leftwrapper">
                 {/* <NavLink to={`/posts/${post.id}`} className='post-navlink-container'>
                 </NavLink> */}
-                {upvoteCheck}
-                <div id='post-username'>
-                    Posted by u/{post.username} on {dateFormatted(post.created_at)}
+                <div id='post-upvotes'>
+                    {upvoteCheck}
+                    <div id='upvote-count'>{Object.keys(upvotes).length} upvote</div>
                 </div>
-                <div id='post-title'>
-                    {post.title}
+                <div id ='post-content'>
+                    <span id='post-username'>
+                        Posted by u/{post.username} on {dateFormatted(post.created_at)}
+                    </span>
+                    <span id='post-title'>
+                        {post.title}
+                    </span>
+                    <span id='post-caption'>
+                        {post.caption}
+                    </span>
+                    <span>{post.address}</span>
                 </div>
-                <div id='post-caption'>
-                    {post.caption}
-                </div>
-                <div>{post.address}</div>
             </div>
             <div className="rightwrapper">
                 <button className="tipbtn" onClick={tipFish}>Tip 1 FISH</button>
