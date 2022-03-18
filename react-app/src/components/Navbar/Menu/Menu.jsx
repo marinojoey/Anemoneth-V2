@@ -14,13 +14,14 @@ function Menu({ redeemable, menuOpen, clwnblnc, dispAddr, addr1, setMenuOpen }) 
     const current_user = useSelector(state => state.session.user);
     const username = current_user.username;
 
-    useEffect(async () => {
-        const res = await fetch(`/api/upvotes/user/${username}`);
-        const count = await res.json()
-
-        // console.log('===========', typeof(count))
-
-        setUpvoteCount(count)
+    useEffect(() => {
+        async function fetch() {
+            const res = await fetch(`/api/upvotes/user/${username}`);
+            const count = await res.json()
+            // console.log('===========', typeof(count))
+            setUpvoteCount(count)
+        }
+        fetch();
     }, [dispatch, upvoteCount])
 
     return (

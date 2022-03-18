@@ -1,7 +1,7 @@
 import './mmConnectBtn.scss'
 import React from 'react'
 
-const anemonethProxyAddress = "0x5ceeB384B6224874938c4280A9E545c61BC06984";
+const anemonethProxyAddress = "0xf69BEB25fAd2D18141895b056C3c2CcDbaa9E0f4";
 const tokenSymbol = 'FISH';
 const tokenDecimals = 18;
 
