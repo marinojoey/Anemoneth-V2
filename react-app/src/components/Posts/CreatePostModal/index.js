@@ -36,7 +36,7 @@ function CreatePostModal() {
         </Modal>
       )}
       <div className='ipfs-retrieve'>
-        <input type="text" className='cidinput' placeholder='   Content Identifier'></input>
+        <input type="text" className='cidinput' placeholder='   Content Identifier to retrieve from IPFS'></input>
         <button className='retrieveBtn' onClick={ () => retrieveFiles(document.querySelector('.cidinput').value) }>Retrieve</button>
       </div>
     </div>
