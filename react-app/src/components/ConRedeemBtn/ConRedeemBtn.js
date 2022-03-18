@@ -15,7 +15,7 @@ function ConRedeemBtn({ addr1 }) {
             console.log("not connected")
         }
     }
-    return  <div id="redeemCLWN" onClick={redeem}>Redeem</div>
+    return  <div id="redeemFISH" onClick={redeem}>Redeem</div>
 }
 
 export default ConRedeemBtn;

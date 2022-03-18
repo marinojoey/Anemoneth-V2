@@ -80,7 +80,7 @@ const PostDetail = ({ post, addr1 }) => {
         console.log("TIP FISH User's Address: ", usersAddress)
         console.log("TIP FISH Poster's Address: ", postersAddress)
         if (await contractInstance.isRegistered(usersAddress)) {
-            await contractInstance.transfer(postersAddress, 1)
+            await contractInstance.transfer(postersAddress, 2)
             //Add UI feedback
         }
     }
