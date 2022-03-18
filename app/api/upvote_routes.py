@@ -34,6 +34,22 @@ def getUserUpvotes(username):
 
     return str(count)
 
+@upvote_routes.route('/totals')
+# @login_required
+def getAllUpvoteCounts():
+    res = {}
+    users = User.query.all()
+    {'users': [user.to_dict() for user in users]}
+    res['users'] = [user.to_dict() for user in users]
+
+    userCounts = {}
+    for user in res['users']:
+        count = getUserUpvotes(user['username'])
+        userCounts[user['username']] = int(count)
+
+    # print('+++++++', userCounts)
+    return userCounts
+
 
 @upvote_routes.route('/post/<int:postId>/user/<username>', methods=["POST"])
 # @login_required
