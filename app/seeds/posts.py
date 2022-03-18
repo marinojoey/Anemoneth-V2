@@ -1,4 +1,4 @@
-from app.models import db, Post
+from app.models import db, Post, User
 
 
 # Adds a demo user, you can add other users here if you want
@@ -10,6 +10,36 @@ def seed_posts():
     post5 = Post(user_id=5, title='test5--', caption='This post should hav been made my address 555555')
     post6 = Post(user_id=6, title='test6---', caption='This post should hav been made my address 666666')
     post7 = Post(user_id=7, title='test7-----', caption='This post should hav been made my address 777777')
+
+    user1 = User.query.get(1)
+    user2 = User.query.get(2)
+    user3 = User.query.get(3)
+    user4 = User.query.get(4)
+    user5 = User.query.get(5)
+    user6 = User.query.get(6)
+    user7 = User.query.get(7)
+
+    post7.user_upvotes.append(user1)
+    post7.user_upvotes.append(user2)
+    post7.user_upvotes.append(user3)
+    post7.user_upvotes.append(user4)
+    post7.user_upvotes.append(user5)
+    post7.user_upvotes.append(user6)
+    post7.user_upvotes.append(user7)
+
+    post6.user_upvotes.append(user1)
+    post6.user_upvotes.append(user2)
+    post6.user_upvotes.append(user3)
+
+    post5.user_upvotes.append(user1)
+    post5.user_upvotes.append(user2)
+    post5.user_upvotes.append(user3)
+
+    post4.user_upvotes.append(user2)
+    post4.user_upvotes.append(user3)
+
+    post3.user_upvotes.append(user1)
+
 
     db.session.add(post1)
     db.session.add(post2)
