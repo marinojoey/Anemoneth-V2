@@ -1,7 +1,7 @@
 .menu {
     width: 700px;
     height: 80vh;
-    background-color: var(--ethgray);
+    background-color: var(--ethblack);
     position: fixed;
     top: 60px;
     right: -700px;
@@ -31,7 +31,7 @@
         list-style: none;
         font-size: 1vw;
         font-weight: 400;
-        color: var(--ethpeach);
+        color: var(--anemonered);
         width: 80%;
         height: 80%;
 
@@ -56,7 +56,7 @@
                 transition: all 2s ease;
                 display: flex;
                 border: none;
-                background-color: var(--ethpeach);
+                background-color: var(--anemonered);
                 border-radius: 20px;
                 font-size: 1vw;
                 font-weight: 550;

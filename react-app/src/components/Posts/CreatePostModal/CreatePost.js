@@ -40,10 +40,10 @@ const CreatePosting = ({ setShowModal }) => {
     }
 
     let titleInput;
-    if (titleLength < 3 || titleLength > 50) {
-        titleInput = <div id='title-input' style={{color: 'red'}}>{titleLength} / 50</div>
+    if (titleLength < 3 || titleLength > 25) {
+        titleInput = <div id='title-input' style={{color: 'red'}}>{titleLength} / 25</div>
     } else {
-        titleInput = <div id='title-input' style={{color: 'var(--ethlightgray)'}}>{titleLength} / 50</div>
+        titleInput = <div id='title-input' style={{color: 'var(--ethlightgray)'}}>{titleLength} / 25</div>
     }
 
     let web3s = new Web3Storage({
@@ -91,8 +91,8 @@ const CreatePosting = ({ setShowModal }) => {
                 {/* <div className="errors">
                     {errors.caption ? `${errors.caption}` : ''}
                 </div> */}
-                <button id='post-submit' type="submit" disabled={!titleLength || titleLength>50 || !caption.length}>Submit Post</button>
-                <button id='post-submit' type="submit" onClick={ storeFiles } disabled={!titleLength || titleLength>50 || !caption.length}>Submit Post to IPFS</button>
+                <button id='post-submit' type="submit" disabled={!titleLength || titleLength>25 || !caption.length}>Submit Post</button>
+                <button id='post-submit' type="submit" onClick={ storeFiles } disabled={!titleLength || titleLength>25 || !caption.length}>Submit Post to IPFS</button>
             </form>
         </div>
     )

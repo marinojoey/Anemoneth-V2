@@ -7,12 +7,13 @@
         /* ************* Create post button (index.js) ************* */
     #create-post {
         margin: 10px 0;
+        margin-left: 7.5%;
         padding: 5px;
         width: fit-content;
         font-size: 13px;
         font-weight: 600;
         color: white;
-        background-color: var(--ethblue);
+        background-color: var(--anemoneblue);
         border: 1px solid var(--ethblue);
         border-radius: 10px;
         cursor: pointer;
@@ -31,6 +32,8 @@
             width: 60%;
             border: none;
             border-radius: 30px;
+            background-color: rgb(29, 29, 29);
+            margin-right: 1%;
         }
         .retrieveBtn{
             margin: 10px 0;
@@ -39,7 +42,7 @@
             font-size: 13px;
             font-weight: 600;
             color: white;
-            background-color: var(--ethblue);
+            background-color: var(--anemoneblue);
             border: 1px solid var(--ethblue);
             border-radius: 10px;
             cursor: pointer;
@@ -51,7 +54,7 @@
 .post-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     padding: 25px;
     background-color: var(--ethblack);

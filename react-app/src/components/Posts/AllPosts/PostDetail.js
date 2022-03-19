@@ -104,29 +104,30 @@ const PostDetail = ({ post, addr1 }) => {
 
     return (
         <div className='post-detail-container'>
-            <div className="leftwrapper">
-                {/* <NavLink to={`/posts/${post.id}`} className='post-navlink-container'>
-                </NavLink> */}
-                <div id='post-upvotes'>
-                    {upvoteCheck}
-                    <div id='upvote-count'>{Object.keys(upvotes).length} upvote</div>
-                </div>
+            <div className="votewrapper">
+                {upvoteCheck}
+                <div id='upvote-count'>{Object.keys(upvotes).length}</div>
+            </div>
+            <div className="mainwrapper">
                 <div id ='post-content'>
-                    <span id='post-username'>
-                        Posted by u/{post.username} on {dateFormatted(post.created_at)}
-                    </span>
-                    <span id='post-title'>
-                        {post.title}
+                    <span id='post-heading'>
+                        <div className="left">
+                            <div className="title">{post.title}</div> 
+                            <div className="username">@{post.username}</div>
+                        </div>
+                        <div className="right">
+                            {/* <div>TIP: </div> */}
+                            <button className="tipbtn" onClick={tipFish}>1 FISH</button>
+                            <button className="tipbtn" onClick={tipEth}>1 GWEI</button>
+                        </div>
                     </span>
                     <span id='post-caption'>
                         {post.caption}
                     </span>
-                    <span>{post.address}</span>
+                    <span id='metadata'>
+                        {dateFormatted(post.created_at)} {post.address}
+                    </span>
                 </div>
-            </div>
-            <div className="rightwrapper">
-                <button className="tipbtn" onClick={tipFish}>Tip 1 FISH</button>
-                <button className="tipbtn" onClick={tipEth}>Tip ETH (1 GWEI)</button>
             </div>
         </div>
     )

@@ -4,8 +4,10 @@
     color: var(--ethred);
     background-color: var(--ethblack);
     border-radius: 20px;
+    border-style: solid;
+    border-color: (--ethred);
     font-size: 1.1vw;
     font-weight: 550;
-    padding: 8px 15px;
+    padding: 4px 10px;
     cursor: pointer;
 }
