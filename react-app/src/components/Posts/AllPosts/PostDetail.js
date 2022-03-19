@@ -47,9 +47,17 @@ const PostDetail = ({ post, addr1 }) => {
 
     let upvoteCheck;
     if (upvotes[user_id]) {
-        upvoteCheck = <i id='upvote' className="fa-solid fa-arrow-up-long" style={{ "color": "#ff7433" }}></i>
+        upvoteCheck = 
+        <div>
+            <i id='upvote' className="fa-solid fa-arrow-up-long" style={{ "color": "#ff7433" }}></i>
+            <div id='upvote-count' style={{ "color": "#ff7433" }}>{Object.keys(upvotes).length}</div>
+        </div>
     } else {
-        upvoteCheck = <i id='un-upvote' className="fa-solid fa-arrow-up-long" style={{ "color": "#b0b0b0" }} onClick={() => handleUpvote()}></i>
+        upvoteCheck = 
+        <div>
+            <i id='un-upvote' className="fa-solid fa-arrow-up-long" style={{ "color": "#b0b0b0" }} onClick={() => handleUpvote()}></i>
+            <div id='upvote-count' style={{ "color": "#b0b0b0" }}>{Object.keys(upvotes).length}</div>
+        </div>
     }
 
     // const handleUnUpvote = async () => {
@@ -106,7 +114,6 @@ const PostDetail = ({ post, addr1 }) => {
         <div className='post-detail-container'>
             <div className="votewrapper">
                 {upvoteCheck}
-                <div id='upvote-count'>{Object.keys(upvotes).length}</div>
             </div>
             <div className="mainwrapper">
                 <div id ='post-content'>
@@ -116,7 +123,6 @@ const PostDetail = ({ post, addr1 }) => {
                             <div className="username">@{post.username}</div>
                         </div>
                         <div className="right">
-                            {/* <div>TIP: </div> */}
                             <button className="tipbtn" onClick={tipFish}>1 FISH</button>
                             <button className="tipbtn" onClick={tipEth}>1 GWEI</button>
                         </div>
