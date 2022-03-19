@@ -20,6 +20,10 @@
                 align-items: center;
                 width: 5%;
                 padding-top: 3%;
+
+                #upvote-count {
+                    color: #b0b0b0;
+                }
             }
 
             .mainwrapper{
@@ -98,6 +102,15 @@
     }
     .web3posts{
         width: 50%;
+        display: flex;
+        flex-direction: column;
+
+        .fishpic {
+            width: 80%;
+            height: auto;
+            // bottom: 0;
+            margin-top: 25px;
+        }
         
         .post-detail-container {
             display: flex;
@@ -179,6 +192,7 @@
                     #post-caption {
                         font-size: 13px;
                         color: white;
+                        padding-top: 3%;
                     }
     
                     #metadata {

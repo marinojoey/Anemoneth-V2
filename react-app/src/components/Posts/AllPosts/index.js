@@ -32,6 +32,8 @@ const AllPosts = ( addr1 ) => {
             </div>
             <div className="web3posts">
                 <Web3PostDetail />
+                <img src="assets/fish.png" alt="fish" className='fishpic'></img>
+
             </div>
         </div>
     )

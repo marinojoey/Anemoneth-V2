@@ -41,11 +41,12 @@ def getAllUpvoteCounts():
     users = User.query.all()
     {'users': [user.to_dict() for user in users]}
     res['users'] = [user.to_dict() for user in users]
+    # print('-----------', res)
 
     userCounts = {}
     for user in res['users']:
         count = getUserUpvotes(user['username'])
-        userCounts[user['username']] = int(count)
+        userCounts[user['address']] = int(count)
 
     # print('+++++++', userCounts)
     return userCounts

@@ -92,7 +92,7 @@ const CreatePosting = ({ setShowModal }) => {
                     {errors.caption ? `${errors.caption}` : ''}
                 </div> */}
                 <button id='post-submit' type="submit" disabled={!titleLength || titleLength>25 || !caption.length}>Submit Post</button>
-                <button id='post-submit' type="submit" onClick={ storeFiles } disabled={!titleLength || titleLength>25 || !caption.length}>Submit Post to IPFS</button>
+                <button id='post-submit' type="submit" onClick={ storeFiles } disabled={!titleLength || titleLength>25 || !caption.length}>Submit Post + (IPFS)</button>
             </form>
         </div>
     )
