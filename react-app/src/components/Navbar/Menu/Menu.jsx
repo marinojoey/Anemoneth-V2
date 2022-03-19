@@ -26,18 +26,20 @@ function Menu({ redeemable, menuOpen, fishblnc, dispAddr, addr1, setMenuOpen }) 
     return (
         <div className={"menu " + (menuOpen && "active")} id="menu">
             <ul className={"list " + (menuOpen && "active")}>
-                <li>{username}</li>
                 <li>
-                    <div className='addrEl'>Addr: {dispAddr} </div>
+                    <span className='bold'>{username}</span> 
                 </li>
                 <li>
-                    <div className='fishEl'>FISH balance: {fishblnc} </div>
+                    <span className='bold'>Addr: </span><span>{dispAddr}</span>
                 </li>
                 <li>
-                    <div className='fishEl'>FISH redeemable: {redeemable} </div>
+                    <span className='bold'>FISH balance: </span><span>{fishblnc}</span>
                 </li>
                 <li>
-                    <div className='totalUpvotes'>My total upvotes: {upvoteCount}</div>
+                    <span className='bold'>FISH redeemable: </span><span>{redeemable}</span>
+                </li>
+                <li>
+                    <span className='bold'>My total upvotes:</span><span>{upvoteCount}</span>
                 </li>
                 <li>
                     <ConRedeemBtn className="btn MmConnectBtn" addr1={addr1} />
