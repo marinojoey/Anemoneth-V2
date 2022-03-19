@@ -3,13 +3,13 @@ from app.models import db, Post, User
 
 # Adds a demo user, you can add other users here if you want
 def seed_posts():
-    post1 = Post(user_id=1, title='test1--', caption='This post should hav been made my address 111111')
-    post2 = Post(user_id=2, title='test2-', caption='This post should hav been made my address 222222')
-    post3 = Post(user_id=3, title='test3', caption='This post should hav been made my address 333333')
-    post4 = Post(user_id=4, title='test4-', caption='This post should hav been made my address 444444')
-    post5 = Post(user_id=5, title='test5--', caption='This post should hav been made my address 555555')
-    post6 = Post(user_id=6, title='test6---', caption='This post should hav been made my address 666666')
-    post7 = Post(user_id=7, title='test7-----', caption='This post should hav been made my address 777777')
+    post1 = Post(user_id=1, title='Chainshot is owesome!', caption='I am about to finish their bootcamp and I have learned SO MUCH!')
+    post2 = Post(user_id=2, title='Lord of the Rings?', caption='The best ENT-ertainment around!')
+    post3 = Post(user_id=3, title='Is Rinkeby down again?', caption='If it is, this presentation could be tough...')
+    post4 = Post(user_id=4, title='I found a new fav drink', caption='Has anyone else tried Anarchy Cola?')
+    post5 = Post(user_id=5, title='The Eagles', caption='Frodo\'s savior or Gandalf\'s favorite band?')
+    post6 = Post(user_id=6, title='My friend', caption='Just told me that he thinks Dumbledore is more powerful than Gandalf...')
+    post7 = Post(user_id=7, title='Is Vitalik on AnemonETH?', caption='I was just chatting with Satoshi, but I wasn\'t sure if Vitalik was also on here.')
 
     user1 = User.query.get(1)
     user2 = User.query.get(2)

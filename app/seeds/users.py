@@ -3,21 +3,21 @@ from app.models import db, User
 
 # Adds a demo user, you can add other users here if you want
 def seed_users():
-    demo = User(username='demo', address='0x1111167890123456789012345678901234567890', password='password')
-    joey = User(username='joey', address='0x2222267890123456789012345678901234567890', password='password')
-    savanah = User(username='savanah', address='0x3333333890123456789012345678901234567890', password='password')
-    satoshi = User(username='satoshi', address='0x4444447890123456789012345678901234567890', password='password')
-    vitalik = User(username='vitalik', address='0x5555557890123456789012345678901234567890', password='password')
-    gavin = User(username='gavin', address='0x6666667890123456789012345678901234567890', password='password')
-    charles = User(username='charles', address='0x7777777890123456789012345678901234567890', password='password')
+    owner = User(username='demo', address='0xae90d6C1360d095a03c4AAf378Bf20cEcdB27630', password='password')
+    joey = User(username='joey', address='0x5336648ed8E3Da9779Ba3346e087bb6F92f04c0D', password='password')
+    savanah = User(username='savanah', address='0x62347df93f34EfA81Bc6e3eDca077fCc4F5e6E6A', password='password')
+    satoshi = User(username='satoshi', address='0x5942a0571d5425698Ca19Cb2e0EfB5564a1240Ea', password='password')
+    aragorn = User(username='aragorn', address='0xB0123815791ab27513d6d2081C708E8768aaBf77', password='password')
+    anakin = User(username='gavin', address='0x0bffe95D6fcb2998721E9907A42434CD4512eE4B', password='password')
+    bombadil = User(username='charles', address='0x8C2c1Fc67CaDbd4Fd5D45C3a6A013A80Ee4467D3', password='password')
 
-    db.session.add(demo)
+    db.session.add(owner)
     db.session.add(joey)
     db.session.add(savanah)
     db.session.add(satoshi)
-    db.session.add(vitalik)
-    db.session.add(gavin)
-    db.session.add(charles)
+    db.session.add(aragorn)
+    db.session.add(anakin)
+    db.session.add(bombadil)
 
     db.session.commit()
 
