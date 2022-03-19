@@ -7,7 +7,7 @@ import MmConnectBtn from './MmConnectBtn/MmConnectBtn';
 import './menu.scss';
 
 
-function Menu({ redeemable, menuOpen, clwnblnc, dispAddr, addr1, setMenuOpen }) {
+function Menu({ redeemable, menuOpen, fishblnc, dispAddr, addr1, setMenuOpen }) {
     const [upvoteCount, setUpvoteCount] = useState(0);
     const dispatch = useDispatch();
 
@@ -31,7 +31,7 @@ function Menu({ redeemable, menuOpen, clwnblnc, dispAddr, addr1, setMenuOpen }) 
                     <div className='addrEl'>Addr: {dispAddr} </div>
                 </li>
                 <li>
-                    <div className='fishEl'>FISH balance: {clwnblnc} </div>
+                    <div className='fishEl'>FISH balance: {fishblnc} </div>
                 </li>
                 <li>
                     <div className='fishEl'>FISH redeemable: {redeemable} </div>

@@ -33,7 +33,7 @@ function App() {
   const [loaded, setLoaded] = useState(false);
   const [isUser, setUser] = useState(false);
   const [addr1, setAddr1] = useState(0);
-  const [clwnblnc, setclwnblnc] = useState(0);
+  const [fishblnc, setfishblnc] = useState(0);
   const [redeemable, setRedeemable] = useState(0);
   const dispatch = useDispatch();
 
@@ -70,7 +70,7 @@ function App() {
     displayAddr = `${first}...${last}`;
     setDispAddr(displayAddr);
   }
-  
+
   function readable(num) {
     return ethers.utils.formatUnits(parseInt(num).toString(), 18);
   }
@@ -80,7 +80,7 @@ function App() {
     if (await contractInstance.isRegistered(addr1)) {
       setUser(true);
         let balanceOf = readable(await contractInstance.balanceOf(addr1));
-        setclwnblnc(balanceOf);
+        setfishblnc(balanceOf);
         try {
         let currRedeemable = readable(await contractInstance.getCurrRedeemable());
         setRedeemable(currRedeemable);
@@ -126,7 +126,7 @@ function App() {
                 <SignUpForm addr1={addr1} connected={connected} />
               </div>
               <div className='web3wrapper'>
-                <Web3Login setUser={setUser} setclwnblnc={setclwnblnc}  addr1={addr1} connected={connected} />
+                <Web3Login setUser={setUser} setfishblnc={setfishblnc}  addr1={addr1} connected={connected} />
               </div>
             </div>
           </BrowserRouter>
@@ -183,7 +183,7 @@ function App() {
                 <div className='requestdiv'>Please register your account</div>
               </div>
               <div className='web3wrapper'>
-                <Web3Login setUser={setUser} setclwnblnc={setclwnblnc}  addr1={addr1} connected={connected} />
+                <Web3Login setUser={setUser} setfishblnc={setfishblnc}  addr1={addr1} connected={connected} />
               </div>
             </div>
           </BrowserRouter>
@@ -195,10 +195,10 @@ function App() {
       <div className='app'>
         <BrowserRouter>
         <Navbar isUser={isUser} user={user} menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
-        <Menu redeemable={redeemable} clwnblnc={clwnblnc} dispAddr={dispAddr} addr1={addr1} menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
+        <Menu redeemable={redeemable} fishblnc={fishblnc} dispAddr={dispAddr} addr1={addr1} menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
         <div className='homepagewrapper'>
             <ProtectedRoute path='/' exact={true} >
-                <Homepage addr1={addr1} setUser={setUser} setclwnblnc={setclwnblnc} setRedeemable={setRedeemable} />
+                <Homepage addr1={addr1} setUser={setUser} setfishblnc={setfishblnc} setRedeemable={setRedeemable} />
             </ProtectedRoute>
         </div>
       </BrowserRouter>
