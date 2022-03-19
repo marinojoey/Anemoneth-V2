@@ -6,8 +6,8 @@ import { Web3Storage } from "web3.storage/dist/bundle.esm.min";
 import './CreatePost.scss';
 
 const CreatePosting = ({ setShowModal }) => {
-    const [            title, setTitle] = useState('');
-    const [        caption, setCaption] = useState('');
+    const [title, setTitle] = useState('');
+    const [caption, setCaption] = useState('');
     const [titleLength, setTitleLength] = useState(0);
     const history = useHistory();
     const dispatch = useDispatch();

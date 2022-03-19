@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllPosts } from "../../../store/posts";
 import React, { useEffect } from "react";
 import PostDetail from "./PostDetail";
+import Web3PostDetail from './Web3PostDetail';
 import './Posts.scss';
 
 
@@ -30,17 +31,7 @@ const AllPosts = ( addr1 ) => {
                 ))}
             </div>
             <div className="web3posts">
-                <div className='post-container'>
-                    <div id='username'>
-                        Posted by u/Joey on Mar-17-2022
-                    </div>
-                    <div id='title'>
-                        Test-post
-                    </div>
-                    <div id='caption'>
-                        Test Caption
-                    </div>
-                </div>
+                <Web3PostDetail />
             </div>
         </div>
     )
