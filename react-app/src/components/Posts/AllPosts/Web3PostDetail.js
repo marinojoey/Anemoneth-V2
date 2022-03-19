@@ -4,6 +4,7 @@ import { getAllPosts } from "../../../store/posts";
 import { upvotePost } from '../../../store/upvotes';
 import contractCall from "../../ContractCall/ContractCall";
 import { ethers } from "ethers";
+import CreatePostModal from "../CreatePostModal";
 import './Posts.scss';
 
 function Web3PostDetail() {
@@ -16,13 +17,13 @@ function Web3PostDetail() {
             <div id ='post-content'>
                 <span id='post-heading'>
                     <div className="left">
-                        <div className="title">TITLE</div> 
-                        <div className="username">USERNAME</div>
+                        <div className="title">title example</div> 
+                        <div className="username">@example</div>
                     </div>
                     <div className="right">
                         {/* <div>TIP: </div> */}
-                        <button className="tipbtn"> :( </button>
-                        <button className="tipbtn"> :( </button>
+                        <button className="tipbtn">1 FISH</button>
+                        <button className="tipbtn">1 GWEI</button>
                     </div>
                 </span>
                 <span id='post-caption'>
