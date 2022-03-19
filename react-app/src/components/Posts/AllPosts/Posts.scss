@@ -98,28 +98,95 @@
     }
     .web3posts{
         width: 50%;
-
-        .post-container{
-            margin-left: 3px;
-            margin: 10px 0;
-            padding: 10px;
-            border: 1px solid var(--ethblue);
-            border-radius: 5px;
-            background-color: rgba(220,220,220, 0.5);
-
-            #username {
-                padding-bottom: 10px;
-                font-size: 10px;
+        
+        .post-detail-container {
+            display: flex;
+            margin: .5% 15%;
+            padding: 0px;
+            background-color: rgb(59, 59, 59);
+            border-radius: 15px;
+            // border-bottom-style: solid;
+            // border-color: var(--ethblack);
+    
+            .votewrapper{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 5%;
+                padding-top: 3%;
             }
-
-            #title {
-                font-size: 16px;
-                color: var(--ethblue);
-            }
-
-            #caption {
-                font-size: 13px;
-                color: var(--ethlightblue);
+    
+            .mainwrapper{
+                display: flex;
+                width: 95%;
+                min-height: 70px;
+                padding: 0% 2% 2% 2%;
+    
+                #post-content {
+                    display: flex;
+                    width: 100%;
+                    padding: 2% 0%;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    border-radius: 5%;
+    
+                    #post-heading {
+                        display: flex;
+                        width: 100%;
+                        color: white;
+                        align-items: center;
+                        justify-content: space-between;
+    
+                        .left{
+                            display: flex;
+                            width: 75%;
+                            align-items: center;
+    
+                            .title{
+                                font-size: 1.2vw;
+                                font-weight: 500;
+                                width: fit-content;
+                            }
+    
+                            .username{
+                                margin-left: 2%;
+                                margin-top: auto;
+                                margin-bottom: 0;
+                                font-size: .8vw;
+                                font-weight: 400;
+                            }
+                        }
+    
+                        .right{
+                            display: flex;
+                            // width: 30%;
+                            align-items: center;
+    
+                            .tipbtn{
+                                font-size: .7vw;
+                                padding: 1%;
+                                width: fit-content;
+                                font-weight: 600;
+                                color: white;
+                                background-color: var(--anemoneblue);
+                                border: 1px solid var(--ethblue);
+                                border-radius: 10px;
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                    
+                    #post-caption {
+                        font-size: 13px;
+                        color: white;
+                    }
+    
+                    #metadata {
+                        display: none;
+                        justify-content: flex-end;
+                        font-size: 10px;
+                    }
+                }
             }
         }
     }
