@@ -19,13 +19,9 @@ function MmConnectBtn() {
                       address: anemonethProxyAddress, 
                       symbol: tokenSymbol,
                       decimals: tokenDecimals,
-                    //   image: tokenImage,
                     },
-                  },
+                },
             })
-            // provider = new ethers.providers.Web3Provider(ethereum);
-            // signer = await provider.getSigner();
-            // addr = await signer.getAddress();
             console.log("success")
         }
     }

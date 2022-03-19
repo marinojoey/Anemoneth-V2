@@ -20,7 +20,7 @@ function Web3Login({ setUser, setclwnblnc, addr1, connected }) {
         if (await contractInstance.isRegistered(addr1)) {
             document.querySelector(".regiErrPlaceholder").textContent = "You are already registered!"
         }
-        await contractInstance.register({ value: 1000000000, gasLimit: 25000000 });
+        await contractInstance.register({ value: 1000000000, gasLimit: 12000000 });
     }
 
     if (connected) {

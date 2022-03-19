@@ -70,15 +70,25 @@ function App() {
     displayAddr = `${first}...${last}`;
     setDispAddr(displayAddr);
   }
+  
+  function readable(num) {
+    return ethers.utils.formatUnits(parseInt(num).toString(), 18);
+  }
 
   async function contractCallHandler() {
     let contractInstance = await contractCall();
     if (await contractInstance.isRegistered(addr1)) {
       setUser(true);
-      let balanceOf = parseInt(await contractInstance.balanceOf(addr1), 16);
-      setclwnblnc(balanceOf);
-      let currRedeemable = parseInt(await contractInstance.getCurrRedeemable(addr1), 16);
-      setRedeemable(currRedeemable);
+        let balanceOf = readable(await contractInstance.balanceOf(addr1));
+        setclwnblnc(balanceOf);
+        try {
+        let currRedeemable = readable(await contractInstance.getCurrRedeemable());
+        setRedeemable(currRedeemable);
+        }
+        catch{
+          let currRedeemable = 0;
+          setRedeemable(currRedeemable);
+        }
     }
   }
 

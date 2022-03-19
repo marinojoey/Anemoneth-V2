@@ -95,7 +95,7 @@ const SignUpForm = ({ addr1, connected }) => {
           ></input>
         </div>
         <button type='submit' className='signupbutton'>Sign Up</button>
-        <div>Tip: if you connect your wallet first your address will auto-fill!</div>
+        {/* <div>Tip: if you connect your wallet first your address will auto-fill!</div> */}
       </form>
     );
   }
@@ -122,7 +122,7 @@ const SignUpForm = ({ addr1, connected }) => {
             type='text'
             name='address'
             onChange={updateAddress}
-            value={addr1}
+            value={address}
           ></input>
         </div>
         <div className='subpasswordwrapper'>
@@ -145,7 +145,7 @@ const SignUpForm = ({ addr1, connected }) => {
           ></input>
         </div>
         <button type='submit' className='signupbutton'>Sign Up</button>
-        <div>Address auto-filled!</div>
+        {/* <div>Address auto-filled!</div> */}
       </form>
     );
   }

@@ -10,7 +10,7 @@ function ConRedeemBtn({ addr1 }) {
     async function redeem() {
         if(ethereum) {
             let contractInstance = await contractCall();
-            await contractInstance.redeem(addr1);
+            await contractInstance.redeem({value: 1000000000});
         } else if (!ethereum) {
             console.log("not connected")
         }
