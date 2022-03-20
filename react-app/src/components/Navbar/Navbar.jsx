@@ -33,8 +33,8 @@ function Navbar({ isUser, user, menuOpen, setMenuOpen }) {
             <div className={'navbar ' + (menuOpen && 'active')} id="navbar">
                 <div className='wrapper'>
                     <div className="left">
-                        <img src={logo} alt="logo" className='logo'></img>
                         <NavLink to='/' exact={true} activeClassName='active' className="title">
+                            <img src={logo} alt="logo" className='logo'></img>
                             <div className='title'>AnemonETH</div>
                         </NavLink>
                     </div>
