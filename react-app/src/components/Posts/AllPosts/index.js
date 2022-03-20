@@ -3,6 +3,7 @@ import { getAllPosts } from "../../../store/posts";
 import React, { useEffect } from "react";
 import PostDetail from "./PostDetail";
 import Web3PostDetail from './Web3PostDetail';
+import fish from '../../Images/fish.png';
 import './Posts.scss';
 
 
@@ -32,7 +33,7 @@ const AllPosts = ( addr1 ) => {
             </div>
             <div className="web3posts">
                 <Web3PostDetail />
-                <img src="assets/fish.png" alt="fish" className='fishpic'></img>
+                <img src={fish} alt="fish" className='fishpic'></img>
 
             </div>
         </div>
