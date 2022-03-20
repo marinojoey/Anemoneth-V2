@@ -23,18 +23,19 @@
             margin-left: 2%;
             font-size: 1.8vw;
 
-            .logo {
-                width: 50px;
-                padding-right: 3%;
-            }
-
             .title {
+                display: flex;
+                align-items: center;
                 width: 50%;
                 color: var(--anemonered);
                 font-weight: 700;
                 text-decoration: none;
+
+                .logo {
+                    width: 50px;
+                    padding-right: 3%;
+                }
             }
-            
         }
 
         .right {
@@ -65,7 +66,7 @@
 
             .hamburger {
                 background-color: var(--ethblack);
-    
+
                 span {
                     &:first-child {
                         background-color: var(--anemonered);
