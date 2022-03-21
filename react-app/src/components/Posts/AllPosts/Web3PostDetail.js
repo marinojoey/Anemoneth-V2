@@ -26,7 +26,7 @@ function Web3PostDetail() {
                     </div>
                 </span>
                 <span id='post-caption'>
-                    The button above will console.log the contents of a CID. <br></br><br></br>To get a CID you will need to make a post to your left and the choose 'Submit Post + '. This will post to our database as well as to IPFS.
+                    The button above will retrieve the contents of a known CID. <br></br><br></br>To get a CID you will need to make a post (to your left) and then choose 'Submit Post + '. This will post to our database as well as to IPFS. The CID used for retrieval will print to the console. Retrieval can take up to a minute.
                 </span>
                 <span id='metadata'>
                     asdasdfsadfasdfasdfasdfasdfasdfasdf
