@@ -26,7 +26,7 @@ function Web3PostDetail() {
                     </div>
                 </span>
                 <span id='post-caption'>
-                    The button above will retrieve the contents of a known CID. <br></br><br></br>To get a CID you will need to make a post (to your left) and then choose 'Submit Post + '. This will post to our database as well as to IPFS. The CID used for retrieval will print to the console. Retrieval can take up to a minute.
+                    The button above will retrieve the contents of a known CID. A CID (a.k.a. a content identifier) is the hash of a file stored on IPFS. Becasue hashes are unique, we can use them to identify and then query for a file on the IPFS network!<br></br><br></br>To get a CID you will need to make a post (to your left) and then 'Submit Post + '. This will post to our database as well as to IPFS. The CID needed for retrieval will print to the console. Please be aware that retrieval can take up to a minute and that the result will also print to the console.
                 </span>
                 <span id='metadata'>
                     asdasdfsadfasdfasdfasdfasdfasdfasdf
