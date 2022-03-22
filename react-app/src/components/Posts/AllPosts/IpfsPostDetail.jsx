@@ -1,10 +1,4 @@
 import React from "react";
-// import { useSelector, useDispatch } from 'react-redux';
-// import { getAllPosts } from "../../../store/posts";
-// import { upvotePost } from '../../../store/upvotes';
-// import contractCall from "../../ContractCall/ContractCall";
-// import { ethers } from "ethers";
-// import CreatePostModal from "../CreatePostModal";
 import './Posts.scss';
 
 function Web3PostDetail() {

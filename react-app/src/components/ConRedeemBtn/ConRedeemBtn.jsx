@@ -1,5 +1,5 @@
 import contractCall from '../ContractCall/ContractCall'
-import './ConRedeemBtn.css'
+import './ConRedeemBtn.scss'
 import React from 'react'
 
 const { ethereum } = window;

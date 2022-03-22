@@ -1,7 +1,7 @@
 import React from 'react'
-import CreatePostModal from '../Posts/CreatePostModal';
+import CreatePostModal from '../Posts/CreatePostModal/CreatePostIndex';
 
-import AllPosts from '../Posts/AllPosts';
+import AllPosts from '../Posts/AllPosts/AllPosts';
 
 import './homepage.scss';
 

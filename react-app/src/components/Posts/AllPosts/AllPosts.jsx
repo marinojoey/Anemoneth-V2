@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllPosts } from "../../../store/posts";
 import React, { useEffect } from "react";
-import PostDetail from "./PostDetail";
-import Web3PostDetail from './Web3PostDetail';
+import PostDetail from "./DbPostDetail";
+import Web3PostDetail from './IpfsPostDetail';
 import fish from '../../Images/fish.png';
 import './Posts.scss';
 
@@ -18,8 +18,6 @@ const AllPosts = ( addr1 ) => {
         }
        disp();
     }, [dispatch])
-
-    // console.log('--------', allPosts)
 
     const allPostsArr = Object.values(allPosts);
     const allPostsArrReverse = allPostsArr.reverse();
