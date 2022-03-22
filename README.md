@@ -1,5 +1,5 @@
 # [AnemonETH](https://anemoneth.herokuapp.com/)    
-#### A Web3 Social Media that __frictionlessly__ makes each user a shareholder     
+#### A Web3 Social platform that __frictionlessly__ makes each user a shareholder     
 &nbsp;    
 
 ![logo](./Images/Untitled_Artwork%202.png)
