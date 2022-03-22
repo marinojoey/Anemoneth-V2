@@ -2,7 +2,7 @@
 #### A Web3 Social Media that __frictionlessly__ makes each user a shareholder     
 &nbsp;    
 
-![alt text](../Anemoneth-web-app/react-app/src/components/Images/logo.png)
+![](../Anemoneth-web-app/react-app/src/components/Images/logo.png)
 ---
 &nbsp;    
 ## What problem do we solve?
