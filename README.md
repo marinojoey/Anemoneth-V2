@@ -13,7 +13,7 @@ Every social media platform begins with a sole focus on user experience. That fo
 
 At Anemoneth we believe that this is both unavoidable and a __good__ thing! A business should absolutely seek to reward its shareholders. The problem however, is that these shareholders have always been a small, powerful and distinctly seperate group compared to the users. They are not at odds necessarily, but their goals are slightly mis-aligned. This foundational crack has repeatedly proven to breed distrust within the users and often results in abandonment. Our goal is not to remove external investors, but rather to game theoretically align every user of the platform with the external investors.
 
-## How do we solve this mis-alignment?
+## How do we solve this problem?
 Our express goal is to make each user a financial stakeholder both __natively__ and __seamlessly__. AnemonETH accomplishes this by programatically rewarding users whenever they create value with FISH - our ERC20 token. This results in users retaining their value while simultaneously enriching the platform as whole. While we will largely operate as a traditional company (i.e. seek/require external funding), it is hard to understate just how crucial this re-alignment is. Especially for a social media platform.
 * It attracts and empowers the best creators
 * It establishes organic trust with users
