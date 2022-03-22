@@ -1,7 +1,9 @@
 # [AnemonETH](https://anemoneth.herokuapp.com/)    
 #### A Web3 Social Media that __frictionlessly__ makes each user a shareholder     
+&nbsp;    
 
 ---
+&nbsp;    
 ## What problem do we solve?
 Every social media platform begins with a sole focus on user experience. That focus slowly shifts though. To make it erroneously simple, a founder's path is:
 1. An idea sparks 
@@ -33,13 +35,9 @@ We strongly beleive that all else being equal users will choose the platform tha
 
 Anemoneth is designed with these issues in mind. The largest problem we face is accessing a general public who is ill-informed about web3. Establishing an active userbase for a web3 native social platform will be our biggest challenge. However, this is also a massive opportunity. In the Crypto/De-Fi space, Anemoneth provides tangible utility while being approachable and easy to understand. As a result, we are uniquely positioned to on-board people to web3. Being able to provide an honest, succinct and Anemoneth-focused introduction to web3 (and acknowledging it's necessity) is a powerful position to be in.     
      
-     
-----
----
----
+&nbsp;     
+&nbsp;     
+&nbsp;     
 
-[README-dev-setup.md](https://github.com/marinojoey/Anemoneth-web-app/blob/main/README.md)    
 
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlalchemy/sqlalchemy-original.svg" height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-plain-wordmark.svg" height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" height=40/>      
-
----
+[README-dev-setup.md](https://github.com/marinojoey/Anemoneth-web-app/blob/main/README.md)       
