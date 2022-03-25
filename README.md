@@ -42,3 +42,17 @@ Anemoneth is designed with these issues in mind. The largest problem we face is 
 
 
 [README-dev-setup.md](https://github.com/marinojoey/Anemoneth-web-app/blob/main/README.md)       
+
+
+# @ Joey
+Talk to [myNoise.net](https://mynoise.net/NoiseMachines/japaneseGardenSoundscapeGenerator.php) about using their product on Anemoneth
+* It would only kick in after clear input by the user, obviously. We would not want to scare people away who immeidately leaves a website that makes sound.
+
+HUGE: Make it into a reddit type platform where the left side of the screen is a reddit mobile clone and the right side of the screen is a reddit but for widgets, functinal componenets, plugins, utilities anything you can think of. So not only do you get your reddit information feed as it is (entertainment, news, hobbies, interests) now, but it will become useful like your morning coffee. People arent ashamed to check it every morning because it is _genuinely_ healthy for them to do so. 
+* myNoise.net
+* Weather
+* Stocks
+* Wordle
+* News
+
+We could partner w/ firms/creators and have them provide their brand (NBA, crypto, whatever niche hobby people gather around)

@@ -71,12 +71,8 @@ const CreatePosting = ({ setShowModal }) => {
                         value={title}
                         onChange={(e) => {setTitle(e.target.value); setTitleLength(e.target.value.length)}}
                     />
-                {/* <div id='title-input'>{titleLength} / 50</div> */}
                 {titleInput}
                 </div>
-                {/* <div className="errors">
-                    {errors.title ? `${errors.title}` : ''}
-                </div> */}
                 <div className='post-inputs'>
                     <textarea
                         name='caption'
@@ -88,9 +84,6 @@ const CreatePosting = ({ setShowModal }) => {
                         onChange={(e) => setCaption(e.target.value)}
                     />
                 </div>
-                {/* <div className="errors">
-                    {errors.caption ? `${errors.caption}` : ''}
-                </div> */}
                 <button id='post-submit' type="submit" disabled={!titleLength || titleLength>25 || !caption.length}>Submit Post</button>
                 <button id='post-submit' type="submit" onClick={ storeFiles } disabled={!titleLength || titleLength>25 || !caption.length}>Submit Post + (IPFS)</button>
             </form>
