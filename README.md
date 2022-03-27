@@ -55,4 +55,4 @@ HUGE: Make it into a reddit type platform where the left side of the screen is a
 * Wordle
 * News
 
-We could partner w/ firms/creators and have them provide their brand (NBA, crypto, whatever niche hobby people gather around)
+We could partner w/ firms/creators and have them provide their brand (whatever niche hobby people gather around)
