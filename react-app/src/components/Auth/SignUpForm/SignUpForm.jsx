@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 // import { Redirect } from 'react-router-dom';
 import { signUp } from '../../../store/session';
 
-const SignUpForm = ({ ethAddr, connected }) => {
+const SignUpForm = ({ ethAddr, MMConnected }) => {
   const [username, setUsername] = useState('');
   const [address, setAddress] = useState('');
   const [password, setPassword] = useState('');
@@ -49,7 +49,7 @@ const SignUpForm = ({ ethAddr, connected }) => {
   //   return <Redirect to='/' />;
   // }
 
-  if(!connected) {
+  if(!MMConnected) {
     return (
       <form onSubmit={onSignUp} className="signupwrapper">
         <div>
@@ -99,7 +99,7 @@ const SignUpForm = ({ ethAddr, connected }) => {
       </form>
     );
   }
-  else if(connected) {
+  else if(MMConnected) {
     return (
       <form onSubmit={onSignUp} className="signupwrapper">
         <div>

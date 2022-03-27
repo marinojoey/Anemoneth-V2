@@ -11,20 +11,8 @@ function CreatePostModal() {
     setShowModal(true);
   }
 
-  let web3s = new Web3Storage({
-  token: process.env.REACT_APP_WEB3STORAGE_TOKEN
-  });
+  async function dashboardSearch() {
 
-  async function retrieveFiles(cid) {
-    const res = await web3s.get(cid)
-    console.log(`Got a response! [${res.status}] ${res.statusText}`)
-    if (!res.ok) {
-      throw new Error(`failed to get ${cid}`)
-    }
-    const files = await res.files()
-    const file = files[0]
-    let fileText = await file.text();
-    console.log(fileText)
   }
 
   return (
@@ -36,8 +24,8 @@ function CreatePostModal() {
         </Modal>
       )}
       <div className='dash-search'>
-        <input type="text" className='cidinput' placeholder='   games, news, artists, events, twitter, endless animal facts...'></input>
-        <button className='retrieveBtn' onClick={ () => retrieveFiles(document.querySelector('.cidinput').value) }>Search dashboard</button>
+        <input type="text" className='searchval' placeholder='   games, news, artists, events, twitter, endless animal facts...'></input>
+        <button className='retrieveBtn' onClick={ () => dashboardSearch(document.querySelector('.searchVal').value) }>Search dashboard</button>
       </div>
     </div>
   );

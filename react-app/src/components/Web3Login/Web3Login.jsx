@@ -2,12 +2,12 @@ import React from "react";
 import "./web3Login.scss";
 import contractCall from "../ContractCall/ContractCall";
 
-function Web3Login({ setUser, setfishblnc, ethAddr, connected }) {
+function Web3Login({ setW3User, setfishblnc, ethAddr, MMConnected }) {
 
     async function contractCallHandler() {
         let contractInstance = await contractCall();
         if (await contractInstance.isRegistered(ethAddr)) {
-            setUser(true)
+            setW3User(true)
             let balanceOf = parseInt(await contractInstance.balanceOf(ethAddr), 16);
             setfishblnc(balanceOf);
         } else {
@@ -23,7 +23,7 @@ function Web3Login({ setUser, setfishblnc, ethAddr, connected }) {
         await contractInstance.register({ value: 1000000000, gasLimit: 12000000 });
     }
 
-    if (connected) {
+    if (MMConnected) {
         return (
             <div className='web3login'>
                 <div className="alreadyregistered">

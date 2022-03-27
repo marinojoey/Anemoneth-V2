@@ -26,13 +26,13 @@ function App() {
   let addr;
 
   const w2User = useSelector(state => state.session.w2User);
-  const [w3User, setUser] = useState(false);
+  const [w3User, setW3User] = useState(false);
 
   const [dispAddr, setDispAddr] = useState("");
-  const [ethAddr, setAddr1] = useState(0);
+  const [ethAddr, setEthAddr] = useState(0);
 
-  const [connected, setConn] = useState(false);
-  const [loaded, setLoaded] = useState(false);
+  const [MMConnected, setMMConn] = useState(false);
+  const [DbLoaded, setDbLoaded] = useState(false);
 
   const [menuOpen, setMenuOpen] = useState(false);
   const [fishblnc, setfishblnc] = useState(0);
@@ -42,7 +42,7 @@ function App() {
   useEffect(() => {
     (async() => {
       await dispatch(authenticate());
-      setLoaded(true);
+      setDbLoaded(true);
     })();
   }, [dispatch]);
 
@@ -50,7 +50,7 @@ function App() {
   // This is poor UX. metamask should NEVER pop-up. User should ALWAYS directly call it w/ a button
   useEffect(() => {
     connectWalletHandler();
-    if(connected) {
+    if(MMConnected) {
       contractCallHandler();
     }
   }, )
@@ -62,8 +62,8 @@ function App() {
         signer = await provider.getSigner();
         addr = await signer.getAddress();
         makeDispAddr(addr);
-        setAddr1(addr);
-        setConn(true);
+        setEthAddr(addr);
+        setMMConn(true);
     }
   }
   function makeDispAddr(numAddr) {
@@ -78,11 +78,11 @@ function App() {
     return ethers.utils.formatUnits(parseInt(num).toString(), 18);
   }
 
-  // This should await MM being connected and fire automatically after w3User is true. Direct user input for this isn't needed unless it pops up MM to do it
+  // This should await MM being MMConnected and fire automatically after w3User is true. Direct user input for this isn't needed unless it pops up MM to do it
   async function contractCallHandler() {
     let contractInstance = await contractCall();
     if (await contractInstance.isRegistered(ethAddr)) {
-      setUser(true);
+      setW3User(true);
         let balanceOf = readable(await contractInstance.balanceOf(ethAddr));
         setfishblnc(balanceOf);
         try {
@@ -96,19 +96,19 @@ function App() {
     }
   }
 
-  if (!loaded) {
+  if (!DbLoaded) {
     return null;
   }
 
-  if( (!w2User && !connected && !w3User) ) {
+  if( (!w2User && !MMConnected && !w3User) ) {
     return (
         <div className='app'>
           <BrowserRouter>
-            <Navbar w3User={w3User} connected={connected} />
+            <Navbar w3User={w3User} MMConnected={MMConnected} />
             <div className='loginComboBox'>
               <div className='web2wrapper'>
                 <LoginForm />
-                <SignUpForm ethAddr={ethAddr} connected={connected} />
+                <SignUpForm ethAddr={ethAddr} MMConnected={MMConnected} />
               </div>
               <div className='web3wrapper'>
               <div className='successdiv'></div>
@@ -119,25 +119,25 @@ function App() {
         </div>
       );
   }
-  else if( (!w2User && connected && !w3User) ) {
+  else if( (!w2User && MMConnected && !w3User) ) {
     return (
         <div className='app'>
           <BrowserRouter>
-            <Navbar w3User={w3User} connected={connected} />
+            <Navbar w3User={w3User} MMConnected={MMConnected} />
             <div className='loginComboBox'>
               <div className='web2wrapper'>
                 <LoginForm />
-                <SignUpForm ethAddr={ethAddr} connected={connected} />
+                <SignUpForm ethAddr={ethAddr} MMConnected={MMConnected} />
               </div>
               <div className='web3wrapper'>
-                <Web3Login setUser={setUser} setfishblnc={setfishblnc}  ethAddr={ethAddr} connected={connected} />
+                <Web3Login setW3User={setW3User} setfishblnc={setfishblnc}  ethAddr={ethAddr} MMConnected={MMConnected} />
               </div>
             </div>
           </BrowserRouter>
         </div>
       );
   }
-  else if( (!w2User && connected && w3User) ) {
+  else if( (!w2User && MMConnected && w3User) ) {
     return (
         <div className='app'>
           <BrowserRouter>
@@ -145,10 +145,10 @@ function App() {
             <div className='loginComboBox'>
               <div className='web2wrapper'>
                 <LoginForm />
-                <SignUpForm ethAddr={ethAddr} connected={connected} />
+                <SignUpForm ethAddr={ethAddr} MMConnected={MMConnected} />
               </div>
               <div className='web3wrapper'>
-                <div className='successdiv'>Wallet is connected and you're registered!</div>
+                <div className='successdiv'>Wallet is MMConnected and you're registered!</div>
                 <div className='requestdiv'>Please login to your left!</div>
               </div>
             </div>
@@ -156,7 +156,7 @@ function App() {
         </div>
       );
   }
-  else if( (w2User && !connected && !w3User) ) {
+  else if( (w2User && !MMConnected && !w3User) ) {
     return (
         <div className='app'>
           <BrowserRouter>
@@ -175,7 +175,7 @@ function App() {
         </div>
       );
   }
-  else if( (w2User && connected && !w3User) ) {
+  else if( (w2User && MMConnected && !w3User) ) {
     return (
         <div className='app'>
           <BrowserRouter>
@@ -183,18 +183,18 @@ function App() {
             {/* Test this ^^^^. I am not sure if the navbar props need to be passed if !w3User */}
             <div className='loginComboBox'>
               <div className='web2wrapper'>
-                <div className='successdiv'>You are now logged in and connected to metamask!</div>
+                <div className='successdiv'>You are now logged in and MMConnected to metamask!</div>
                 <div className='requestdiv'>Please register your account</div>
               </div>
               <div className='web3wrapper'>
-                <Web3Login setUser={setUser} setfishblnc={setfishblnc}  ethAddr={ethAddr} connected={connected} />
+                <Web3Login setW3User={setW3User} setfishblnc={setfishblnc}  ethAddr={ethAddr} MMConnected={MMConnected} />
               </div>
             </div>
           </BrowserRouter>
         </div>
       );
   }
-  else if (w2User && connected && w3User) {
+  else if (w2User && MMConnected && w3User) {
     return (
       <div className='app'>
         <BrowserRouter>
@@ -202,7 +202,7 @@ function App() {
           <Menu redeemable={redeemable} fishblnc={fishblnc} dispAddr={dispAddr} ethAddr={ethAddr} menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
           <div className='homepagewrapper'>
               <ProtectedRoute path='/' exact={true} >
-                  <Homepage ethAddr={ethAddr} setUser={setUser} setfishblnc={setfishblnc} setRedeemable={setRedeemable} />
+                  <Homepage ethAddr={ethAddr} setW3User={setW3User} setfishblnc={setfishblnc} setRedeemable={setRedeemable} />
               </ProtectedRoute>
           </div>
       </BrowserRouter>
