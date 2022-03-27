@@ -26,13 +26,15 @@ function App() {
   let addr;
 
   const w2User = useSelector(state => state.session.w2User);
+  const [w3User, setUser] = useState(false);
 
   const [dispAddr, setDispAddr] = useState("");
   const [ethAddr, setAddr1] = useState(0);
-  const [w3User, setUser] = useState(false);
+
   const [connected, setConn] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
   const [loaded, setLoaded] = useState(false);
+
+  const [menuOpen, setMenuOpen] = useState(false);
   const [fishblnc, setfishblnc] = useState(0);
   const [redeemable, setRedeemable] = useState(0);
   const dispatch = useDispatch();
@@ -45,6 +47,7 @@ function App() {
   }, [dispatch]);
 
 
+  // This is poor UX. metamask should NEVER pop-up. User should ALWAYS directly call it w/ a button
   useEffect(() => {
     connectWalletHandler();
     if(connected) {
@@ -75,6 +78,7 @@ function App() {
     return ethers.utils.formatUnits(parseInt(num).toString(), 18);
   }
 
+  // This should await MM being connected and fire automatically after w3User is true. Direct user input for this isn't needed unless it pops up MM to do it
   async function contractCallHandler() {
     let contractInstance = await contractCall();
     if (await contractInstance.isRegistered(ethAddr)) {

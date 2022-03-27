@@ -46,19 +46,6 @@ const CreatePosting = ({ setShowModal }) => {
         titleInput = <div id='title-input' style={{color: 'var(--ethlightgray)'}}>{titleLength} / 25</div>
     }
 
-    let web3s = new Web3Storage({
-        token: process.env.REACT_APP_WEB3STORAGE_TOKEN
-    });
-
-    async function storeFiles() {
-        const obj = { title: title, caption: caption }
-        const blob = new Blob([JSON.stringify(obj)], {type: 'anemoneth/json'})
-        const file = new File([blob], 'whatisthis.json');
-        const cid = await web3s.put([file]);
-        console.log('stored files with cid:', cid)
-        return cid
-      }
-
     return (
         <div className='post-container'>
             <div id='create-header'>Create a post</div>
@@ -85,7 +72,6 @@ const CreatePosting = ({ setShowModal }) => {
                     />
                 </div>
                 <button id='post-submit' type="submit" disabled={!titleLength || titleLength>25 || !caption.length}>Submit Post</button>
-                <button id='post-submit' type="submit" onClick={ storeFiles } disabled={!titleLength || titleLength>25 || !caption.length}>Submit Post + (IPFS)</button>
             </form>
         </div>
     )

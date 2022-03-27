@@ -35,9 +35,9 @@ function CreatePostModal() {
           <CreatePost setShowModal={setShowModal} />
         </Modal>
       )}
-      <div className='ipfs-retrieve'>
-        <input type="text" className='cidinput' placeholder='   Content Identifier to retrieve from IPFS'></input>
-        <button className='retrieveBtn' onClick={ () => retrieveFiles(document.querySelector('.cidinput').value) }>Retrieve</button>
+      <div className='dash-search'>
+        <input type="text" className='cidinput' placeholder='   games, news, artists, events, twitter, endless animal facts...'></input>
+        <button className='retrieveBtn' onClick={ () => retrieveFiles(document.querySelector('.cidinput').value) }>Search dashboard</button>
       </div>
     </div>
   );
