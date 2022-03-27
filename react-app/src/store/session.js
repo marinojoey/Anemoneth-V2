@@ -2,7 +2,7 @@
 const SET_USER = 'session/SET_USER';
 const REMOVE_USER = 'session/REMOVE_USER';
 
-const setUser = (w2User) => ({
+const setW3User = (w2User) => ({
   type: SET_USER,
   payload: w2User
 });
@@ -25,7 +25,7 @@ export const authenticate = () => async (dispatch) => {
       return;
     }
 
-    dispatch(setUser(data));
+    dispatch(setW3User(data));
   }
 }
 
@@ -44,7 +44,7 @@ export const login = (username, password) => async (dispatch) => {
 
   if (response.ok) {
     const data = await response.json();
-    dispatch(setUser(data))
+    dispatch(setW3User(data))
     return null;
   } else if (response.status < 500) {
     const data = await response.json();
@@ -86,7 +86,7 @@ export const signUp = (username, address, password, repeatPassword) => async (di
 
   if (response.ok) {
     const data = await response.json();
-    dispatch(setUser(data))
+    dispatch(setW3User(data))
     return null;
   } else if (response.status < 500) {
     const data = await response.json();

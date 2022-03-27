@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllPosts } from "../../../store/posts";
 import React, { useEffect } from "react";
 import PostDetail from "./DbPostDetail";
-import Web3PostDetail from './IpfsPostDetail';
+import DashDetail from './DashDetail';
 import fish from '../../Images/fish.png';
 import './Posts.scss';
 
@@ -30,7 +30,7 @@ const AllPosts = ( ethAddr ) => {
                 ))}
             </div>
             <div className="web3posts">
-                <Web3PostDetail />
+                <DashDetail />
                 <img src={fish} alt="fish" className='fishpic'></img>
 
             </div>

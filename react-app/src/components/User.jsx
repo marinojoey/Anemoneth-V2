@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 function w2User() {
-  const [w2User, setUser] = useState({});
+  const [w2User, setW3User] = useState({});
   const { userId }  = useParams();
 
   useEffect(() => {
@@ -12,7 +12,7 @@ function w2User() {
     (async () => {
       const response = await fetch(`/api/users/${userId}`);
       const w2User = await response.json();
-      setUser(w2User);
+      setW3User(w2User);
     })();
   }, [userId]);
 

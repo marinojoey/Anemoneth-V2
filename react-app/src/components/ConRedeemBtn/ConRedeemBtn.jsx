@@ -12,7 +12,7 @@ function ConRedeemBtn({ ethAddr }) {
             let contractInstance = await contractCall();
             await contractInstance.redeem({value: 1000000000});
         } else if (!ethereum) {
-            console.log("not connected")
+            console.log("not MMConnected")
         }
     }
     return  <div id="redeemFISH" onClick={redeem}>Redeem</div>
