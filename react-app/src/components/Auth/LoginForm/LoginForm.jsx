@@ -10,7 +10,7 @@ const LoginForm = () => {
   const [    errors, setErrors] = useState([]);
   const dispatch = useDispatch();
 
-  const user = useSelector(state => state.session.user);
+  const w2User = useSelector(state => state.session.w2User);
 
   const onLogin = async (e) => {
     e.preventDefault();
@@ -28,7 +28,7 @@ const LoginForm = () => {
     setPassword(e.target.value);
   };
 
-  if (user) {
+  if (w2User) {
     return <Redirect to='/' />;
   }
 

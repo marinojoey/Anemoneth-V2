@@ -5,7 +5,7 @@ import React from 'react'
 const { ethereum } = window;
 
 
-function ConRedeemBtn({ addr1 }) {
+function ConRedeemBtn({ ethAddr }) {
 
     async function redeem() {
         if(ethereum) {

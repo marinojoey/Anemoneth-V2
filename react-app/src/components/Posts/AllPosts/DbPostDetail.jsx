@@ -8,14 +8,14 @@ import './Posts.scss';
 
 const { ethereum } = window;
 
-const PostDetail = ({ post, addr1 }) => {
+const PostDetail = ({ post, ethAddr }) => {
     const [upvotes, setUpvotes] = useState([]);
     const [upvoteUpdate, setUpvoteUpdate] = useState(false);
     const dispatch = useDispatch();
 
     const postId = post.id;
 
-    const current_user = useSelector(state => state.session.user);
+    const current_user = useSelector(state => state.session.w2User);
     const user_id = current_user.id;
     const username = current_user.username;
 
@@ -24,7 +24,7 @@ const PostDetail = ({ post, addr1 }) => {
     // Getting wallet addresses associated to users that made posts
     // const statePosts = useSelector(state => state.posts);
     const postersAddress = post.address;
-    const usersAddress = addr1.addr1;
+    const usersAddress = ethAddr.ethAddr;
 
     useEffect(() => {
         async function disp() {
@@ -85,7 +85,7 @@ const PostDetail = ({ post, addr1 }) => {
 
     async function tipFish() {
         let contractInstance = await contractCall();
-        console.log("TIP FISH User's Address: ", usersAddress)
+        console.log("TIP FISH w2User's Address: ", usersAddress)
         console.log("TIP FISH Poster's Address: ", postersAddress)
         if (await contractInstance.isRegistered(usersAddress)) {
             await contractInstance.transfer(postersAddress, 2)
@@ -95,7 +95,7 @@ const PostDetail = ({ post, addr1 }) => {
 
     async function tipEth() {
         ethereum.request({ method: 'eth_requestAccounts'});
-        console.log("TIP ETH User's Address: ", usersAddress)
+        console.log("TIP ETH w2User's Address: ", usersAddress)
         console.log("TIP ETH Poster's Address: ", postersAddress)
         let _provider = new ethers.providers.Web3Provider(ethereum);
         let _signer = _provider.getSigner();

@@ -5,13 +5,13 @@ import AllPosts from '../Posts/AllPosts/AllPosts';
 
 import './homepage.scss';
 
-function Homepage( { addr1 } ) {
+function Homepage( { ethAddr } ) {
 
 
   return (
     <div className='homepageElwrapper'>
       <CreatePostModal />
-      <AllPosts addr1={addr1} />
+      <AllPosts ethAddr={ethAddr} />
     </div>
   )
 }

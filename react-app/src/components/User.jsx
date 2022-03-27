@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
-function User() {
-  const [user, setUser] = useState({});
+function w2User() {
+  const [w2User, setUser] = useState({});
   const { userId }  = useParams();
 
   useEffect(() => {
@@ -11,27 +11,27 @@ function User() {
     }
     (async () => {
       const response = await fetch(`/api/users/${userId}`);
-      const user = await response.json();
-      setUser(user);
+      const w2User = await response.json();
+      setUser(w2User);
     })();
   }, [userId]);
 
-  if (!user) {
+  if (!w2User) {
     return null;
   }
 
   return (
     <ul>
       <li>
-        <strong>User Id</strong> {userId}
+        <strong>w2User Id</strong> {userId}
       </li>
       <li>
-        <strong>Username</strong> {user.username}
+        <strong>Username</strong> {w2User.username}
       </li>
       <li>
-        <strong>Email</strong> {user.email}
+        <strong>Email</strong> {w2User.email}
       </li>
     </ul>
   );
 }
-export default User;
+export default w2User;

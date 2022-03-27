@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 // import { Redirect } from 'react-router-dom';
 import { signUp } from '../../../store/session';
 
-const SignUpForm = ({ addr1, connected }) => {
+const SignUpForm = ({ ethAddr, connected }) => {
   const [username, setUsername] = useState('');
   const [address, setAddress] = useState('');
   const [password, setPassword] = useState('');
@@ -12,7 +12,7 @@ const SignUpForm = ({ addr1, connected }) => {
   const [errors, setErrors] = useState([]);
   const dispatch = useDispatch();
 
-  // const user = useSelector(state => state.session.user);
+  // const w2User = useSelector(state => state.session.w2User);
 
   const onSignUp = async (e) => {
     e.preventDefault();
@@ -45,7 +45,7 @@ const SignUpForm = ({ addr1, connected }) => {
     setRepeatPassword(e.target.value);
   };
 
-  // if (user) {
+  // if (w2User) {
   //   return <Redirect to='/' />;
   // }
 

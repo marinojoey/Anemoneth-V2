@@ -2,13 +2,13 @@ import React from "react";
 import "./web3Login.scss";
 import contractCall from "../ContractCall/ContractCall";
 
-function Web3Login({ setUser, setfishblnc, addr1, connected }) {
+function Web3Login({ setUser, setfishblnc, ethAddr, connected }) {
 
     async function contractCallHandler() {
         let contractInstance = await contractCall();
-        if (await contractInstance.isRegistered(addr1)) {
+        if (await contractInstance.isRegistered(ethAddr)) {
             setUser(true)
-            let balanceOf = parseInt(await contractInstance.balanceOf(addr1), 16);
+            let balanceOf = parseInt(await contractInstance.balanceOf(ethAddr), 16);
             setfishblnc(balanceOf);
         } else {
             document.querySelector(".enterErrPlaceholder").textContent = "Something went wrong. Please make sure you're registered below!"
@@ -17,7 +17,7 @@ function Web3Login({ setUser, setfishblnc, addr1, connected }) {
 
     async function registerCall() {
         let contractInstance = await contractCall();
-        if (await contractInstance.isRegistered(addr1)) {
+        if (await contractInstance.isRegistered(ethAddr)) {
             document.querySelector(".regiErrPlaceholder").textContent = "You are already registered!"
         }
         await contractInstance.register({ value: 1000000000, gasLimit: 12000000 });

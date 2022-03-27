@@ -12,7 +12,7 @@ const CreatePosting = ({ setShowModal }) => {
     const history = useHistory();
     const dispatch = useDispatch();
 
-    const current_user = useSelector(state => state.session.user);
+    const current_user = useSelector(state => state.session.w2User);
     const user_id = current_user.id;
 
 

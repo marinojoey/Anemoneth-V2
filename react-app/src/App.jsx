@@ -25,14 +25,14 @@ function App() {
   let signer;
   let addr;
 
-  const user = useSelector(state => state.session.user);
+  const w2User = useSelector(state => state.session.w2User);
 
   const [dispAddr, setDispAddr] = useState("");
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [ethAddr, setAddr1] = useState(0);
+  const [w3User, setUser] = useState(false);
   const [connected, setConn] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [loaded, setLoaded] = useState(false);
-  const [isUser, setUser] = useState(false);
-  const [addr1, setAddr1] = useState(0);
   const [fishblnc, setfishblnc] = useState(0);
   const [redeemable, setRedeemable] = useState(0);
   const dispatch = useDispatch();
@@ -77,9 +77,9 @@ function App() {
 
   async function contractCallHandler() {
     let contractInstance = await contractCall();
-    if (await contractInstance.isRegistered(addr1)) {
+    if (await contractInstance.isRegistered(ethAddr)) {
       setUser(true);
-        let balanceOf = readable(await contractInstance.balanceOf(addr1));
+        let balanceOf = readable(await contractInstance.balanceOf(ethAddr));
         setfishblnc(balanceOf);
         try {
         let currRedeemable = readable(await contractInstance.getCurrRedeemable());
@@ -96,15 +96,15 @@ function App() {
     return null;
   }
 
-  if( (!user && !connected && !isUser) ) {
+  if( (!w2User && !connected && !w3User) ) {
     return (
         <div className='app'>
           <BrowserRouter>
-            <Navbar isUser={isUser} connected={connected} />
+            <Navbar w3User={w3User} connected={connected} />
             <div className='loginComboBox'>
               <div className='web2wrapper'>
                 <LoginForm />
-                <SignUpForm addr1={addr1} connected={connected} />
+                <SignUpForm ethAddr={ethAddr} connected={connected} />
               </div>
               <div className='web3wrapper'>
               <div className='successdiv'></div>
@@ -115,33 +115,33 @@ function App() {
         </div>
       );
   }
-  else if( (!user && connected && !isUser) ) {
+  else if( (!w2User && connected && !w3User) ) {
     return (
         <div className='app'>
           <BrowserRouter>
-            <Navbar isUser={isUser} connected={connected} />
+            <Navbar w3User={w3User} connected={connected} />
             <div className='loginComboBox'>
               <div className='web2wrapper'>
                 <LoginForm />
-                <SignUpForm addr1={addr1} connected={connected} />
+                <SignUpForm ethAddr={ethAddr} connected={connected} />
               </div>
               <div className='web3wrapper'>
-                <Web3Login setUser={setUser} setfishblnc={setfishblnc}  addr1={addr1} connected={connected} />
+                <Web3Login setUser={setUser} setfishblnc={setfishblnc}  ethAddr={ethAddr} connected={connected} />
               </div>
             </div>
           </BrowserRouter>
         </div>
       );
   }
-  else if( (!user && connected && isUser) ) {
+  else if( (!w2User && connected && w3User) ) {
     return (
         <div className='app'>
           <BrowserRouter>
-            <Navbar isUser={isUser} user={user}/>
+            <Navbar w3User={w3User} w2User={w2User}/>
             <div className='loginComboBox'>
               <div className='web2wrapper'>
                 <LoginForm />
-                <SignUpForm addr1={addr1} connected={connected} />
+                <SignUpForm ethAddr={ethAddr} connected={connected} />
               </div>
               <div className='web3wrapper'>
                 <div className='successdiv'>Wallet is connected and you're registered!</div>
@@ -152,11 +152,11 @@ function App() {
         </div>
       );
   }
-  else if( (user && !connected && !isUser) ) {
+  else if( (w2User && !connected && !w3User) ) {
     return (
         <div className='app'>
           <BrowserRouter>
-            <Navbar isUser={isUser} user={user}/>
+            <Navbar w3User={w3User} w2User={w2User}/>
             <div className='loginComboBox'>
               <div className='web2wrapper'>
                 <div className='successdiv'>You are now logged in!</div>
@@ -171,36 +171,36 @@ function App() {
         </div>
       );
   }
-  else if( (user && connected && !isUser) ) {
+  else if( (w2User && connected && !w3User) ) {
     return (
         <div className='app'>
           <BrowserRouter>
-            <Navbar isUser={isUser} user={user}/>
-            {/* Test this ^^^^. I am not sure if the navbar props need to be passed if !isUSer */}
+            <Navbar w3User={w3User} w2User={w2User}/>
+            {/* Test this ^^^^. I am not sure if the navbar props need to be passed if !w3User */}
             <div className='loginComboBox'>
               <div className='web2wrapper'>
                 <div className='successdiv'>You are now logged in and connected to metamask!</div>
                 <div className='requestdiv'>Please register your account</div>
               </div>
               <div className='web3wrapper'>
-                <Web3Login setUser={setUser} setfishblnc={setfishblnc}  addr1={addr1} connected={connected} />
+                <Web3Login setUser={setUser} setfishblnc={setfishblnc}  ethAddr={ethAddr} connected={connected} />
               </div>
             </div>
           </BrowserRouter>
         </div>
       );
   }
-  else if (user && connected && isUser) {
+  else if (w2User && connected && w3User) {
     return (
       <div className='app'>
         <BrowserRouter>
-        <Navbar isUser={isUser} user={user} menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
-        <Menu redeemable={redeemable} fishblnc={fishblnc} dispAddr={dispAddr} addr1={addr1} menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
-        <div className='homepagewrapper'>
-            <ProtectedRoute path='/' exact={true} >
-                <Homepage addr1={addr1} setUser={setUser} setfishblnc={setfishblnc} setRedeemable={setRedeemable} />
-            </ProtectedRoute>
-        </div>
+          <Navbar w3User={w3User} w2User={w2User} menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
+          <Menu redeemable={redeemable} fishblnc={fishblnc} dispAddr={dispAddr} ethAddr={ethAddr} menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
+          <div className='homepagewrapper'>
+              <ProtectedRoute path='/' exact={true} >
+                  <Homepage ethAddr={ethAddr} setUser={setUser} setfishblnc={setfishblnc} setRedeemable={setRedeemable} />
+              </ProtectedRoute>
+          </div>
       </BrowserRouter>
       </div>
     );

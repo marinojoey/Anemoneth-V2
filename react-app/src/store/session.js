@@ -2,16 +2,16 @@
 const SET_USER = 'session/SET_USER';
 const REMOVE_USER = 'session/REMOVE_USER';
 
-const setUser = (user) => ({
+const setUser = (w2User) => ({
   type: SET_USER,
-  payload: user
+  payload: w2User
 });
 
 const removeUser = () => ({
   type: REMOVE_USER,
 })
 
-const initialState = { user: null };
+const initialState = { w2User: null };
 
 export const authenticate = () => async (dispatch) => {
   const response = await fetch('/api/auth/', {
@@ -101,9 +101,9 @@ export const signUp = (username, address, password, repeatPassword) => async (di
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case SET_USER:
-      return { user: action.payload }
+      return { w2User: action.payload }
     case REMOVE_USER:
-      return { user: null }
+      return { w2User: null }
     default:
       return state;
   }

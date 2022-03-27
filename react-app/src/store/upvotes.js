@@ -45,7 +45,7 @@ export const getPostUpvotes = (postId) => async dispatch => {
 }
 
 export const getUsersUpvotes = (username) => async dispatch => {
-    const response = await fetch(`/api/upvotes/user/${username}`);
+    const response = await fetch(`/api/upvotes/w2User/${username}`);
 
     // console.log('---------------', response)
 
@@ -61,7 +61,7 @@ export const getUsersUpvotes = (username) => async dispatch => {
 }
 
 export const upvotePost = (username, postId) => async (dispatch) => {
-    const response = await fetch(`/api/upvotes/post/${postId}/user/${username}`, {
+    const response = await fetch(`/api/upvotes/post/${postId}/w2User/${username}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, postId }),
@@ -80,7 +80,7 @@ export const upvotePost = (username, postId) => async (dispatch) => {
 
 // export const removeUpvote = (username, postId) => async (dispatch) => {
 //     if (post_id) {
-//         const response = await fetch(`/api/upvotes/post/${postId}/user/${username}`, {
+//         const response = await fetch(`/api/upvotes/post/${postId}/w2User/${username}`, {
 //             method: "DELETE",
 //             headers: { "Content-Type": "application/json" },
 //             body: JSON.stringify({ username, postId }),

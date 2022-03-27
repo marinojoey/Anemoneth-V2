@@ -8,17 +8,17 @@ import UpvoteCounter from '../../Admin/Earnings';
 import './menu.scss';
 
 
-function Menu({ redeemable, menuOpen, fishblnc, dispAddr, addr1, setMenuOpen }) {
+function Menu({ redeemable, menuOpen, fishblnc, dispAddr, ethAddr, setMenuOpen }) {
     const [upvoteCount, setUpvoteCount] = useState(0);
     const dispatch = useDispatch();
 
-    const current_user = useSelector(state => state.session.user);
-    const user = current_user.username;
-    console.log(user)
+    const current_user = useSelector(state => state.session.w2User);
+    const w2User = current_user.username;
+    console.log(w2User)
 
     useEffect(() => {
         async function usr() {
-            const res = await fetch(`/api/upvotes/user/${user}`);
+            const res = await fetch(`/api/upvotes/w2User/${w2User}`);
             const count = await res.json()
     
             // console.log('===========', typeof(count))
@@ -26,14 +26,14 @@ function Menu({ redeemable, menuOpen, fishblnc, dispAddr, addr1, setMenuOpen }) 
             setUpvoteCount(count)   
         }
         usr();
-    }, [dispatch, user])
+    }, [dispatch, w2User])
 
-    if(addr1 === "0xae90d6C1360d095a03c4AAf378Bf20cEcdB27630") {
+    if(ethAddr === "0xae90d6C1360d095a03c4AAf378Bf20cEcdB27630") {
         return (
             <div className={"menu " + (menuOpen && "active")} id="menu">
                 <ul className={"list " + (menuOpen && "active")}>
                     <li>
-                        <span className='bold'>{user}</span> 
+                        <span className='bold'>{w2User}</span> 
                     </li>
                     <li>
                         <span className='bold'>Addr: </span><span>{dispAddr}</span>
@@ -48,7 +48,7 @@ function Menu({ redeemable, menuOpen, fishblnc, dispAddr, addr1, setMenuOpen }) 
                         <span className='bold'>My total upvotes: </span><span>{upvoteCount}</span>
                     </li>
                     <li>
-                        <ConRedeemBtn className="btn MmConnectBtn" addr1={addr1} />
+                        <ConRedeemBtn className="btn MmConnectBtn" ethAddr={ethAddr} />
                     </li>
                     <li>
                         <MmConnectBtn className="btn MmConnectBtn" />
@@ -63,12 +63,12 @@ function Menu({ redeemable, menuOpen, fishblnc, dispAddr, addr1, setMenuOpen }) 
             </div>
         )
     }
-    else if(addr1 !== "0xae90d6C1360d095a03c4AAf378Bf20cEcdB27630") {
+    else if(ethAddr !== "0xae90d6C1360d095a03c4AAf378Bf20cEcdB27630") {
         return (
             <div className={"menu " + (menuOpen && "active")} id="menu">
                 <ul className={"list " + (menuOpen && "active")}>
                     <li>
-                        <span className='bold'>{user}</span> 
+                        <span className='bold'>{w2User}</span> 
                     </li>
                     <li>
                         <span className='bold'>Addr: </span><span>{dispAddr}</span>
@@ -83,7 +83,7 @@ function Menu({ redeemable, menuOpen, fishblnc, dispAddr, addr1, setMenuOpen }) 
                         <span className='bold'>My total upvotes:</span><span>{upvoteCount}</span>
                     </li>
                     <li>
-                        <ConRedeemBtn className="btn MmConnectBtn" addr1={addr1} />
+                        <ConRedeemBtn className="btn MmConnectBtn" ethAddr={ethAddr} />
                     </li>
                     <li>
                         <MmConnectBtn className="btn MmConnectBtn" />

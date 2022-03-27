@@ -5,9 +5,9 @@ import logo from '../Images/logo.png';
 
 
 
-function Navbar({ isUser, user, menuOpen, setMenuOpen }) {
+function Navbar({ w3User, w2User, menuOpen, setMenuOpen }) {
 
-    if (user && isUser) {
+    if (w2User && w3User) {
         return (
             <div className={'navbar ' + (menuOpen && 'active')} id="navbar">
                 <div className='wrapper'>
@@ -28,7 +28,7 @@ function Navbar({ isUser, user, menuOpen, setMenuOpen }) {
             </div>
         )
     }
-    else if (!user || !isUser) {
+    else if (!w2User || !w3User) {
         return (
             <div className={'navbar ' + (menuOpen && 'active')} id="navbar">
                 <div className='wrapper'>

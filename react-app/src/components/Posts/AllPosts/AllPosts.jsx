@@ -7,7 +7,7 @@ import fish from '../../Images/fish.png';
 import './Posts.scss';
 
 
-const AllPosts = ( addr1 ) => {
+const AllPosts = ( ethAddr ) => {
     const dispatch = useDispatch();
 
     const allPosts = useSelector(state => state.posts);
@@ -26,7 +26,7 @@ const AllPosts = ( addr1 ) => {
         <div className='all-posts-container'>
             <div className="web2posts">
                 {allPostsArrReverse.map(post => (
-                    <PostDetail addr1={addr1} post={post} key={post.id} />
+                    <PostDetail ethAddr={ethAddr} post={post} key={post.id} />
                 ))}
             </div>
             <div className="web3posts">
