@@ -10,6 +10,8 @@ import App from './App';
 import Web3Login from './components/Web3Login/Web3Login';
 import SplashPage from './components/SplashPage/SplashPage';
 import LoginForm from './components/Auth/LoginForm/LoginForm';
+import Fry from './components/SplashPage/Fry/Fry';
+import SignUpForm from './components/Auth/SignUpForm/SignUpForm';
 
 const store = configureStore();
 
@@ -21,6 +23,8 @@ ReactDOM.render(
           <Routes>
             <Route path="/" element={<App />} >
                 <Route index element={<SplashPage />} />
+                <Route path="fry" element={<Fry />} />
+                <Route path="signup" element={<Web3Login />} />
                 <Route path="loginform" element={<LoginForm />} />
             </Route>
           </Routes>

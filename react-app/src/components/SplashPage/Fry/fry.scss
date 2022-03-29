@@ -1,0 +1,13 @@
+.frypage{
+    display: flex;
+    box-sizing: border-box;
+    background-color: var(--ethpurple);
+    width: 100%;
+    height: calc(100vh - 60px);
+    position: relative;
+    top: 60px;
+    scrollbar-width: none; //for firefox
+    overflow-x: none;
+    overflow-y: scroll;
+    justify-content: space-evenly;
+}
