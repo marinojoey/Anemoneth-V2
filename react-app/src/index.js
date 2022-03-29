@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import App from './App';
 import Web3Login from './components/Web3Login/Web3Login';
+import SplashPage from './components/SplashPage/SplashPage';
 
 const store = configureStore();
 
@@ -17,7 +18,9 @@ ReactDOM.render(
       <ModalProvider>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<App />} />
+            <Route path="/" element={<App />} >
+                <Route index element={<SplashPage />} />
+            </Route>
           </Routes>
         </BrowserRouter>
       </ModalProvider>

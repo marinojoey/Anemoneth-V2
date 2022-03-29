@@ -88,8 +88,7 @@ function App() {
   return (
     <div className='app'>
       <Navbar state={state} setState={setState} />
-      <SplashPage state={state} setState={setState} />
-      <Outlet />
+      <Outlet context={[state, setState]}/>
     </div>
   );
 }
