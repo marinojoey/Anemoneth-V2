@@ -1,7 +1,7 @@
 import './signUpForm.scss'
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux'
-// import { Redirect } from 'react-router-dom';
+// import { Navigate } from 'react-router-dom';
 import { signUp } from '../../../store/session';
 
 const SignUpForm = ({ ethAddr, MMConnected }) => {
@@ -46,7 +46,7 @@ const SignUpForm = ({ ethAddr, MMConnected }) => {
   };
 
   // if (w2User) {
-  //   return <Redirect to='/' />;
+  //   return <Navigate to='/' />;
   // }
 
   if(!MMConnected) {

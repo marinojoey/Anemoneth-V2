@@ -1,6 +1,7 @@
 import React from "react";
 import "./web3Login.scss";
 import contractCall from "../ContractCall/ContractCall";
+import Navbar from "../Navbar/Navbar";
 
 function Web3Login({ setW3User, setfishblnc, ethAddr, MMConnected }) {
 
@@ -23,8 +24,10 @@ function Web3Login({ setW3User, setfishblnc, ethAddr, MMConnected }) {
         await contractInstance.register({ value: 1000000000, gasLimit: 12000000 });
     }
 
-    if (MMConnected) {
-        return (
+
+    return (
+        <div className="login">
+            <Navbar />
             <div className='web3login'>
                 <div className="alreadyregistered">
                     <div id="regged" className="web3logindiv">Already registered?</div>
@@ -38,8 +41,8 @@ function Web3Login({ setW3User, setfishblnc, ethAddr, MMConnected }) {
                     <div className="regiErrPlaceholder"></div>
                 </div>
             </div>
-        );
-    }
+        </div>
+    );
 };
 
 export default Web3Login;

@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { addPost } from "../../../store/posts";
-import { Web3Storage } from "web3.storage/dist/bundle.esm.min";
 import './CreatePost.scss';
 
 const CreatePosting = ({ setShowModal }) => {
     const [title, setTitle] = useState('');
     const [caption, setCaption] = useState('');
     const [titleLength, setTitleLength] = useState(0);
-    const history = useHistory();
+    const history = useNavigate();
     const dispatch = useDispatch();
 
     const current_user = useSelector(state => state.session.w2User);

@@ -1,4 +1,3 @@
-import { Web3Storage } from 'web3.storage/dist/bundle.esm.min.js'
 import { Modal } from '../../../context/Modal';
 import React, { useState } from 'react';
 import CreatePost from './CreatePost';

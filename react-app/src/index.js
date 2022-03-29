@@ -1,10 +1,13 @@
+import './index.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import './index.css';
-import App from './App';
 import configureStore from './store';
+import { Provider } from 'react-redux';
 import { ModalProvider } from './context/Modal';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import App from './App';
+import Web3Login from './components/Web3Login/Web3Login';
 
 const store = configureStore();
 
@@ -12,7 +15,11 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <ModalProvider>
-        <App />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<App />} />
+          </Routes>
+        </BrowserRouter>
       </ModalProvider>
       </Provider>
   </React.StrictMode>,

@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { login } from '../../../store/session';
-import { Redirect } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import React, { useState } from 'react';
 import './loginForm.scss'
 
@@ -29,7 +29,7 @@ const LoginForm = () => {
   };
 
   if (w2User) {
-    return <Redirect to='/' />;
+    return <Navigate to='/' />;
   }
 
   return (
