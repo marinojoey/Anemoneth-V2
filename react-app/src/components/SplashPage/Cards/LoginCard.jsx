@@ -1,16 +1,15 @@
 import React from 'react'
 import "../splashPage.scss"
-import LoginForm from '../../Auth/LoginForm/LoginForm'
+import { Outlet, Link } from "react-router-dom";
 
 function LoginCard() {
   
   return (
-    <div className='card'>
-        <div className='heading'>
-          <h1 className='header'>Coming Back?</h1>
-        </div>
-        <div className='body loginbody'> <LoginForm /> </div>
-    </div>
+    // <div className='card login'>
+      <Link to="/loginform" className='card login'>
+        <h1 className='header'>Click to login</h1>
+     </Link>
+    // </div>
   )
 }
 

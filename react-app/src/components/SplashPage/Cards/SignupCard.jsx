@@ -3,6 +3,8 @@ import React, { useEffect } from 'react'
 import { ethers } from "ethers";
 import contractCall from "../../ContractCall/ContractCall";
 import SignUpForm from "../../Auth/SignUpForm/SignUpForm";
+import { Outlet, Link } from "react-router-dom";
+
 
 const { ethereum } = window;
 
@@ -92,41 +94,14 @@ function SignupCard({ state, setState }) {
   //   }
   // }
 
-  if(!MMConnected && !w3User) {
-    return (
-      <div className='card'>
-          <div className='heading'>
-            <h1 className='header'>I'm new to AnemonETH</h1>
-            <h5 className='instructions'>But not web3</h5>
-          </div>
-          <button className='body signupbutton' onClick={connectWalletHandler}>Connect Metamask</button>
-      </div>
-    )
-  }
-  else if(MMConnected && !w3User) {
-    return (
-      <div className='card'>
-        <div className='heading'>
-          <h1 className='header'>Metamask connected!</h1>
-          <h5 className='instructions'>Please register wit AnemonETH's smart-contract</h5>
-        </div>
-        <button className='body signupbutton' onClick={registerCall}>Register</button>
-        <div className="regiErrPlaceholder"></div>
-        <div className="footer">You can read about our contract, economics and incentive structure here</div>
-      </div>
-    )
-  }
-  else if(MMConnected && w3User) {
-    return (
-      <div className='card'>
-        <div className='heading'>
-          <h1 className='header'>Sign-Up!</h1>
-          <h5 className='instructions'>Last thing, we promise.</h5>
-        </div>
-        <div className="body loginbody"> <SignUpForm /></div>
-      </div>
-    )
-  }
+  return (
+    // <div className='card signup'>
+      <Link to="/signup" className='card signup'>
+        <h1 className='header'>I'm new to AnemonETH</h1>
+        <h5 className='instructions'>(But not web3)</h5>
+     </Link>
+    // </div>
+  )
 }
 
 export default SignupCard

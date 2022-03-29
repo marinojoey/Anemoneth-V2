@@ -10,12 +10,14 @@ import LoginCard from './Cards/LoginCard';
 function SplashPage() {
 
   const [state, setState] = useOutletContext();
-  
+
   return (
     <div className='splashcardwrapper'>
-      <FryCard state={state} setState={setState}/>
-      <SignupCard state={state} setState={setState}/>
-      <LoginCard state={state} setState={setState}/>
+      <div className='pop'>
+        <FryCard state={state} setState={setState}/>
+        <SignupCard state={state} setState={setState}/>
+        <LoginCard state={state} setState={setState}/>
+      </div>
     </div>
   )
 }
