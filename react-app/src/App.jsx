@@ -9,7 +9,7 @@ import contractCall from './components/ContractCall/ContractCall';
 import SignUpForm from './components/Auth/SignUpForm/SignUpForm';
 import LoginForm from './components/Auth/LoginForm/LoginForm';
 import ProtectedRoute from './components/Auth/ProtectedRoute';
-import Web3Login from './components/Web3Login/Web3Login'
+// import Web3Login from './components/Web3Login/Web3Login'
 import Homepage from './components/Homepage/Homepage';
 import Menu from './components/Navbar/Menu/Menu';
 import Navbar from './components/Navbar/Navbar';

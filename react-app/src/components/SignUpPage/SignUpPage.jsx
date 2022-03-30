@@ -1,12 +1,12 @@
 import React from "react";
-import "./web3Login.scss";
+import "./signUpPage.scss";
 import contractCall from "../ContractCall/ContractCall";
 import Navbar from "../Navbar/Navbar";
 import { ethers } from "ethers";
 const { ethereum } = window;
 
 
-function Web3Login({ state, setState }) {
+function SignUpPage({ state, setState }) {
 
     const MMConnected = state?.MMConnected;
     const w3User = state?.w3User;
@@ -81,7 +81,7 @@ function Web3Login({ state, setState }) {
 
 
     return (
-        <div className='web3login'>
+        <div className='SignUpPage'>
             <div className="notregistered">
                 <button className='loginButtons' onClick={registerCall} >Register Here</button>
                 <div id="details" className="web3logindiv">It will cost 1 Gwei (+ gas) and you will recieve 1 FISH in return.</div>
@@ -91,4 +91,4 @@ function Web3Login({ state, setState }) {
     );
 };
 
-export default Web3Login;
+export default SignUpPage;

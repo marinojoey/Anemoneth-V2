@@ -7,7 +7,7 @@ import { ModalProvider } from './context/Modal';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import App from './App';
-import Web3Login from './components/Web3Login/Web3Login';
+import SignUpPage from './components/SignUpPage/SignUpPage';
 import SplashPage from './components/SplashPage/SplashPage';
 import LoginForm from './components/Auth/LoginForm/LoginForm';
 import Fry from './components/SplashPage/Fry/Fry';
@@ -24,7 +24,7 @@ ReactDOM.render(
             <Route path="/" element={<App />} >
                 <Route index element={<SplashPage />} />
                 <Route path="fry" element={<Fry />} />
-                <Route path="signup" element={<Web3Login />} />
+                <Route path="signup" element={<SignUpPage />} />
                 <Route path="loginform" element={<LoginForm />} />
             </Route>
           </Routes>
