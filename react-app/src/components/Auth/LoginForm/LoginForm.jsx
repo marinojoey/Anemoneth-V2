@@ -33,34 +33,38 @@ const LoginForm = () => {
   }
 
   return (
-    <form onSubmit={onLogin}className="loginwrapper" >
-      <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
+      <div className='formWrapper'>
+        <form onSubmit={onLogin}className="loginwrapper" >
+          <div>
+            {errors.map((error, ind) => (
+              <div key={ind}>{error}</div>
+            ))}
+          </div>
+          <div className='usernamewrapper'>
+            <label htmlFor='username'>Username&nbsp;&nbsp;</label>
+            <input
+              name='username'
+              type='text'
+              placeholder='  Username'
+              value={username}
+              onChange={updateUsername}
+              style={{border: 'none', borderRadius: '5px'}}
+            />
+          </div>
+          <div className='passwordwrapper'>
+            <label htmlFor='password'>Password&nbsp;&nbsp;</label>
+            <input
+              name='password'
+              type='password'
+              placeholder='  Password'
+              value={password}
+              onChange={updatePassword}
+              style={{border: 'none', borderRadius: '5px'}}
+            />
+          </div>
+          <button type='submit' className='web2btn'>Login</button>
+        </form>
       </div>
-      <div className='usernamewrapper'>
-        <label htmlFor='username'>Username</label>
-        <input
-          name='username'
-          type='text'
-          placeholder='Username'
-          value={username}
-          onChange={updateUsername}
-        />
-      </div>
-      <div className='passwordwrapper'>
-        <label htmlFor='password'>Password</label>
-        <input
-          name='password'
-          type='password'
-          placeholder='Password'
-          value={password}
-          onChange={updatePassword}
-        />
-      </div>
-      <button type='submit' className='web2btn'>Login</button>
-    </form>
   );
 };
 
