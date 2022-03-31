@@ -15,7 +15,7 @@ const PostDetail = ({ post, ethAddr }) => {
 
     const postId = post.id;
 
-    const current_user = useSelector(state => state.session.w2User);
+    const current_user = useSelector(state => state.session.user);
     const user_id = current_user.id;
     const username = current_user.username;
 

@@ -3,7 +3,7 @@ import "./signUpPage.scss";
 import contractCall from "../ContractCall/ContractCall";
 import Navbar from "../Navbar/Navbar";
 import { ethers } from "ethers";
-import { useOutletContext } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 import SignUpForm from "../Auth/SignUpForm/SignUpForm";
 const { ethereum } = window;
 
@@ -107,9 +107,8 @@ function SignUpPage() {
                     <div className="description">We are a web3 social platform that directly rewards its users whenever they create great things</div>
                 </div>
                 <div className="s1right">
-                    {/* <div className="step1">(Step One)</div> */}
-                    {!MMConnected && <button className="connectWalletBtn" onClick={connectWalletHandler}>Connect Wallet</button>}
-                    {MMConnected && <button className="connectWalletBtn" id="done">Wallet Connected!</button>}
+                    {MMConnected ? <button className="connectWalletBtn" id="done">Wallet Connected!</button> :
+                    <button className="connectWalletBtn" onClick={connectWalletHandler}>Connect Wallet</button> }
                 </div>
                 <div className="footer"><span className="line"></span> </div>
             </div>
@@ -178,7 +177,7 @@ function SignUpPage() {
                     </div>
                 </div>
                 <div className="enterwrapper">
-                    <button className="enterBTN">Enter the Anemone!</button>
+                    <Link to="/homepage" className="enterBTN">Enter the Anemone!</Link>
                 </div>
             </div>
         </div>

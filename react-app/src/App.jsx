@@ -21,7 +21,7 @@ const { ethereum } = window;
 
 function App() {
 
-  const w2User = useSelector(state => state.session.w2User);
+  const user = useSelector(state => state.session.user);
 
   // const [provider, setProvider] = useState("");
   // const [signer, setSigner] = useState("");
@@ -35,8 +35,8 @@ function App() {
   // const [redeemable, setRedeemable] = useState(0);
 
   const [state, setState] = useState({
-    provider: "",
-    signer: "",
+    provider: {},
+    signer: {},
     w3User: false,
     displayAddr: "",
     ethAddr: 0,
@@ -46,6 +46,8 @@ function App() {
     fishblnc: 0,
     redeemable: 0,
   });
+
+  const w3User = state?.w3User;
 
   const dispatch = useDispatch();
 
@@ -88,6 +90,7 @@ function App() {
   return (
     <div className='app'>
       <Navbar state={state} setState={setState} />
+      {(user && w3User) ? <Menu state={state} setState={setState} /> : <span></span>} 
       <Outlet context={[state, setState]}/>
     </div>
   );

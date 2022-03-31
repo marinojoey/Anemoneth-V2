@@ -12,6 +12,7 @@ import SplashPage from './components/SplashPage/SplashPage';
 import LoginForm from './components/Auth/LoginForm/LoginForm';
 import Fry from './components/SplashPage/Fry/Fry';
 import SignUpForm from './components/Auth/SignUpForm/SignUpForm';
+import Homepage from './components/Homepage/Homepage';
 
 const store = configureStore();
 
@@ -26,6 +27,7 @@ ReactDOM.render(
                 <Route path="fry" element={<Fry />} />
                 <Route path="signup" element={<SignUpPage />} />
                 <Route path="loginform" element={<LoginForm />} />
+                <Route path="homepage" element={<Homepage />} />
             </Route>
           </Routes>
         </BrowserRouter>

@@ -98,7 +98,7 @@ function SignupCard({ state, setState }) {
     // <div className='card signup'>
       <Link to="/signup" className='card signup'>
         <h1 className='header'>I'm new to AnemonETH</h1>
-        <h5 className='instructions'>(But not web3)</h5>
+        {/* <h5 className='instructions'>(But not web3)</h5> */}
      </Link>
     // </div>
   )
