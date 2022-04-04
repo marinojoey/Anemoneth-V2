@@ -11,8 +11,9 @@ import SignUpPage from './components/SignUpPage/SignUpPage';
 import SplashPage from './components/SplashPage/SplashPage';
 import LoginForm from './components/Auth/LoginForm/LoginForm';
 import Fry from './components/SplashPage/Fry/Fry';
-import SignUpForm from './components/Auth/SignUpForm/SignUpForm';
+// import SignUpForm from './components/Auth/SignUpForm/SignUpForm';
 import Homepage from './components/Homepage/Homepage';
+import Data from './components/Admin/Data/Data';
 
 const store = configureStore();
 
@@ -28,6 +29,7 @@ ReactDOM.render(
                 <Route path="signup" element={<SignUpPage />} />
                 <Route path="loginform" element={<LoginForm />} />
                 <Route path="homepage" element={<Homepage />} />
+                <Route path="data" element={<Data />} />
             </Route>
           </Routes>
         </BrowserRouter>

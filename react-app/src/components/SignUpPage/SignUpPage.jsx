@@ -5,6 +5,7 @@ import Navbar from "../Navbar/Navbar";
 import { ethers } from "ethers";
 import { Link, useOutletContext } from "react-router-dom";
 import SignUpForm from "../Auth/SignUpForm/SignUpForm";
+import graph from "../Images/graph.png"
 const { ethereum } = window;
 
 
@@ -114,17 +115,22 @@ function SignUpPage() {
             </div>
             <div className="step two">
                 <div className="s2Top">
-                    <div className="h1">Users are natively rewarded with FISH (our ERC20 token) when they recieve upvotes. In other words, every user is a financial stakeholder. This allows us to re-align incentives back to the users and away from wall street. <br></br><br></br>We are now able to benefit not just socially, but also financially from the value that our platforms create! </div>
+                    <div className="h1">Our mission: re-align incentives back to the users and away from wall street. To do this, every user natively becomes a financial stakeholder.  <br></br><br></br>We are now able to benefit not just socially, but also financially from the value that our platforms create! </div>
                 </div>
                 <div className="s2Bottom">
                     <div className="h1 bl">If you meet a minimum threshold, you will be placed in one of three earnings tiers based on activity: low, mid or high. <br></br><br></br>Allocations will happen weekly and you decide when to redeem.  </div>
-                    <div className="h1 br">After you sign-up, you dont have to manage a thing! You will be able to watch your FISH balance grow over time and be able to freely redeem it at any point. </div>
+                    <div className="h1 br">After you sign-up, you don't have to manage a thing! You will be able to passively watch your FISH balance grow over time. </div>
                 </div>
                 <div className="footer"><span className="line"></span> </div>
             </div>
             <div className="step three">
+                <div className="graphTitle">Our staking model is pretty simple. Here is a ten week example of 6 different users: </div>
+                <img src={graph} alt="data"></img>
+                <Link to="/data" className="moreData">More information can be found here</Link>
+            </div>
+            <div className="step four">
                 <div className="footer"></div>
-                <div className="s3left">
+                <div className="s4left">
                     <div className="liTitle">
                         Registering will do great things for you:
                     </div>
@@ -136,7 +142,7 @@ function SignUpPage() {
                         <li>You will gain access to the only platform that pays you for using it!</li>
                     </ul>
                 </div>
-                <div className="s3right">
+                <div className="s4right">
                     <div className="liTitle">
                         First, a few things you should know:
                     </div>
@@ -144,23 +150,24 @@ function SignUpPage() {
                         <li>Our tokenomics will never change</li>
                         <li>Registration will cost 1 Gwei (prevents spam)</li>
                         <li>You will be allocated 1 FISH in return</li>
-                        <li>Clownfish are born without gender</li>
-                        <li>In a process called sequentail hermaphroditism An anemone's dominant clownfish will morph into a female!</li>
+                        <li>If you earn in a given week you will gain 1 FISH per week held</li>
+                        <li>Special earnings weeks will happen periodically</li>
+                        <li>Redeeming during these weeks will gain you either 1, 5 or 6 extra FISH!</li>
                     </ul>
                 </div>
                 <div className="footer"></div>
             </div>
-            <div className="step four">
-                <div className="s4top">
+            <div className="step five">
+                <div className="s5top">
                     <div className="okay">If that sounds fair...</div>
                 </div>
-                <div className="s4bottom">
+                <div className="s5bottom">
                     <div className="buttonWrapper">
                         <button className="registerBtn" onClick={registerCall}>Register here!</button>
                     </div>
                 </div>
             </div>
-            <div className="step five">
+            <div className="step six">
                 <div className="web2Login">
                     <div className="loginwrapper">
                         <div className="web2LoginDescription">
@@ -170,7 +177,7 @@ function SignUpPage() {
                     </div>
                 </div>
             </div>
-            <div className="step six">
+            <div className="step seven">
                 <div className="messagewrapper">
                     <div className="message">
                         Thanks for joining!<br></br> We hope it wasn't too hard. <br></br>Happy earning!
