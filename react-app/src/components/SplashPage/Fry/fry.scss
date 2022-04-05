@@ -1,13 +1,96 @@
 .frypage{
     display: flex;
-    box-sizing: border-box;
-    background-color: var(--ethpurple);
-    width: 100%;
-    height: calc(100vh - 60px);
-    position: relative;
-    top: 60px;
-    scrollbar-width: none; //for firefox
-    overflow-x: none;
-    overflow-y: scroll;
-    justify-content: space-evenly;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    color: aliceblue;
+    overflow: scroll;
+    background-color: var(--ethblack);
+
+    h1{
+        font-size: 4.5vw;
+        text-align: center;
+        text-decoration: underline;
+    }
+    .step{
+        display: flex;
+        width: 70%;
+        height: fit-content;
+        position: relative;
+        flex-direction: column;
+        border-top: 4px solid rgb(27, 27, 27);
+        margin-bottom: 60px; //DELEEEEETE
+
+        h4{
+            font-size: 2.8vw;
+            font-weight: 800;
+        }
+
+        .descriptionN{
+            margin-top: 2%;
+        }
+
+        .p{
+            font-size: 1.5vw;
+            font-weight: 600;
+            margin-left: 5%;
+            text-align: justify;
+        }
+    }
+    
+    .toExpect{
+        border-top: none;
+        .ps{
+            font-size: 1.2;
+            font-weight: 550;
+            margin: 2%  15% 0 5%;
+            // text-align: justify;
+            border-left: 5px solid rgb(187, 0, 0);
+            border-radius: 5px;
+            padding-left: 1%;
+        }
+
+    }
+
+    .whatIsBlockchain{
+
+
+    }
+
+    .whatIsEthereum{
+
+        .lTitle{
+            font-weight: 1.2vw;
+            font-weight: 600;
+            margin-left: 5%;
+            margin-bottom: 1%;
+        }
+    }
+
+    li{
+        margin-left: 7%;
+        margin-top: .5%;
+
+        li{
+            list-style-type: circle;
+            margin-left: 2%;
+        }
+    }
+
+    .consensus{
+
+        li{
+            margin-left: 3%;
+        }
+    }
+
+    .ether{
+
+        .bolded{
+            font-weight: 900;
+        }
+    }
 }

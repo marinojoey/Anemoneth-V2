@@ -115,16 +115,16 @@ function SignUpPage() {
             </div>
             <div className="step two">
                 <div className="s2Top">
-                    <div className="h1">Our mission: re-align incentives back to the users and away from wall street. To do this, every user natively becomes a financial stakeholder.  <br></br><br></br>We are now able to benefit not just socially, but also financially from the value that our platforms create! </div>
+                    <div className="h1">Our mission: create a social platform that re-aligns incentives back to the users and away from wall street. To do this we natively and frictionlessly make each user a financial stakeholder.  <br></br><br></br>We are finally now able to benefit not just socially, but also financially from the value that our platforms create! </div>
                 </div>
                 <div className="s2Bottom">
                     <div className="h1 bl">If you meet a minimum threshold, you will be placed in one of three earnings tiers based on activity: low, mid or high. <br></br><br></br>Allocations will happen weekly and you decide when to redeem.  </div>
-                    <div className="h1 br">After you sign-up, you don't have to manage a thing! You will be able to passively watch your FISH balance grow over time. </div>
+                    <div className="h1 br">After you sign-up, you don't have to manage a thing! <br></br> <br></br>If you stake, you can passively watch your FISH grow over time. </div>
                 </div>
                 <div className="footer"><span className="line"></span> </div>
             </div>
             <div className="step three">
-                <div className="graphTitle">Our staking model is pretty simple. Here is a ten week example of 6 different users: </div>
+                <div className="graphTitle">Our staking model is pretty simple </div>
                 <img src={graph} alt="data"></img>
                 <Link to="/data" className="moreData">More information can be found here</Link>
             </div>
@@ -148,11 +148,9 @@ function SignUpPage() {
                     </div>
                     <ul>
                         <li>Our tokenomics will never change</li>
-                        <li>Registration will cost 1 Gwei (prevents spam)</li>
-                        <li>You will be allocated 1 FISH in return</li>
-                        <li>If you earn in a given week you will gain 1 FISH per week held</li>
-                        <li>Special earnings weeks will happen periodically</li>
-                        <li>Redeeming during these weeks will gain you either 1, 5 or 6 extra FISH!</li>
+                        <li>Registration will cost 1 Gwei (prevents spam) and you will be given 1 FISH in return</li>
+                        <li>In a given week that you earn, you will gain 1 FISH per week held</li>
+                        <li>Special earnings weeks will happen periodically and redeeming during these weeks will gain you either 1, 5 or 6 extra FISH!</li>
                     </ul>
                 </div>
                 <div className="footer"></div>
