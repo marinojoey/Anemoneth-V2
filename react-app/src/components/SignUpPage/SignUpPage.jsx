@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "./signUpPage.scss";
-import contractCall from "../ContractCall/ContractCall";
 import Navbar from "../Navbar/Navbar";
+import contractCall from "../ContractCall/ContractCall";
 import { ethers } from "ethers";
 import { Link, useOutletContext } from "react-router-dom";
 import SignUpForm from "../Auth/SignUpForm/SignUpForm";

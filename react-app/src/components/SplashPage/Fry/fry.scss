@@ -10,87 +10,200 @@
     overflow: scroll;
     background-color: var(--ethblack);
 
-    h1{
-        font-size: 4.5vw;
-        text-align: center;
-        text-decoration: underline;
-    }
-    .step{
+    .context{
         display: flex;
-        width: 70%;
-        height: fit-content;
-        position: relative;
         flex-direction: column;
-        border-top: 4px solid rgb(27, 27, 27);
-        margin-bottom: 60px; //DELEEEEETE
+        width: 70%;
 
-        h4{
-            font-size: 2.8vw;
-            font-weight: 800;
+        h1{
+            font-size: 4.5vw;
+            text-align: center;
+            text-decoration: underline;
+            color: var(--ethgold);
         }
-
-        .descriptionN{
-            margin-top: 2%;
-        }
-
-        .p{
-            font-size: 1.5vw;
-            font-weight: 600;
-            margin-left: 5%;
-            text-align: justify;
-        }
-    }
+        .step{
+            display: flex;
+            width: 100%;
+            height: fit-content;
+            position: relative;
+            flex-direction: column;
+            border-top: 4px solid rgb(27, 27, 27);
+            padding-bottom: 40px;
     
-    .toExpect{
-        border-top: none;
-        .ps{
-            font-size: 1.2;
-            font-weight: 550;
-            margin: 2%  15% 0 5%;
-            // text-align: justify;
-            border-left: 5px solid rgb(187, 0, 0);
-            border-radius: 5px;
-            padding-left: 1%;
+            h4{
+                font-size: 2.8vw;
+                font-weight: 800;
+            }
+    
+            .descriptionN{
+                margin-top: 2%;
+            }
+    
+            .p{
+                font-size: 1.5vw;
+                font-weight: 600;
+                margin-left: 5%;
+                text-align: justify;
+            }
         }
-
-    }
-
-    .whatIsBlockchain{
-
-
-    }
-
-    .whatIsEthereum{
-
-        .lTitle{
-            font-weight: 1.2vw;
+        
+        .toExpect{
+            border-top: none;
+            .ps{
+                font-size: 1.2;
+                font-weight: 550;
+                margin: 2%  15% 0 5%;
+                // text-align: justify;
+                border-left: 5px solid rgb(187, 0, 0);
+                border-radius: 5px;
+                padding-left: 1%;
+            }
+    
+        }
+    
+        .whatIsBlockchain{
+    
+    
+        }
+    
+        .whatIsEthereum{
+    
+            .lTitle{
+                font-weight: 1.2vw;
+                font-weight: 600;
+                margin-left: 5%;
+                margin-bottom: 1%;
+            }
+        }
+    
+        li{
+            margin-left: 7%;
+            margin-top: .5%;
             font-weight: 600;
-            margin-left: 5%;
-            margin-bottom: 1%;
+    
+            li{
+                list-style-type: circle;
+                margin-left: 2%;
+            }
+        }
+    
+        .consensus{
+    
+            li{
+                margin-left: 3%;
+            }
+        }
+    
+        .ether{
+    
+            .bolded{
+                font-weight: 900;
+            }
         }
     }
 
-    li{
-        margin-left: 7%;
-        margin-top: .5%;
+    .timeToRegister{
+        display: flex;
+        flex-direction: column;
+        width: 70%;
 
-        li{
-            list-style-type: circle;
-            margin-left: 2%;
+        h1{
+            font-size: 4.5vw;
+            text-align: center;
+            text-decoration: underline;
+            color: var(--ethgold);
         }
-    }
+        .step{
+            display: flex;
+            width: 100%;
+            height: fit-content;
+            position: relative;
+            flex-direction: column;
+            border-top: 4px solid rgb(27, 27, 27);
+            padding-bottom: 60px; //DELEEEEETE
+            
+            .subStep{
+                align-items: flex-start;
+                margin-bottom: 1%;
 
-    .consensus{
+            }
 
-        li{
-            margin-left: 3%;
+            li{
+                margin-left: 3%;
+                padding-bottom: .5%;
+                font-weight: 600;
+                font-size: 1.4vw;
+            }
+            h4{
+                font-size: 2.8vw;
+                font-weight: 800;
+            }
+    
+            .descriptionN{
+                margin-top: 2%;
+            }
+    
+            .p{
+                font-size: 1.5vw;
+                font-weight: 600;
+                margin-left: 5%;
+                text-align: justify;
+            }
         }
-    }
+        .clarifications{
+            border-top: none;
+        }
 
-    .ether{
+        .installMetamask{
 
-        .bolded{
-            font-weight: 900;
+            a{
+                font-size: 1.9vw;
+                font-weight: 700;
+                color: rgb(78, 78, 255);
+            }
+        }
+
+        .connectMetamask{
+            display: flex;
+
+            .connectWalletBtn{
+                display: flex;
+                width: 50%;
+                height: 10%;
+                border: 3px solid var(--ethgold);
+                font-weight: 700;
+                font-size: 3.3vw;
+                border-radius: 80px;
+                color: var(--ethgold);
+                background-color: var(--ethblack);
+                padding: 2% 5%;
+                margin: 7% auto 0 auto;
+                text-align: center;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                box-shadow: -6px 47px 76px -3px #190303;
+            }
+        }
+
+        .faucet{
+
+            .bold{
+                // text-decoration: underline;
+                font-weight: 800;
+                color: red;
+            }
+
+            li{
+                margin-left: 8%;
+                padding-bottom: .5%;
+            }
+
+            a{
+                font-size: 1.9vw;
+                font-weight: 700;
+                color: rgb(78, 78, 255);
+            }
         }
     }
 }
