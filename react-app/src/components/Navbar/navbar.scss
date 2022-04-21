@@ -9,11 +9,12 @@
     top: 0;
     z-index: 3;
     transition: all 1s ease;
+    box-shadow: 0 2px 4px 0 rgba(89, 89, 89, 0.2);
 
     .wrapper {
         height: 60px;
         display: flex;
-        align-items: flex-end;
+        align-items: center;
         justify-content: space-between;
 
         .left {

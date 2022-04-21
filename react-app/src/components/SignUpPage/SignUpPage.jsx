@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./signUpPage.scss";
-import Navbar from "../Navbar/Navbar";
 import contractCall from "../ContractCall/ContractCall";
 import { ethers } from "ethers";
 import { Link, useOutletContext } from "react-router-dom";
@@ -14,7 +13,6 @@ function SignUpPage() {
     const [state, setState] = useOutletContext();
 
     const MMConnected = state?.MMConnected;
-    const w3User = state?.w3User;
     const ethAddr = state?.ethAddr;
 
     async function connectWalletHandler() {
@@ -45,12 +43,6 @@ function SignUpPage() {
         }
     }
 
-    // function consoleLog() {
-    //     console.log("MMConnected?", MMConnected)
-    //     console.log("w3User?", w3User)
-    //     console.log("Eth Addr", ethAddr)
-    // }
-
     function makeDispAddr(numAddr) {
         const strAddr = numAddr.toString();
         const first = strAddr.slice(0,4);
@@ -62,25 +54,25 @@ function SignUpPage() {
         }));
     }
 
-    function readable(num) {
-        return ethers.utils.formatUnits(parseInt(num).toString(), 18);
-    }
-    async function contractCallHandler() {
-        let contractInstance = await contractCall();
-        if (await contractInstance.isRegistered(ethAddr)) {
-            setState(prevState => ({
-                ...prevState,
-                w3User: true
-            }))
-            let balanceOf = parseInt(await contractInstance.balanceOf(ethAddr), 16);
-            setState(prevState => ({
-                ...prevState,
-                fishblnc: balanceOf
-            }))
-        } else {
-            document.querySelector(".enterErrPlaceholder").textContent = "Something went wrong. Please make sure you're registered below!"
-        }
-    }
+    // function readable(num) {
+    //     return ethers.utils.formatUnits(parseInt(num).toString(), 18);
+    // }
+    // async function contractCallHandler() {
+    //     let contractInstance = await contractCall();
+    //     if (await contractInstance.isRegistered(ethAddr)) {
+    //         setState(prevState => ({
+    //             ...prevState,
+    //             w3User: true
+    //         }))
+    //         let balanceOf = parseInt(await contractInstance.balanceOf(ethAddr), 16);
+    //         setState(prevState => ({
+    //             ...prevState,
+    //             fishblnc: balanceOf
+    //         }))
+    //     } else {
+    //         document.querySelector(".enterErrPlaceholder").textContent = "Something went wrong. Please make sure you're registered below!"
+    //     }
+    // }
 
     async function registerCall() {
         let contractInstance = await contractCall();

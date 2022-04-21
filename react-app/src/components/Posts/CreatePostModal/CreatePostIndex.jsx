@@ -10,9 +10,9 @@ function CreatePostModal() {
     setShowModal(true);
   }
 
-  async function dashboardSearch() {
+  // async function dashboardSearch() {
 
-  }
+  // }
 
   return (
     <div className='createPostModalWrapper'>
@@ -22,10 +22,10 @@ function CreatePostModal() {
           <CreatePost setShowModal={setShowModal} />
         </Modal>
       )}
-      <div className='dash-search'>
+      {/* <div className='dash-search'>
         <input type="text" className='searchval' placeholder='   games, news, artists, events, twitter, endless animal facts...'></input>
         <button className='retrieveBtn' onClick={ () => dashboardSearch(document.querySelector('.searchVal').value) }>Search dashboard</button>
-      </div>
+      </div> */}
     </div>
   );
 }

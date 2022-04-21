@@ -2,11 +2,6 @@ import './navbar.scss'
 import React from 'react'
 import { NavLink } from 'react-router-dom';
 import logo from '../Images/logo.png';
-import { ethers } from 'ethers';
-const { ethereum } = window;
-
-
-
 
 function Navbar({ state, setState }) {
 
@@ -16,7 +11,6 @@ function Navbar({ state, setState }) {
 
     async function menuOpenHandler() {
         setState(prevState => ({...prevState, menuOpen: !menuOpen }));
-
     }
     
     return (

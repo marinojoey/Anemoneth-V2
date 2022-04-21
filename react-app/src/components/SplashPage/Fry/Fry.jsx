@@ -55,25 +55,25 @@ function Fry() {
     }));
   }
 
-  function readable(num) {
-      return ethers.utils.formatUnits(parseInt(num).toString(), 18);
-  }
-  async function contractCallHandler() {
-      let contractInstance = await contractCall();
-      if (await contractInstance.isRegistered(ethAddr)) {
-          setState(prevState => ({
-              ...prevState,
-              w3User: true
-          }))
-          let balanceOf = parseInt(await contractInstance.balanceOf(ethAddr), 16);
-          setState(prevState => ({
-              ...prevState,
-              fishblnc: balanceOf
-          }))
-      } else {
-          document.querySelector(".enterErrPlaceholder").textContent = "Something went wrong. Please make sure you're registered below!"
-      }
-  }
+  // function readable(num) {
+  //     return ethers.utils.formatUnits(parseInt(num).toString(), 18);
+  // }
+  // async function contractCallHandler() {
+  //     let contractInstance = await contractCall();
+  //     if (await contractInstance.isRegistered(ethAddr)) {
+  //         setState(prevState => ({
+  //             ...prevState,
+  //             w3User: true
+  //         }))
+  //         let balanceOf = parseInt(await contractInstance.balanceOf(ethAddr), 16);
+  //         setState(prevState => ({
+  //             ...prevState,
+  //             fishblnc: balanceOf
+  //         }))
+  //     } else {
+  //         document.querySelector(".enterErrPlaceholder").textContent = "Something went wrong. Please make sure you're registered below!"
+  //     }
+  // }
 
   async function registerCall() {
       let contractInstance = await contractCall();
@@ -271,7 +271,7 @@ function Fry() {
             Smart Contracts are born with zero ability, permissions or use. Everything that you want your smart contract to do or control needs to be explicity defined. With that in mind it would help to take the country club example a little further. Physicaly speaking, you can do anything at a country club that you can do anywhere else. You are physically capable of bringing your bed to the tennis courts and sleeping there every night. The fellow members won&#39;t like that though, so they will define operating hours in the contract and do their best to enforce it. However, what they are unable to do is remove the country club from the fabric of reality while it&#39;s closed. 
           </div>
           <div className='registrationInfo descriptionN ps'>
-            At AnemonETH we are also unable to remove country clubs from the fabric of reality. We're working on it though. We would be able to do something like that with our contract though.
+            At AnemonETH we are also unable to remove country clubs from the fabric of reality. We're working on it though. We can make that happen in cyberspace though!
           </div>
           <div className='registrationInfo descriptionN p'>
             We could have made our contract completely innaccessible on Saturdays if we wanted to. It would have no backdoor and everyone would be aware before registering. Why are we able to do this? Because our contract came before the platform! Everything else was built around it. This is very much unlike the country club.
@@ -304,7 +304,7 @@ function Fry() {
         <div className='step web3'>
           <h4 className='subStep title'>I still don't know what web3 is!</h4>
           <div className='web3 description p'>
-            Don't be so sure of that! If you've made it this far you probably do. Web3 doesn't have any strict definition, but it&#39;s generally thought of as any online experience where the user is in control.
+            Don't be so sure of that! If you've made it this far you probably do. Web3 doesn't have any strict definition, but it&#39;s generally thought of as any online experience where the user is in control and/or shares value with the creators. Anemoneth is one example. 
           </div>
           <div className='web3 descriptionN ps'>
             Web1 was the 1990's. Developers made website that were read only. It was a good time.
@@ -316,7 +316,7 @@ function Fry() {
             Web3 is now. Thanks to a digitally native economy, websites are being made that can directly provide ownership and control back to the people who are using them. 
           </div>
           <div className='web3 descriptionN p'>
-            Web3 is not a silver bullet that will solve every problem that the internet has, but it is an improvement. 
+            Web3 is not a silver bullet that will solve every problem that the internet has, but it is improving things. 
           </div>
         </div>
         <div className='step enter'>

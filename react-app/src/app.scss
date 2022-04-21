@@ -7,7 +7,6 @@
     height: 100vh;
     width: 100vw;
     scrollbar-width: none; // for firefox
-    // overflow: hidden;
+    overflow: scroll;
     background-color: var(--ethblack);
-
 }

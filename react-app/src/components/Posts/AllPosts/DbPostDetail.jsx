@@ -3,12 +3,18 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getAllPosts } from "../../../store/posts";
 import { upvotePost } from '../../../store/upvotes';
 import contractCall from "../../ContractCall/ContractCall";
+import { useOutletContext } from "react-router-dom";
 import { ethers } from "ethers";
 import './Posts.scss';
 
 const { ethereum } = window;
 
-const PostDetail = ({ post, ethAddr }) => {
+const PostDetail = ({ post }) => {
+
+    const [state, setState] = useOutletContext();
+
+    const ethAddr = state?.ethAddr;
+
     const [upvotes, setUpvotes] = useState([]);
     const [upvoteUpdate, setUpvoteUpdate] = useState(false);
     const dispatch = useDispatch();
@@ -95,8 +101,6 @@ const PostDetail = ({ post, ethAddr }) => {
 
     async function tipEth() {
         ethereum.request({ method: 'eth_requestAccounts'});
-        console.log("TIP ETH w2User's Address: ", usersAddress)
-        console.log("TIP ETH Poster's Address: ", postersAddress)
         let _provider = new ethers.providers.Web3Provider(ethereum);
         let _signer = _provider.getSigner();
         let tx = {

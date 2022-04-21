@@ -17,7 +17,6 @@ function Menu({ state, setState }) {
     // { redeemable, menuOpen, fishblnc, dispAddr, ethAddr, setMenuOpen }
 
     const ethAddr = state.ethAddr;
-    const w3User = state.w3User;
     const menuOpen = state.menuOpen;
     const displayAddr = state.displayAddr;
     const fishblnc = state.fishblnc;
@@ -44,13 +43,6 @@ function Menu({ state, setState }) {
     useEffect(() => {
         contractCallHandler();
         connectWalletHandler();
-        console.log("ethAddr", ethAddr)
-        console.log("w3User", w3User);
-        console.log("menuOpen", menuOpen)
-        console.log("dispAddr", displayAddr)
-        console.log("fishblnc", fishblnc)
-        console.log("redeemable", redeemable)
-        console.log("---------")
     }, [menuOpen])
 
     async function connectWalletHandler() {

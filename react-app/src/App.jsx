@@ -1,22 +1,15 @@
 import './app.scss'
 import React, { useState, useEffect, createContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import { authenticate } from './store/session';
 import { ethers } from "ethers";
 
 import contractCall from './components/ContractCall/ContractCall';
-import SignUpForm from './components/Auth/SignUpForm/SignUpForm';
-import LoginForm from './components/Auth/LoginForm/LoginForm';
-import ProtectedRoute from './components/Auth/ProtectedRoute';
-// import Web3Login from './components/Web3Login/Web3Login'
-import Homepage from './components/Homepage/Homepage';
 import Menu from './components/Navbar/Menu/Menu';
 import Navbar from './components/Navbar/Navbar';
-import SplashPage from './components/SplashPage/SplashPage';
 
 export const AuthContext = createContext();
-const { ethereum } = window;
 
 
 function App() {

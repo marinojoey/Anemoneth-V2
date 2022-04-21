@@ -1,8 +1,7 @@
 import './splashPage.scss';
 
 import React from 'react'
-import LoginForm from '../Auth/LoginForm/LoginForm';
-import { Link, useOutletContext } from 'react-router-dom';
+import { useOutletContext } from 'react-router-dom';
 import FryCard from './Cards/FryCard';
 import SignupCard from './Cards/SignupCard';
 import LoginCard from './Cards/LoginCard';

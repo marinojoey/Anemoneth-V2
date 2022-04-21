@@ -12,7 +12,7 @@ const LoginForm = () => {
   const [state, setState] = useOutletContext();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [    errors, setErrors] = useState([]);
+  const [errors, setErrors] = useState([]);
   const dispatch = useDispatch();
 
   const MMConnected = state?.MMConnected;
@@ -108,15 +108,12 @@ const LoginForm = () => {
         setState(prevState => ({
             ...prevState,
             fishblnc: balanceOf
-        }))
+      }))}  
+      if (w2User && w3User && MMConnected) {
+        return <Navigate to='/homepage' />;
+      }
     }
-        
   }
-    console.log("web3User", w3User)
-    console.log("MMConnected", MMConnected)
-    console.log("w2User", w2User)
-  }
-
 
   if (w2User && w3User && MMConnected) {
     return <Navigate to='/homepage' />;
@@ -154,7 +151,9 @@ const LoginForm = () => {
           </div>
           <button type='submit' className='web2btn' onClick={loginBtn}>Login</button>
         </form>
-        <button className='connectBtn' onClick={connectWalletHandler}>Is Metamask Connected?</button>
+        {MMConnected ? 
+        <button className='connectBtn' onClick={connectWalletHandler}>Is Metamask Connected?</button> :
+        <button className='connectBtn noCursor'>Metamask is Connected!</button>}
       </div>
   );
 };
