@@ -4,9 +4,12 @@ import CreatePostModal from '../Posts/CreatePostModal/CreatePostIndex';
 import AllPosts from '../Posts/AllPosts/AllPosts';
 
 import './homepage.scss';
+import { useOutletContext } from 'react-router-dom';
 
-function Homepage( { ethAddr } ) {
+function Homepage() {
 
+  const [state, setState] = useOutletContext();
+  const ethAddr = state?.ethAddr;
 
   return (
     <div className='homepageElwrapper'>

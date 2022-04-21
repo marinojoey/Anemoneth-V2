@@ -1,5 +1,8 @@
 .homepageElwrapper{
     width: 100%;
+    position: relative;
+    height: calc(100vh - 60px);
+    top: 60px;
     overflow: none;
     margin: 0 20px;
     scrollbar-width: none;

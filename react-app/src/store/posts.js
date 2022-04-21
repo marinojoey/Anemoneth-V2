@@ -77,7 +77,7 @@ export const getSinglePost = (postId) => async (dispatch) => {
 };
 
 export const getAllUserPosts = (username) => async dispatch => {
-    const response = await fetch(`/api/posts/w2User/${username}/posts`);
+    const response = await fetch(`/api/posts/user/${username}/posts`);
 
     if (response.ok) {
         const data = await response.json();

@@ -1,7 +1,7 @@
 import './signUpForm.scss'
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux'
-// import { Redirect } from 'react-router-dom';
+// import { Navigate } from 'react-router-dom';
 import { signUp } from '../../../store/session';
 
 const SignUpForm = ({ ethAddr, MMConnected }) => {
@@ -46,109 +46,61 @@ const SignUpForm = ({ ethAddr, MMConnected }) => {
   };
 
   // if (w2User) {
-  //   return <Redirect to='/' />;
+  //   return <Navigate to='/' />;
   // }
 
-  if(!MMConnected) {
-    return (
-      <form onSubmit={onSignUp} className="signupwrapper">
-        <div>
-          {errors.map((error, ind) => (
-            <div key={ind}>{error}</div>
-          ))}
-        </div>
-        <div className='subusernamewrapper'>
-          <label>Username:  </label>
-          <input
-            type='text'
-            name='username'
-            onChange={updateUsername}
-            value={username}
-          ></input>
-        </div>
-        <div className='subaddresswrapper'>
-          <label>Ethereum Address:  </label>
-          <input
-            type='text'
-            name='address'
-            onChange={updateAddress}
-            value={address}
-          ></input>
-        </div>
-        <div className='subpasswordwrapper'>
-          <label>Password:  </label>
-          <input
-            type='password'
-            name='password'
-            onChange={updatePassword}
-            value={password}
-          ></input>
-        </div>
-        <div className='subconfirmpasswordwrapper'>
-          <label>Confirm Password:  </label>
-          <input
-            type='password'
-            name='repeat_password'
-            onChange={updateRepeatPassword}
-            value={repeatPassword}
-            required={true}
-          ></input>
-        </div>
-        <button type='submit' className='signupbutton'>Sign Up</button>
-        {/* <div>Tip: if you connect your wallet first your address will auto-fill!</div> */}
-      </form>
-    );
-  }
-  else if(MMConnected) {
-    return (
-      <form onSubmit={onSignUp} className="signupwrapper">
-        <div>
-          {errors.map((error, ind) => (
-            <div key={ind}>{error}</div>
-          ))}
-        </div>
-        <div className='subusernamewrapper'>
-          <label>Username:  </label>
-          <input
-            type='text'
-            name='username'
-            onChange={updateUsername}
-            value={username}
-          ></input>
-        </div>
-        <div className='subaddresswrapper'>
-          <label>Ethereum Address:  </label>
-          <input
-            type='text'
-            name='address'
-            onChange={updateAddress}
-            value={address}
-          ></input>
-        </div>
-        <div className='subpasswordwrapper'>
-          <label>Password:  </label>
-          <input
-            type='password'
-            name='password'
-            onChange={updatePassword}
-            value={password}
-          ></input>
-        </div>
-        <div className='subconfirmpasswordwrapper'>
-          <label>Confirm Password:  </label>
-          <input
-            type='password'
-            name='repeat_password'
-            onChange={updateRepeatPassword}
-            value={repeatPassword}
-            required={true}
-          ></input>
-        </div>
-        <button type='submit' className='signupbutton'>Sign Up</button>
-        {/* <div>Address auto-filled!</div> */}
-      </form>
-    );
-  }
+  return (
+    <form onSubmit={onSignUp} className="signupwrapper">
+      <div>
+        {errors.map((error, ind) => (
+          <div key={ind}>{error}</div>
+        ))}
+      </div>
+      <div className='subusernamewrapper'>
+        <label>Username&nbsp; &nbsp; </label>
+        <input
+          type='text'
+          name='username'
+          onChange={updateUsername}
+          value={username}
+          style={{border: 'none', borderRadius: '5px'}}
+        ></input>
+      </div>
+      <div className='subaddresswrapper'>
+        <label>Ethereum Address&nbsp; &nbsp; </label>
+        <input
+          type='text'
+          name='address'
+          onChange={updateAddress}
+          value={address}
+          style={{border: 'none', borderRadius: '5px'}}
+        ></input>
+      </div>
+      <div className='subpasswordwrapper'>
+        <label>Password&nbsp; &nbsp; </label>
+        <input
+          type='password'
+          name='password'
+          onChange={updatePassword}
+          value={password}
+          style={{border: 'none', borderRadius: '5px'}}
+        ></input>
+      </div>
+      <div className='subconfirmpasswordwrapper'>
+        <label>Confirm Password&nbsp; &nbsp; </label>
+        <input
+          type='password'
+          name='repeat_password'
+          onChange={updateRepeatPassword}
+          value={repeatPassword}
+          required={true}
+          style={{border: 'none', borderRadius: '5px'}}
+        ></input>
+      </div>
+      <button type='submit' className='signupbutton'>Sign Up</button>
+      {/* <div>Address auto-filled!</div> */}
+    </form>
+  );
 };
 
 export default SignUpForm;

@@ -1,0 +1,25 @@
+.dataPage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    position: relative;
+    top: 60px;
+    overflow-y: scroll;
+    background-color: var(--ethblack);
+    
+    .graph{
+        display: flex;
+        width: 80%;
+        justify-content: center;
+        padding: 2% 0 2% 0;
+
+        img{
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: -6px 47px 76px -3px #190303;
+        }
+    }
+}

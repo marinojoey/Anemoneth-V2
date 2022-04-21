@@ -1,0 +1,66 @@
+.splashcardwrapper{
+    display: flex;
+    box-sizing: border-box;
+    background-color: var(--eth);
+    width: 100%;
+    height: calc(100vh - 60px);
+    position: relative;
+    top: 60px;
+    scrollbar-width: none; //for firefox
+    overflow-x: none;
+    overflow-y: scroll;
+    justify-content: space-evenly;
+
+
+    .pop{
+        display: flex;
+        width: 100vw;
+        height: 50vh;
+        margin-top: 10%;
+        justify-content: center;
+        align-items: center;
+        // background-image: linear-gradient(to right, #ff69eb, #ffdc5e 20%, transparent 35%, transparent 100%);
+        // box-shadow: -1126px 1px 380px 16px red;
+
+        .card{
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+            width: 23%;
+            height: 80%;
+            border-radius: 20px;
+            align-items: center;
+            justify-content: center;
+            color: black;
+            border: 1px ridge black;
+            box-shadow: -6px 47px 76px -3px #190303;
+            cursor: pointer;
+            text-decoration: none;
+    
+            .header{
+                font-size: 2.4vw;
+                font-weight: 900;
+            }
+            .instructions{
+                text-align: center;
+                margin-top: 0;
+                font-weight: 750;
+            }
+        }
+    
+        .fry{
+            background: linear-gradient(to top left, #ff69eb 30%, #ffdc5e 100%);
+        }
+    
+        .signup{
+            background: linear-gradient(to top right, #c4fff9 25%, #07beb8 100%);
+            margin: 0 7%;
+            padding: 5%;
+            text-align: center;
+        }
+    
+        .login{
+            background: linear-gradient(to top left, #c4fff9 0%, #07beb8 80%);
+        }
+    }
+}

@@ -46,17 +46,17 @@ const UpvoteCounter = () => {
     async function allocate() {
         makeArr();
         if( ethereum  ) {
-            console.log("lowEarners: ", lowEarners)
-            console.log("midEarners: ", midEarners)
-            console.log("higEarners: ", highEarners)
+            // console.log("lowEarners: ", lowEarners)
+            // console.log("midEarners: ", midEarners)
+            // console.log("higEarners: ", highEarners)
             const contractInstance = await contractCall();
             await contractInstance.weeklyEarnings(lowEarners, midEarners, highEarners);
-            console.log("Tx is being processed")
+            // console.log("Tx is being processed")
         } else console.log("Something went wrong")
 
     }
-    console.log("address: ", addresses)
-    console.log("amount: ", totalUpvoteCount)
+    // console.log("address: ", addresses)
+    // console.log("amount: ", totalUpvoteCount)
 
     return   <button className="earningsbtn" onClick={allocate} >Weekly Earnings</button>
 }

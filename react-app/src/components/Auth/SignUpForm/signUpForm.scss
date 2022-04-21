@@ -4,36 +4,46 @@
     width: 100%;
     height: 40%;
     align-items: center;
-    justify-content: flex-end;
+    padding-top: 3%;
+    color: white;
 
     .subusernamewrapper{
         display: flex;
         width: 100%;
-        justify-content: center;
+        margin-top: 1%;
+        margin-right: 60%;
+        justify-content: flex-end;
     }
     .subaddresswrapper{
         display: flex;
         width: 100%;
-        justify-content: center;
+        margin-top: 1%;
+        margin-right: 60%;
+        justify-content: flex-end;
     }
     .subpasswordwrapper{
         display: flex;
         width: 100%;
-        justify-content: center;
+        margin-top: 1%;
+        margin-right: 60%;
+        justify-content: flex-end;
     }
     .subconfirmpasswordwrapper{
         display: flex;
         width: 100%;
-        justify-content: center;
+        margin-top: 1%;
+        margin-right: 60%;
+        justify-content: flex-end;
     }
     .signupbutton{
         border: none;
-        margin: 10px 0;
-        padding: 5px;
+        align-items: center;
+        margin: 3% 0 0 0;
+        padding: 2%;
         width: fit-content;
+        height: fit-content;
         text-decoration: none;
-        height: 8%;
-        font-size: 13px;
+        font-size: 1.3vw;
         font-weight: 600;
         background-color: var(--ethpurple);
         border-radius: 10px;

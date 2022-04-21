@@ -2,16 +2,16 @@
 const SET_USER = 'session/SET_USER';
 const REMOVE_USER = 'session/REMOVE_USER';
 
-const setW3User = (w2User) => ({
+const setUser = (user) => ({
   type: SET_USER,
-  payload: w2User
+  payload: user
 });
 
 const removeUser = () => ({
   type: REMOVE_USER,
 })
 
-const initialState = { w2User: null };
+const initialState = { user: null };
 
 export const authenticate = () => async (dispatch) => {
   const response = await fetch('/api/auth/', {
@@ -25,7 +25,7 @@ export const authenticate = () => async (dispatch) => {
       return;
     }
 
-    dispatch(setW3User(data));
+    dispatch(setUser(data));
   }
 }
 
@@ -44,7 +44,7 @@ export const login = (username, password) => async (dispatch) => {
 
   if (response.ok) {
     const data = await response.json();
-    dispatch(setW3User(data))
+    dispatch(setUser(data))
     return null;
   } else if (response.status < 500) {
     const data = await response.json();
@@ -86,7 +86,7 @@ export const signUp = (username, address, password, repeatPassword) => async (di
 
   if (response.ok) {
     const data = await response.json();
-    dispatch(setW3User(data))
+    dispatch(setUser(data))
     return null;
   } else if (response.status < 500) {
     const data = await response.json();
@@ -101,9 +101,9 @@ export const signUp = (username, address, password, repeatPassword) => async (di
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case SET_USER:
-      return { w2User: action.payload }
+      return { user: action.payload }
     case REMOVE_USER:
-      return { w2User: null }
+      return { user: null }
     default:
       return state;
   }
