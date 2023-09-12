@@ -1,20 +1,18 @@
 import './app.scss'
-import React, { useState, useEffect, createContext } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Outlet } from 'react-router-dom';
-import { authenticate } from './store/session';
-import { ethers } from "ethers";
+import React, { useState, useEffect, createContext } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Outlet } from 'react-router-dom'
+import { authenticate } from './store/session'
+import { ethers } from 'ethers'
 
-import contractCall from './components/ContractCall/ContractCall';
-import Menu from './components/Navbar/Menu/Menu';
-import Navbar from './components/Navbar/Navbar';
+import contractCall from './components/ContractCall/ContractCall'
+import Menu from './components/Navbar/Menu/Menu'
+import Navbar from './components/Navbar/Navbar'
 
-export const AuthContext = createContext();
-
+export const AuthContext = createContext()
 
 function App() {
-
-  const user = useSelector(state => state.session.user);
+  const user = useSelector((state) => state.session.user)
 
   // const [provider, setProvider] = useState("");
   // const [signer, setSigner] = useState("");
@@ -25,69 +23,73 @@ function App() {
   // const [DbLoaded, setDbLoaded] = useState(false);
   // const [menuOpen, setMenuOpen] = useState(false);
   // const [fishblnc, setfishblnc] = useState(0);
-  // const [redeemable, setRedeemable] = useState(0);
+  const [redeemable, setRedeemable] = useState(0)
 
   const [state, setState] = useState({
     provider: {},
     signer: {},
     w3User: false,
-    displayAddr: "",
+    displayAddr: '',
     ethAddr: 0,
     MMConnected: false,
     DbLoaded: false,
     menuOpen: false,
     fishblnc: 0,
     redeemable: 0,
-  });
+  })
 
-  const w3User = state?.w3User;
+  const w3User = state?.w3User
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   useEffect(() => {
-    (async() => {
-      await dispatch(authenticate());
+    ;(async () => {
+      await dispatch(authenticate())
       setState({
         ...state,
-        DbLoaded: true
-      });
-    })();
-  }, [dispatch]);
+        DbLoaded: true,
+      })
+    })()
+  }, [dispatch])
 
   function readable(num) {
-    return ethers.utils.formatUnits(parseInt(num).toString(), 18);
+    return ethers.utils.formatUnits(parseInt(num).toString(), 18)
   }
 
   // This should await MM being MMConnected and fire automatically after w3User is true. Direct user input for this isn't needed unless it pops up MM to do it
   async function contractCallHandler() {
-    let contractInstance = await contractCall();
+    let contractInstance = await contractCall()
     if (await contractInstance.isRegistered(state.ethAddr)) {
-      setState({ ...state, w3User: true });
-        let balanceOf = readable(await contractInstance.balanceOf(state.ethAddr));
-        setState({ ...state, fishblnc: balanceOf });
-        try {
-        let currRedeemable = readable(await contractInstance.getCurrRedeemable());
+      setState({ ...state, w3User: true })
+      let balanceOf = readable(await contractInstance.balanceOf(state.ethAddr))
+      setState({ ...state, fishblnc: balanceOf })
+      try {
+        let currRedeemable = readable(
+          await contractInstance.getCurrRedeemable()
+        )
         setState({ ...state, redeemable: currRedeemable })
-        }
-        catch{
-          let currRedeemable = 0;
-          setState({ ...state, redeemable: currRedeemable })
-        }
+      } catch {
+        let currRedeemable = 0
+        setState({ ...state, redeemable: currRedeemable })
+      }
     }
   }
 
   if (!state.DbLoaded) {
-    return null;
+    return null
   }
 
   return (
-    <div className='app'>
+    <div className="app">
       <Navbar state={state} setState={setState} />
-      {(user && w3User) ? <Menu state={state} setState={setState} /> : <span></span>} 
-      <Outlet context={[state, setState]}/>
+      {user && w3User ? (
+        <Menu state={state} setState={setState} />
+      ) : (
+        <span></span>
+      )}
+      <Outlet context={[state, setState]} />
     </div>
-  );
+  )
 }
 
-
-export default App;
+export default App
