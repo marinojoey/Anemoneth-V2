@@ -22,8 +22,8 @@ function App() {
   // const [MMConnected, setMMConn] = useState(false);
   // const [DbLoaded, setDbLoaded] = useState(false);
   // const [menuOpen, setMenuOpen] = useState(false);
-  const [fishblnc, setfishblnc] = useState(0)
-  const [redeemable, setRedeemable] = useState(0)
+  // const [fishblnc, setfishblnc] = useState(0)
+  // const [redeemable, setRedeemable] = useState(0)
 
   const [state, setState] = useState({
     provider: {},
